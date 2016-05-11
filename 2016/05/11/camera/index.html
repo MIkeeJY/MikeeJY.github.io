@@ -80,19 +80,16 @@
 
 
 
-<meta name="description" content="有时候服务端非得返回比较傻逼的Json
-这时候可以用gson解析带有键值对的json例子12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455public class jsonParse&amp;#123;        class City&amp;#123;">
+<meta name="description" content="关于调用系统照相机Activity被销毁问题解决在项目中需要启用系统照相机来拍照。本来很容易的一个问题。但在适配中出现了问题。简单说一下问题：    有些手机拍照成功，有些手机拍完照后确定返回后activity数据丢失，被销毁了。问题查找：    经过代码查找发现，当这些出问题的手机被调用系统手机拍照时，当前activity被销毁了之后又被重新创建了。即Acitivity 执行了ondestory">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Gson解析（List和Map）格式json数据">
-<meta property="og:url" content="http://yoursite.com/2016/04/20/gson/index.html">
+<meta property="og:title" content="Mikee的八度空间">
+<meta property="og:url" content="http://yoursite.com/2016/05/11/camera/index.html">
 <meta property="og:site_name" content="Mikee的八度空间">
-<meta property="og:description" content="有时候服务端非得返回比较傻逼的Json
-这时候可以用gson解析带有键值对的json例子12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455public class jsonParse&amp;#123;        class City&amp;#123;">
-<meta property="og:updated_time" content="2016-04-20T08:36:35.000Z">
+<meta property="og:description" content="关于调用系统照相机Activity被销毁问题解决在项目中需要启用系统照相机来拍照。本来很容易的一个问题。但在适配中出现了问题。简单说一下问题：    有些手机拍照成功，有些手机拍完照后确定返回后activity数据丢失，被销毁了。问题查找：    经过代码查找发现，当这些出问题的手机被调用系统手机拍照时，当前activity被销毁了之后又被重新创建了。即Acitivity 执行了ondestory">
+<meta property="og:updated_time" content="2016-05-11T09:35:53.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Gson解析（List和Map）格式json数据">
-<meta name="twitter:description" content="有时候服务端非得返回比较傻逼的Json
-这时候可以用gson解析带有键值对的json例子12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455public class jsonParse&amp;#123;        class City&amp;#123;">
+<meta name="twitter:title" content="Mikee的八度空间">
+<meta name="twitter:description" content="关于调用系统照相机Activity被销毁问题解决在项目中需要启用系统照相机来拍照。本来很容易的一个问题。但在适配中出现了问题。简单说一下问题：    有些手机拍照成功，有些手机拍完照后确定返回后activity数据丢失，被销毁了。问题查找：    经过代码查找发现，当这些出问题的手机被调用系统手机拍照时，当前activity被销毁了之后又被重新创建了。即Acitivity 执行了ondestory">
 
 
 
@@ -110,7 +107,7 @@
   };
 </script>
 
-  <title> Gson解析（List和Map）格式json数据 | Mikee的八度空间 </title>
+  <title>  | Mikee的八度空间 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -230,7 +227,7 @@
             
             
               
-                Gson解析（List和Map）格式json数据
+                
               
             
           </h1>
@@ -242,8 +239,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-04-20T14:58:25+08:00" content="2016-04-20">
-              2016-04-20
+            <time itemprop="dateCreated" datetime="2016-05-11T17:08:26+08:00" content="2016-05-11">
+              2016-05-11
             </time>
           </span>
 
@@ -270,8 +267,18 @@
       
 
       
-        <p>有时候服务端非得返回比较傻逼的Json</p>
-<h2 id="这时候可以用gson解析带有键值对的json"><a href="#这时候可以用gson解析带有键值对的json" class="headerlink" title="这时候可以用gson解析带有键值对的json"></a>这时候可以用gson解析带有键值对的json</h2><h3 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line">public class jsonParse&#123;</span><br><span class="line"></span><br><span class="line">        </span><br><span class="line"></span><br><span class="line">class City&#123;</span><br><span class="line"></span><br><span class="line">        int id;</span><br><span class="line"></span><br><span class="line">        String name;</span><br><span class="line"></span><br><span class="line">        String code;</span><br><span class="line"></span><br><span class="line">        String map;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">        </span><br><span class="line"></span><br><span class="line">        </span><br><span class="line"></span><br><span class="line">public static void main(String[] args) &#123;</span><br><span class="line"></span><br><span class="line">        //列表/array 数据</span><br><span class="line"></span><br><span class="line">                 String str=<span class="string">"[&#123;'id': '1','code': 'bj','name': '北京','map': '39.90403, 116.40752599999996'&#125;, &#123;'id': '2','code': 'sz','name': '深圳','map': '22.543099, 114.05786799999998'&#125;, &#123;'id': '9','code': 'sh','name': '上海','map': '31.230393,121.473704'&#125;, &#123;'id': '10','code': 'gz','name': '广州','map': '23.129163,113.26443500000005'&#125;]"</span>;</span><br><span class="line"></span><br><span class="line">        Gson gson=new Gson();</span><br><span class="line"></span><br><span class="line">        List&lt;City&gt; rs=new ArrayList&lt;City&gt;();</span><br><span class="line"></span><br><span class="line">         Type <span class="built_in">type</span> = new TypeToken&lt;ArrayList&lt;City&gt;&gt;() &#123;&#125;.getType();</span><br><span class="line"></span><br><span class="line">          rs=gson.fromJson(str, <span class="built_in">type</span>);</span><br><span class="line"></span><br><span class="line">          <span class="keyword">for</span>(City o:rs)&#123;</span><br><span class="line"></span><br><span class="line">                  System.out.println(o.name);</span><br><span class="line"></span><br><span class="line">          &#125;</span><br><span class="line"></span><br><span class="line">          </span><br><span class="line"></span><br><span class="line">          //map数据</span><br><span class="line"></span><br><span class="line">          String jsonStr=<span class="string">"&#123;'1': &#123;'id': '1','code': 'bj','name': '北京','map': '39.90403, 116.40752599999996'&#125;,'2': &#123;'id': '2','code': 'sz','name': '深圳','map': '22.543099, 114.05786799999998'&#125;,'9': &#123;'id': '9','code': 'sh','name': '上海','map': '31.230393,121.473704'&#125;,'10': &#123;'id': '10','code': 'gz','name': '广州','map': '23.129163,113.26443500000005'&#125;&#125;"</span>;</span><br><span class="line"></span><br><span class="line">          Map&lt;String, City&gt; citys = gson.fromJson(jsonStr, new TypeToken&lt;Map&lt;String, City&gt;&gt;() &#123;&#125;.getType()); </span><br><span class="line"></span><br><span class="line">          System.out.println(citys.get(<span class="string">"1"</span>).name+<span class="string">"----------"</span>+citys.get(<span class="string">"2"</span>).code);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <h2 id="关于调用系统照相机Activity被销毁问题解决"><a href="#关于调用系统照相机Activity被销毁问题解决" class="headerlink" title="关于调用系统照相机Activity被销毁问题解决"></a>关于调用系统照相机Activity被销毁问题解决</h2><p>在项目中需要启用系统照相机来拍照。本来很容易的一个问题。但在适配中出现了问题。<br>简单说一下问题：<br>    有些手机拍照成功，有些手机拍完照后确定返回后activity数据丢失，被销毁了。<br>问题查找：<br>    经过代码查找发现，当这些出问题的手机被调用系统手机拍照时，当前activity被销毁了之后又被重新创建了。即Acitivity 执行了ondestory()–&gt;onCreate()，所以Activity被重新创建了从而内部的数据丢失,而按照正常的逻辑该Activity应该入后台堆栈。一开始以为是系统启用照相机内存不够自动销毁回收。可有些手机不会出现该问题。很无奈。<br>    之后经过本人细心研究activity的生命周期才恍然大悟，原来当手机横竖屏时系统会重新创建一个activity，这就是为什么上个activity会ondestory()–&gt;onCreate()。但为什么有些手机会执行有些不会呢。问题就出在横竖屏上。因为有些手机的系统照相机弄的很炫会自动旋转90度，从而导致了横竖屏的发生（–！看来最潮的也不是好东西，苦了我们这些碼农）。这就是为什有些手机会发生有些不会。跟系统照相机是否旋转有关系。<br>    最后贴上解决方案。<br>    AndroidMainifest.xml中加入</p>
+<pre><code>```  
+  &lt;activity
+        android:name=&quot;.Activity&quot;
+        android:launchMode=&quot;singleTask&quot; android:configChanges=&quot;orientation|keyboardHidden&quot;
+        android:theme=&quot;@android:style/Theme.Black.NoTitleBar.Fullscreen&quot; /&gt;
+        ```  
+复写acitivity的onConfigurationChanged方法
+</code></pre><p>   @Override<br>    public void onConfigurationChanged(Configuration newConfig) {<br>      其实这里什么都不要做<br>    super.onConfigurationChanged(newConfig);<br>    }</p>
+<p>PS:在level13以后加入了一个screenSize的属性，这个属性很重要如果在android3.2以后的版本中没有添加”screenSize”的话依然会触发横竖屏activity销毁周期(也就是说不能屏蔽activity销毁，从而调用onConfigurationChanged方法，而在3.2之前只要设置orientation|keyboardHidden就可以)。由于智能机的迅速普及手机的系统大多数升级到4.0以上，这样会导致很多没有设置screenSize属性的程序activity又出现销毁情况。</p>
+<p>试试如下代码：<br> AndroidMainifest.xml中加入<br>      <activity android:name=".Activity" android:launchmode="singleTask" android:configchanges="orientation|keyboardHidden|screenSize"><br>    复写acitivity的onConfigurationChanged方法<br>   @Override<br>    public void onConfigurationChanged(Configuration newConfig) {<br>      其实这里什么都不要做<br>    super.onConfigurationChanged(newConfig);<br>    }</activity></p>
+<hr>
 
       
     </div>
@@ -295,17 +302,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/04/20/gsonUtil/" rel="next" title="Gson工具类">
-                <i class="fa fa-chevron-left"></i> Gson工具类
+              <a href="/2016/04/20/gson/" rel="next" title="Gson解析（List和Map）格式json数据">
+                <i class="fa fa-chevron-left"></i> Gson解析（List和Map）格式json数据
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/05/11/camera/" rel="prev" title="">
-                 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -405,7 +408,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#这时候可以用gson解析带有键值对的json"><span class="nav-number">1.</span> <span class="nav-text">这时候可以用gson解析带有键值对的json</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#例子"><span class="nav-number">1.1.</span> <span class="nav-text">例子</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#关于调用系统照相机Activity被销毁问题解决"><span class="nav-number">1.</span> <span class="nav-text">关于调用系统照相机Activity被销毁问题解决</span></a></li></ol></div>
             
           </div>
         </section>
