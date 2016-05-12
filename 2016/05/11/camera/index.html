@@ -86,7 +86,7 @@
 <meta property="og:url" content="http://yoursite.com/2016/05/11/camera/index.html">
 <meta property="og:site_name" content="Mikee的八度空间">
 <meta property="og:description" content="在项目中需要启用系统照相机来拍照。本来很容易的一个问题。但在适配中出现了问题。简单说一下问题：    有些手机拍照成功，有些手机拍完照后确定返回后activity数据丢失，被销毁了。问题查找：    经过代码查找发现，当这些出问题的手机被调用系统手机拍照时，当前activity被销毁了之后又被重新创建了。即Acitivity 执行了ondestory()–&amp;gt;onCreate()，所以Acti">
-<meta property="og:updated_time" content="2016-05-11T09:51:45.000Z">
+<meta property="og:updated_time" content="2016-05-12T03:18:20.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="关于调用系统照相机Activity被销毁问题解决">
 <meta name="twitter:description" content="在项目中需要启用系统照相机来拍照。本来很容易的一个问题。但在适配中出现了问题。简单说一下问题：    有些手机拍照成功，有些手机拍完照后确定返回后activity数据丢失，被销毁了。问题查找：    经过代码查找发现，当这些出问题的手机被调用系统手机拍照时，当前activity被销毁了之后又被重新创建了。即Acitivity 执行了ondestory()–&amp;gt;onCreate()，所以Acti">
@@ -280,11 +280,16 @@
 <p>试试如下代码：<br> AndroidMainifest.xml中加入</p>
 <pre><code>&lt;activity
 android:name=&quot;.Activity&quot; 
-android:launchMode=&quot;singleTask&quot;           android:configChanges=&quot;orientationkeyboardHidden|screenSize&quot;/&gt;
-</code></pre><pre><code>复写acitivity的onConfigurationChanged方法
-</code></pre><p>   @Override<br>    public void onConfigurationChanged(Configuration newConfig) {<br>      其实这里什么都不要做<br>    super.onConfigurationChanged(newConfig);<br>    }</p>
-<hr>
-
+android:launchMode=&quot;singleTask&quot;           android:configChanges=&quot;orientationkeyboardHidden|
+screenSize&quot;/&gt;
+</code></pre><p>复写acitivity的onConfigurationChanged方法</p>
+<pre><code>
+@Override
+ public void onConfigurationChanged(Configuration newConfig) {
+   其实这里什么都不要做
+ super.onConfigurationChanged(newConfig);
+ }
+</code></pre>
       
     </div>
     
@@ -307,8 +312,8 @@ android:launchMode=&quot;singleTask&quot;           android:configChanges=&quot;
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/04/20/gson/" rel="next" title="Gson解析（List和Map）格式json数据">
-                <i class="fa fa-chevron-left"></i> Gson解析（List和Map）格式json数据
+              <a href="/2016/04/20/gsonUtil/" rel="next" title="Gson工具类">
+                <i class="fa fa-chevron-left"></i> Gson工具类
               </a>
             
           </div>
