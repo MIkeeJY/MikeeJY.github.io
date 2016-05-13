@@ -80,25 +80,25 @@
 
 
 
-<meta name="description" content="对RecyclerView.Adapter的简单封装对分页展示而言，RecyclerView已经可以完全替代ListView。这里只进行一下对其Adapter的简单封装。  
+<meta name="description" content="对分页展示而言，RecyclerView已经可以完全替代ListView。这里只进行一下对其Adapter的简单封装。  
 分析
 目的：目的是为了减少Adapter具体实现的代码，使代码整洁，易于维护。
-分析：与listview面向view的adapter不同，recyclerview面向的是viewholder。所以BaseRecyclerAd">
+分析：与listview面向view的adapter不同，recyclerview面向的是viewholder。所以BaseRecyclerAdapter需要两个泛型声明，一个是数据源，一个是vi">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Mikee的八度空间">
+<meta property="og:title" content="对RecyclerView.Adapter的简单封装">
 <meta property="og:url" content="http://yoursite.com/2016/04/20/BaseRecyclerView/index.html">
 <meta property="og:site_name" content="Mikee的八度空间">
-<meta property="og:description" content="对RecyclerView.Adapter的简单封装对分页展示而言，RecyclerView已经可以完全替代ListView。这里只进行一下对其Adapter的简单封装。  
+<meta property="og:description" content="对分页展示而言，RecyclerView已经可以完全替代ListView。这里只进行一下对其Adapter的简单封装。  
 分析
 目的：目的是为了减少Adapter具体实现的代码，使代码整洁，易于维护。
-分析：与listview面向view的adapter不同，recyclerview面向的是viewholder。所以BaseRecyclerAd">
-<meta property="og:updated_time" content="2016-05-13T09:18:41.000Z">
+分析：与listview面向view的adapter不同，recyclerview面向的是viewholder。所以BaseRecyclerAdapter需要两个泛型声明，一个是数据源，一个是vi">
+<meta property="og:updated_time" content="2016-05-13T09:23:31.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Mikee的八度空间">
-<meta name="twitter:description" content="对RecyclerView.Adapter的简单封装对分页展示而言，RecyclerView已经可以完全替代ListView。这里只进行一下对其Adapter的简单封装。  
+<meta name="twitter:title" content="对RecyclerView.Adapter的简单封装">
+<meta name="twitter:description" content="对分页展示而言，RecyclerView已经可以完全替代ListView。这里只进行一下对其Adapter的简单封装。  
 分析
 目的：目的是为了减少Adapter具体实现的代码，使代码整洁，易于维护。
-分析：与listview面向view的adapter不同，recyclerview面向的是viewholder。所以BaseRecyclerAd">
+分析：与listview面向view的adapter不同，recyclerview面向的是viewholder。所以BaseRecyclerAdapter需要两个泛型声明，一个是数据源，一个是vi">
 
 
 
@@ -116,7 +116,7 @@
   };
 </script>
 
-  <title>  | Mikee的八度空间 </title>
+  <title> 对RecyclerView.Adapter的简单封装 | Mikee的八度空间 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -236,7 +236,7 @@
             
             
               
-                
+                对RecyclerView.Adapter的简单封装
               
             
           </h1>
@@ -276,7 +276,7 @@
       
 
       
-        <h2 id="对RecyclerView-Adapter的简单封装"><a href="#对RecyclerView-Adapter的简单封装" class="headerlink" title="对RecyclerView.Adapter的简单封装"></a>对RecyclerView.Adapter的简单封装</h2><p>对分页展示而言，RecyclerView已经可以完全替代ListView。这里只进行一下对其Adapter的简单封装。  </p>
+        <p>对分页展示而言，RecyclerView已经可以完全替代ListView。这里只进行一下对其Adapter的简单封装。  </p>
 <h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><ul>
 <li>目的：目的是为了减少Adapter具体实现的代码，使代码整洁，易于维护。</li>
 <li>分析：与listview面向view的adapter不同，recyclerview面向的是viewholder。所以BaseRecyclerAdapter需要两个泛型声明，一个是数据源，一个是viewholder。<br>onCreateViewHoler()方法中需要生成具体的viewhoder实例，所以暂时不去对其做封装。对onBindViewHoler()方法的操作分为两步，一步是bindItemData()将数据填充至itemview，下一步是setupOnItemClick()设置每个item的点击监听。其它方法都是对便利性的扩展，可以根据不同情况添加。</li>
@@ -308,16 +308,12 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/04/20/gson/" rel="next" title="Gson解析（List和Map）格式json数据">
-                <i class="fa fa-chevron-left"></i> Gson解析（List和Map）格式json数据
-              </a>
-            
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/05/11/camera/" rel="prev" title="关于调用系统照相机Activity被销毁问题解决">
-                关于调用系统照相机Activity被销毁问题解决 <i class="fa fa-chevron-right"></i>
+              <a href="/2016/04/20/gsonUtil/" rel="prev" title="Gson工具类">
+                Gson工具类 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -418,7 +414,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#对RecyclerView-Adapter的简单封装"><span class="nav-number">1.</span> <span class="nav-text">对RecyclerView.Adapter的简单封装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#分析"><span class="nav-number">1.1.</span> <span class="nav-text">分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#BaseRecyclerViewAdapter"><span class="nav-number">1.2.</span> <span class="nav-text">BaseRecyclerViewAdapter</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用"><span class="nav-number">1.3.</span> <span class="nav-text">使用</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#分析"><span class="nav-number">1.</span> <span class="nav-text">分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#BaseRecyclerViewAdapter"><span class="nav-number">2.</span> <span class="nav-text">BaseRecyclerViewAdapter</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用"><span class="nav-number">3.</span> <span class="nav-text">使用</span></a></li></ol></div>
             
           </div>
         </section>
