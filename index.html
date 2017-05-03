@@ -281,7 +281,7 @@
       android:theme=&quot;@android:style/Theme.Black.NoTitleBar.Fullscreen&quot;/&gt;
 </code></pre><p>   @Override<br>    public void onConfigurationChanged(Configuration newConfig) {<br>    //其实这里什么都不要做<br>    super.onConfigurationChanged(newConfig);</p>
 <p>}</p>
-<p>PS:在level13以后加入了一个screenSize的属性，这个属性很重要如果在android3.2以后的版本中没有添加”screenSize”的话依然会触发横竖屏activity销毁周期(也就是说不能屏蔽activity销毁，从而调用onConfigurationChanged方法，而在3.2之前只要设置orientation|keyboardHidden就可以)。由于智能机的迅速普及手机的系统大多数升级到4.0以上，这样会导致很多没有设置screenSize属性的程序activity又出现销毁情况。</p>
+<p>######PS:在level13以后加入了一个screenSize的属性，这个属性很重要如果在android3.2以后的版本中没有添加”screenSize”的话依然会触发横竖屏activity销毁周期(也就是说不能屏蔽activity销毁，从而调用onConfigurationChanged方法，而在3.2之前只要设置orientation|keyboardHidden就可以)。由于智能机的迅速普及手机的系统大多数升级到4.0以上，这样会导致很多没有设置screenSize属性的程序activity又出现销毁情况。</p>
 <p>试试如下代码：<br> AndroidMainifest.xml中加入</p>
 <activity android:name=".Activity" android:launchmode="singleTask" android:configchanges="orientationkeyboardHidden|screenSize">
 
