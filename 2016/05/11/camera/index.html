@@ -86,7 +86,7 @@
 <meta property="og:url" content="http://yoursite.com/2016/05/11/camera/index.html">
 <meta property="og:site_name" content="Mikee的八度空间">
 <meta property="og:description" content="在项目中需要启用系统照相机来拍照。本来很容易的一个问题。但在适配中出现了问题。简单说一下问题：    有些手机拍照成功，有些手机拍完照后确定返回后activity数据丢失，被销毁了。问题查找：    经过代码查找发现，当这些出问题的手机被调用系统手机拍照时，当前activity被销毁了之后又被重新创建了。即Acitivity 执行了ondestory()–&amp;gt;onCreate()，所以Acti">
-<meta property="og:updated_time" content="2016-05-12T03:25:05.000Z">
+<meta property="og:updated_time" content="2017-05-03T13:52:07.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="关于调用系统照相机Activity被销毁问题解决">
 <meta name="twitter:description" content="在项目中需要启用系统照相机来拍照。本来很容易的一个问题。但在适配中出现了问题。简单说一下问题：    有些手机拍照成功，有些手机拍完照后确定返回后activity数据丢失，被销毁了。问题查找：    经过代码查找发现，当这些出问题的手机被调用系统手机拍照时，当前activity被销毁了之后又被重新创建了。即Acitivity 执行了ondestory()–&amp;gt;onCreate()，所以Acti">
@@ -272,28 +272,18 @@
       android:name=&quot;.Activity&quot;
       android:launchMode=&quot;singleTask&quot;          
       android:configChanges=&quot;orientation|keyboardHidden&quot;                       
-      android:theme=&quot;@android:style/Theme.Black.NoTitleBar.Fullscreen&quot;             /&gt;
-</code></pre><pre><code>
-@Override
- public void onConfigurationChanged(Configuration newConfig) {
-   其实这里什么都不要做
- super.onConfigurationChanged(newConfig);
- }
+      android:theme=&quot;@android:style/Theme.Black.NoTitleBar.Fullscreen&quot;/&gt;
+</code></pre><p>   ``` </p>
+<p>   @Override<br>    public void onConfigurationChanged(Configuration newConfig) {<br>    //其实这里什么都不要做<br>    super.onConfigurationChanged(newConfig);</p>
+<pre><code>}
 </code></pre><p>PS:在level13以后加入了一个screenSize的属性，这个属性很重要如果在android3.2以后的版本中没有添加”screenSize”的话依然会触发横竖屏activity销毁周期(也就是说不能屏蔽activity销毁，从而调用onConfigurationChanged方法，而在3.2之前只要设置orientation|keyboardHidden就可以)。由于智能机的迅速普及手机的系统大多数升级到4.0以上，这样会导致很多没有设置screenSize属性的程序activity又出现销毁情况。</p>
 <p>试试如下代码：<br> AndroidMainifest.xml中加入</p>
-<pre><code>&lt;activity
-android:name=&quot;.Activity&quot; 
-android:launchMode=&quot;singleTask&quot;    
-       android:configChanges=&quot;orientationkeyboardHidden|
-screenSize&quot;/&gt;
-</code></pre><p>复写acitivity的onConfigurationChanged方法</p>
-<pre><code>
-@Override
- public void onConfigurationChanged(Configuration newConfig) {
-   其实这里什么都不要做
- super.onConfigurationChanged(newConfig);
- }
-</code></pre>
+<activity android:name=".Activity" android:launchmode="singleTask" android:configchanges="orientationkeyboardHidden|screenSize">
+
+
+<p>   复写acitivity的onConfigurationChanged方法</p>
+<p>   @Override<br>    public void onConfigurationChanged(Configuration newConfig) {<br>    //其实这里什么都不要做<br>    super.onConfigurationChanged(newConfig);<br>    }</p>
+</activity>
       
     </div>
     

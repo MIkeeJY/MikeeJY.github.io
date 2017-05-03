@@ -278,28 +278,18 @@
       android:name=&quot;.Activity&quot;
       android:launchMode=&quot;singleTask&quot;          
       android:configChanges=&quot;orientation|keyboardHidden&quot;                       
-      android:theme=&quot;@android:style/Theme.Black.NoTitleBar.Fullscreen&quot;             /&gt;
-</code></pre><pre><code>
-@Override
- public void onConfigurationChanged(Configuration newConfig) {
-   其实这里什么都不要做
- super.onConfigurationChanged(newConfig);
- }
+      android:theme=&quot;@android:style/Theme.Black.NoTitleBar.Fullscreen&quot;/&gt;
+</code></pre><p>   ``` </p>
+<p>   @Override<br>    public void onConfigurationChanged(Configuration newConfig) {<br>    //其实这里什么都不要做<br>    super.onConfigurationChanged(newConfig);</p>
+<pre><code>}
 </code></pre><p>PS:在level13以后加入了一个screenSize的属性，这个属性很重要如果在android3.2以后的版本中没有添加”screenSize”的话依然会触发横竖屏activity销毁周期(也就是说不能屏蔽activity销毁，从而调用onConfigurationChanged方法，而在3.2之前只要设置orientation|keyboardHidden就可以)。由于智能机的迅速普及手机的系统大多数升级到4.0以上，这样会导致很多没有设置screenSize属性的程序activity又出现销毁情况。</p>
 <p>试试如下代码：<br> AndroidMainifest.xml中加入</p>
-<pre><code>&lt;activity
-android:name=&quot;.Activity&quot; 
-android:launchMode=&quot;singleTask&quot;    
-       android:configChanges=&quot;orientationkeyboardHidden|
-screenSize&quot;/&gt;
-</code></pre><p>复写acitivity的onConfigurationChanged方法</p>
-<pre><code>
-@Override
- public void onConfigurationChanged(Configuration newConfig) {
-   其实这里什么都不要做
- super.onConfigurationChanged(newConfig);
- }
-</code></pre>
+<activity android:name=".Activity" android:launchmode="singleTask" android:configchanges="orientationkeyboardHidden|screenSize">
+
+
+<p>   复写acitivity的onConfigurationChanged方法</p>
+<p>   @Override<br>    public void onConfigurationChanged(Configuration newConfig) {<br>    //其实这里什么都不要做<br>    super.onConfigurationChanged(newConfig);<br>    }</p>
+</activity>
           
         
       
