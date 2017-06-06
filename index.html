@@ -229,6 +229,131 @@
             
               
                 
+                <a class="post-title-link" href="/2017/06/06/job/" itemprop="url">
+                  未命名
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-06-06T18:12:35+08:00" content="2017-06-06">
+              2017-06-06
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="北京最近面试公司集锦"><a href="#北京最近面试公司集锦" class="headerlink" title="北京最近面试公司集锦"></a>北京最近面试公司集锦</h1><p>先说下博主最近近况，今年2月份从信和财富出来，去了一家创业公司结果不堪996的压榨，5月底毅然离职没想到目前市场这么萧条，怪自己太作，有好的机会不好好把握，非得出来受虐哈，人都是犯贱的……所以目前整理几家去过的公司以免以后被坑。</p>
+<h2 id="金开门（好贷网旗下孵化创业公司）"><a href="#金开门（好贷网旗下孵化创业公司）" class="headerlink" title="金开门（好贷网旗下孵化创业公司）"></a>金开门（好贷网旗下孵化创业公司）</h2><blockquote>
+<p>这公司是在BOSS直聘上投的<br>总体面试还算不错吧Android技术那面一般也不会问特别深主要是最新的主流技术一般会问下，还有就是之前的项目会大致问一下<br>接下来是总监面，总监是个蛮不错的人，满有亲和力的，大概就是聊推送这一块的，还有支付，因为这公司主要业务是聚合支付相关的，总体还OK<br>接着是HR 谈薪水还有介绍公司近况，貌似最近一直是995的节奏<br>最后是大Boss面貌似很屌的说了一句目前我们就是996的节奏（应该是试探我的），我觉得跟他也没啥好谈，他一幅咄咄逼人的气势，总体感觉BOSS应该是个坑比，这个人的感觉貌似跟博主之前在16年遇到的创业公司的老板一个鸟样，所以就没有后续了…</p>
+</blockquote>
+<h2 id="音悦台"><a href="#音悦台" class="headerlink" title="音悦台"></a>音悦台</h2><blockquote>
+<p>这个也是在Boss直聘上约的，公司就在三里屯SOHO<br>公司主要业务主打MV的剩下的我就不多说了，前几年业务还是挺火的</p>
+<p>HR人还是很不错的，公司的环境神马的都没得说，妹子也多╮(╯_╰)╭没给offer确实感觉挺遗憾的</p>
+<p>首先光技术面问的就蛮深入的，基本最近貌似招人都比较苛刻~多线程，线程池，handler，Looper源码层，activity源码，四种启动模式，生命周期，View的绘制流程，自定义view，手势传递问的最复杂也最多<br>还有一些开源项目相关的问题吧 okhttp，glide，eventbus相关的</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">但是特么的这个面完之后就没有然后了，</span><br><span class="line">只说按公司流程来说还要有次复试，</span><br><span class="line">HR说下周一大概会通知结果，也确实通知了（比较少有的有职业素质的公司吧）</span><br></pre></td></tr></table></figure>
+<h2 id="1905电影网"><a href="#1905电影网" class="headerlink" title="1905电影网"></a>1905电影网</h2><blockquote>
+<p>这个是在拉勾上投的，公司在西直门<br>我敢说这个面试官是这么多年我遇到的最能装逼一个，当然人家技术也蛮不错的，你不会的，遇到问题的，人家也耐心给你讲解哟，无形装逼，最为致命啊！如果你技术不是很好的话千万不要去这家公司找虐</p>
+<p>博主之前有个朋友也来过这家面试，貌似最后给说开不了他的工资，还跟他说来面试很多<br>给我种感觉 就是面试造核弹，工作拧螺丝？最后还问了我项目里有啥亮点<br>问题蛮多的好多都忘了，大致记住几个</p>
+</blockquote>
+<p>Glide ，Picasso都分别有几个线程池<br>Asynctask 源码，为什么android4.0以后是串行</p>
+<p>OnMeasure 方法几个参数对应含义（这个题问的最多的所以我把答案贴上O(∩_∩)O~</p>
+<p>首先我们要理解的是widthMeasureSpec, heightMeasureSpec这两个参数是从哪里来的？onMeasure()函数由包含这个View的具体的ViewGroup调用，因此值也是从这个ViewGroup中传入的。这里我直接给出答案：子类View的这两个参数，由ViewGroup中的layout_width，layout_height和padding以及View自身的layout_margin共同决定。权值weight也是尤其需要考虑的因素，有它的存在情况可能会稍微复杂点。<br>了解了这两个参数的来源，还要知道这两个值的作用。我们只取heightMeasureSpec作说明。这个值由高32位和低16位组成，高32位保存的值叫specMode，可以通过如代码中所示的MeasureSpec.getMode()获取；低16位为specSize，同样可以由MeasureSpec.getSize()获取。那么specMode和specSize的作用有是什么呢？要想知道这一点，我们需要知道代码中的最后一行，所有的View的onMeasure()的最后一行都会调用setMeasureDimension()函数的作用——这个函数调用中传进去的值是View最终的视图大小。也就是说onMeasure()中之前所作的所有工作都是为了最后这一句话服务的。</p>
+<p>我们知道在ViewGroup中，给View分配的空间大小并不是确定的，有可能随着具体的变化而变化，而这个变化的条件就是传到specMode中决定的，specMode一共有三种可能：</p>
+<p>MeasureSpec.EXACTLY：父视图希望子视图的大小应该是specSize中指定的。</p>
+<p>MeasureSpec.AT_MOST：子视图的大小最多是specSize中指定的值，也就是说不建议子视图的大小超过specSize中给定的值。</p>
+<p>MeasureSpec.UNSPECIFIED：我们可以随意指定视图的大小。)</p>
+<p>广播怎么不跨进程<br>Rxjava 操作符<br>Rxjava 1 2的区别<br>还有问了轮播怎么让用户按下三秒之后继续翻页<br>还有五种进程级别<br>多线程下载，3个线程如何下载10M的文件<br>两列Recyclerview 如果是表格布局怎么添加header view<br>Thread 和intent service </p>
+<h2 id="凡普金科（普惠金融旗下）"><a href="#凡普金科（普惠金融旗下）" class="headerlink" title="凡普金科（普惠金融旗下）"></a>凡普金科（普惠金融旗下）</h2><blockquote>
+<p>这个是在拉勾上投的，公司在银河SOHO<br>当时面试地点其实是发的有问题的，前台大门明明在A座嘛，你非得发个D座那边的位置，结果那边的门锁了，我敲了半天才有人开，我才知道走错门了应该从A座的电梯上来，可是就是发的D座，这里吐槽下。。。然后前台妹子给我的笔试题居然是Java的（貌似给错了）</p>
+<p>面试的深度基本跟1905那哥们差不多，也是activity启动模式跟手势传递还有Looper的源码那块问的比较多只是这个人最后问了一个尺子的效果：附上项目地址哈<br><a href="https://github.com/kailaisi/WheelSelect" target="_blank" rel="external">https://github.com/kailaisi/WheelSelect</a><br>类似这个地址demo的实现效果只是年龄换成了金额（毕竟是做金融的公司 当然这样咯）</p>
+<p>只说还有复试，但是也是没下文了 ~~o(&gt;_&lt;)o ~~</p>
+</blockquote>
+<h2 id="映社（木蚂蚁）"><a href="#映社（木蚂蚁）" class="headerlink" title="映社（木蚂蚁）"></a>映社（木蚂蚁）</h2><blockquote>
+<p>这个公司绝对是坑比中的战斗机，去了就让你一直等啊等，等到花都谢了的那种<br>去的时候公司前台都没人，打电话也没人接，后来一个快递小哥进门了我和另外的一个也是面试的才进去</p>
+<p>首先是有笔试题的话说蛮弱智的（做完感觉也不会怎么看，完全就是浪费时间啊啊）然后那哥们把你领到一个类似小会议室的屋子里，这哥们给人的感觉技术也很一般，没有之前面的那么强势，基本都是照着简历问的，偶尔穿插下retrofit，Rxjava，热修复，神马的，面完之后就出去了让你一直等啊等，等了快40分钟的时候进来说总监在开会<br>这个公司真特么的是个奇葩，你约人的时候不会挑个没会的时间么，貌似拉勾上有个面php的哥们跟我一样也是被搁置一直等啊等，真是日了狗了！最后来了一句改天复试吧</p>
+<p>只说还有复试，让我来我也不会来了。。。</p>
+</blockquote>
+
+          
+        
+      
+    </div>
+    
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/05/11/camera/" itemprop="url">
                   关于调用系统照相机Activity被销毁问题解决
                 </a>
@@ -649,7 +774,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">4</span>
+              <span class="site-state-item-count">5</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
