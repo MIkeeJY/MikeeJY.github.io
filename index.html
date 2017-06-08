@@ -342,12 +342,16 @@
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">感觉问到的问题除了那两块其他的回答还是蛮好的，尼玛心累</span><br></pre></td></tr></table></figure>
 <hr>
-<h2 id="元宝亿家"><a href="#元宝亿家" class="headerlink" title="元宝亿家"></a>元宝亿家</h2><p><strong>元宝亿家</strong> 这家公司是在boss上约的，公司地址在东直门，去了直接在前台填表，然后一个目测像总监的人直接面试</p>
+<h2 id="元宝亿家"><a href="#元宝亿家" class="headerlink" title="元宝亿家"></a>元宝亿家</h2><p><strong>元宝亿家</strong> 这家公司是在boss上约的，公司地址在东直门，去了直接在前台填表，然后一个目测像总监的人直接面试，他们现在的项目是采用MVP写的应该是想找个人快速接手</p>
 <ul>
-<li><strong>第一面</strong> ：主要是技术面，问的东西感觉还好，但是感觉自己发挥的不是很好，Java String类的底层源码，Hashmap实现原理，Android 广播 Service相关的，ANR，gson高级用法（比如序列化的时候如何排除某个字段），项目里用到的设计模式，android手势机制用到了什么设计模式（是责任链模式，这个我回答错了），内存泄漏和内存溢出，给我印象比较深的是问了mac上pwd这个命令是干嘛的（我用了这么久mac确实没有用过这个命令，是显示当前文件全路径的）还有用没用过Home brew，最后问了问Git相关的命令pull跟fetch</li>
+<li><strong>第一面</strong> ：主要是技术面，问的东西感觉还好，但是感觉自己发挥的不是很好，Java String类的底层源码，Hashmap实现原理，Android 广播 Service相关的，ANR，gson高级用法（比如序列化的时候如何排除某个字段），项目里用到的设计模式，android手势机制用到了什么设计模式（是责任链模式，这个我回答错了），内存泄漏和内存溢出，子线程不能更新view的机制，Rxjava retrofit okhttp，给我印象比较深的是问了mac上pwd这个命令是干嘛的（我用了这么久mac确实没有用过这个命令，是显示当前文件全路径的）还有用没用过Home brew，最后问了问Git相关的命令pull跟fetch</li>
 <li>git rm a.a 移除文件(从暂存区和工作区中删除)</li>
-<li>git rm –cached a.a 移除文件(只从暂存区中删除)</li>
-<li><strong>总结</strong> 感觉自己跟目前市场上需求真正意义的Android高级工程职位还是有一定差距的，好多东西还是欠缺好多，还要继续恶补了，fighting…</li>
+<li><p>git rm –cached a.a 移除文件(只从暂存区中删除)</p>
+</li>
+<li><p>PS:技术很耐心的给我讲解了我没能答对的问题</p>
+</li>
+<li><p><strong>总结</strong> 感觉自己跟目前市场上需求真正意义的Android高级工程职位还是有一定差距的，好多东西还是欠缺好多，还要继续恶补了，fighting…</p>
+</li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">约了第二天复试，信心严重受挫，不知道能不能谈拢...</span><br></pre></td></tr></table></figure>
 <hr>
@@ -508,101 +512,6 @@
             
               
                 
-                <a class="post-title-link" href="/2016/04/20/gson/" itemprop="url">
-                  Gson解析（List和Map）格式json数据
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-04-20T14:58:25+08:00" content="2016-04-20">
-              2016-04-20
-            </time>
-          </span>
-
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>有时候服务端非得返回比较傻逼的Json</p>
-<h2 id="这时候可以用gson解析带有键值对的json"><a href="#这时候可以用gson解析带有键值对的json" class="headerlink" title="这时候可以用gson解析带有键值对的json"></a>这时候可以用gson解析带有键值对的json</h2><h3 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line">public class jsonParse&#123;</span><br><span class="line"></span><br><span class="line">        </span><br><span class="line"></span><br><span class="line">class City&#123;</span><br><span class="line"></span><br><span class="line">        int id;</span><br><span class="line"></span><br><span class="line">        String name;</span><br><span class="line"></span><br><span class="line">        String code;</span><br><span class="line"></span><br><span class="line">        String map;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">        </span><br><span class="line"></span><br><span class="line">        </span><br><span class="line"></span><br><span class="line">public static void main(String[] args) &#123;</span><br><span class="line"></span><br><span class="line">        //列表/array 数据</span><br><span class="line"></span><br><span class="line">                 String str=<span class="string">"[&#123;'id': '1','code': 'bj','name': '北京','map': '39.90403, 116.40752599999996'&#125;, &#123;'id': '2','code': 'sz','name': '深圳','map': '22.543099, 114.05786799999998'&#125;, &#123;'id': '9','code': 'sh','name': '上海','map': '31.230393,121.473704'&#125;, &#123;'id': '10','code': 'gz','name': '广州','map': '23.129163,113.26443500000005'&#125;]"</span>;</span><br><span class="line"></span><br><span class="line">        Gson gson=new Gson();</span><br><span class="line"></span><br><span class="line">        List&lt;City&gt; rs=new ArrayList&lt;City&gt;();</span><br><span class="line"></span><br><span class="line">         Type <span class="built_in">type</span> = new TypeToken&lt;ArrayList&lt;City&gt;&gt;() &#123;&#125;.getType();</span><br><span class="line"></span><br><span class="line">          rs=gson.fromJson(str, <span class="built_in">type</span>);</span><br><span class="line"></span><br><span class="line">          <span class="keyword">for</span>(City o:rs)&#123;</span><br><span class="line"></span><br><span class="line">                  System.out.println(o.name);</span><br><span class="line"></span><br><span class="line">          &#125;</span><br><span class="line"></span><br><span class="line">          </span><br><span class="line"></span><br><span class="line">          //map数据</span><br><span class="line"></span><br><span class="line">          String jsonStr=<span class="string">"&#123;'1': &#123;'id': '1','code': 'bj','name': '北京','map': '39.90403, 116.40752599999996'&#125;,'2': &#123;'id': '2','code': 'sz','name': '深圳','map': '22.543099, 114.05786799999998'&#125;,'9': &#123;'id': '9','code': 'sh','name': '上海','map': '31.230393,121.473704'&#125;,'10': &#123;'id': '10','code': 'gz','name': '广州','map': '23.129163,113.26443500000005'&#125;&#125;"</span>;</span><br><span class="line"></span><br><span class="line">          Map&lt;String, City&gt; citys = gson.fromJson(jsonStr, new TypeToken&lt;Map&lt;String, City&gt;&gt;() &#123;&#125;.getType()); </span><br><span class="line"></span><br><span class="line">          System.out.println(citys.get(<span class="string">"1"</span>).name+<span class="string">"----------"</span>+citys.get(<span class="string">"2"</span>).code);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-    
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
                 <a class="post-title-link" href="/2016/04/20/BaseRecyclerView/" itemprop="url">
                   对RecyclerView.Adapter的简单封装
                 </a>
@@ -656,6 +565,101 @@
 <h3 id="BaseRecyclerViewAdapter"><a href="#BaseRecyclerViewAdapter" class="headerlink" title="BaseRecyclerViewAdapter"></a>BaseRecyclerViewAdapter</h3><p>话不多说,上代码</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line">public abstract class BaseRecyclerAdapter&lt;T, VH extends RecyclerView.ViewHolder&gt; extends RecyclerView.Adapter&lt;VH&gt; &#123;</span><br><span class="line">    protected List&lt;T&gt; mDatas = new ArrayList&lt;&gt;();</span><br><span class="line">    protected Context mContext;</span><br><span class="line">    protected LayoutInflater inflater;</span><br><span class="line">    AdapterView.OnItemClickListener mItemClickListener;</span><br><span class="line">    public BaseRecyclerAdapter(List&lt;T&gt; mDatas, Context mContext) &#123;</span><br><span class="line">        this.mDatas = mDatas;</span><br><span class="line">        this.mContext = mContext;</span><br><span class="line">        inflater = LayoutInflater.from(mContext);</span><br><span class="line">    &#125;</span><br><span class="line">    @Override</span><br><span class="line">    public void onBindViewHolder(VH holder, int position) &#123;</span><br><span class="line">        final T item = getItem(position);</span><br><span class="line">        bindItemData(holder, item, position);</span><br><span class="line">        setupOnItemClick(holder, position);</span><br><span class="line">    &#125;</span><br><span class="line">    protected abstract void bindItemData(VH viewHolder, T data, int position);</span><br><span class="line">    protected void setupOnItemClick(final VH viewHolder, final int position) &#123;</span><br><span class="line">        if (mItemClickListener != null) &#123;</span><br><span class="line">            viewHolder.itemView.setOnClickListener(new View.OnClickListener() &#123;</span><br><span class="line">                @Override</span><br><span class="line">                public void onClick(View v) &#123;</span><br><span class="line">                    mItemClickListener.onItemClick(null, viewHolder.itemView, position, position);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    @Override</span><br><span class="line">    public int getItemCount() &#123;</span><br><span class="line">        return mDatas != null ? mDatas.size() : 0;</span><br><span class="line">    &#125;</span><br><span class="line">    public T getItem(int position) &#123;</span><br><span class="line">        position = Math.max(0, position);</span><br><span class="line">        return mDatas.get(position);</span><br><span class="line">    &#125;</span><br><span class="line">    public List&lt;T&gt; getDataSource() &#123;</span><br><span class="line">        return mDatas;</span><br><span class="line">    &#125;</span><br><span class="line">    public void addData(List&lt;T&gt; newItems) &#123;</span><br><span class="line">        if (newItems != null) &#123;</span><br><span class="line">            mDatas.addAll(newItems);</span><br><span class="line">            notifyDataSetChanged();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    public void updateListViewData(List&lt;T&gt; lists) &#123;</span><br><span class="line">        mDatas.clear();</span><br><span class="line">        if (lists != null) &#123;</span><br><span class="line">            mDatas.addAll(lists);</span><br><span class="line">            notifyDataSetChanged();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    public void setOnItemClickListener(AdapterView.OnItemClickListener listener) &#123;</span><br><span class="line">        this.mItemClickListener = listener;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">public class NotesAdapter extends BaseRecyclerAdapter&lt;NoteItem, NotesAdapter.NotesViewHolder&gt; &#123;</span><br><span class="line">    public NotesAdapter(List&lt;NoteItem&gt; mDatas, Context mContext) &#123;</span><br><span class="line">        super(mDatas, mContext);</span><br><span class="line">    &#125;</span><br><span class="line">    @Override</span><br><span class="line">    public NotesViewHolder onCreateViewHolder(ViewGroup parent, int viewType) &#123;</span><br><span class="line">        View contentView = LayoutInflater.from(mContext)</span><br><span class="line">                .inflate(R.layout.recycler_item_note, parent, false);</span><br><span class="line">        NotesViewHolder vh = new NotesViewHolder(contentView);</span><br><span class="line">        return vh;</span><br><span class="line">    &#125;</span><br><span class="line">    @Override</span><br><span class="line">    protected void bindItemData(NotesViewHolder viewHolder, NoteItem data, int position) &#123;</span><br><span class="line">        viewHolder.titleTxt.setText(data.getTitle());</span><br><span class="line">        viewHolder.timeTxt.setText(data.getCreatedTime());</span><br><span class="line">        viewHolder.tagTxt.setText(data.getTags().size() != 0 ? data.getTags().get(0) : &quot;other&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">    static class NotesViewHolder extends RecyclerView.ViewHolder &#123;</span><br><span class="line">        @Bind(R.id.title_txt)</span><br><span class="line">        TextView titleTxt;</span><br><span class="line">        @Bind(R.id.time_txt)</span><br><span class="line">        TextView timeTxt;</span><br><span class="line">        @Bind(R.id.tag_txt)</span><br><span class="line">        TextView tagTxt;</span><br><span class="line">        NotesViewHolder(View view) &#123;</span><br><span class="line">            super(view);</span><br><span class="line">            ButterKnife.bind(this, view);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/04/20/gson/" itemprop="url">
+                  Gson解析（List和Map）格式json数据
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-04-20T14:58:25+08:00" content="2016-04-20">
+              2016-04-20
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>有时候服务端非得返回比较傻逼的Json</p>
+<h2 id="这时候可以用gson解析带有键值对的json"><a href="#这时候可以用gson解析带有键值对的json" class="headerlink" title="这时候可以用gson解析带有键值对的json"></a>这时候可以用gson解析带有键值对的json</h2><h3 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line">public class jsonParse&#123;</span><br><span class="line"></span><br><span class="line">        </span><br><span class="line"></span><br><span class="line">class City&#123;</span><br><span class="line"></span><br><span class="line">        int id;</span><br><span class="line"></span><br><span class="line">        String name;</span><br><span class="line"></span><br><span class="line">        String code;</span><br><span class="line"></span><br><span class="line">        String map;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">        </span><br><span class="line"></span><br><span class="line">        </span><br><span class="line"></span><br><span class="line">public static void main(String[] args) &#123;</span><br><span class="line"></span><br><span class="line">        //列表/array 数据</span><br><span class="line"></span><br><span class="line">                 String str=<span class="string">"[&#123;'id': '1','code': 'bj','name': '北京','map': '39.90403, 116.40752599999996'&#125;, &#123;'id': '2','code': 'sz','name': '深圳','map': '22.543099, 114.05786799999998'&#125;, &#123;'id': '9','code': 'sh','name': '上海','map': '31.230393,121.473704'&#125;, &#123;'id': '10','code': 'gz','name': '广州','map': '23.129163,113.26443500000005'&#125;]"</span>;</span><br><span class="line"></span><br><span class="line">        Gson gson=new Gson();</span><br><span class="line"></span><br><span class="line">        List&lt;City&gt; rs=new ArrayList&lt;City&gt;();</span><br><span class="line"></span><br><span class="line">         Type <span class="built_in">type</span> = new TypeToken&lt;ArrayList&lt;City&gt;&gt;() &#123;&#125;.getType();</span><br><span class="line"></span><br><span class="line">          rs=gson.fromJson(str, <span class="built_in">type</span>);</span><br><span class="line"></span><br><span class="line">          <span class="keyword">for</span>(City o:rs)&#123;</span><br><span class="line"></span><br><span class="line">                  System.out.println(o.name);</span><br><span class="line"></span><br><span class="line">          &#125;</span><br><span class="line"></span><br><span class="line">          </span><br><span class="line"></span><br><span class="line">          //map数据</span><br><span class="line"></span><br><span class="line">          String jsonStr=<span class="string">"&#123;'1': &#123;'id': '1','code': 'bj','name': '北京','map': '39.90403, 116.40752599999996'&#125;,'2': &#123;'id': '2','code': 'sz','name': '深圳','map': '22.543099, 114.05786799999998'&#125;,'9': &#123;'id': '9','code': 'sh','name': '上海','map': '31.230393,121.473704'&#125;,'10': &#123;'id': '10','code': 'gz','name': '广州','map': '23.129163,113.26443500000005'&#125;&#125;"</span>;</span><br><span class="line"></span><br><span class="line">          Map&lt;String, City&gt; citys = gson.fromJson(jsonStr, new TypeToken&lt;Map&lt;String, City&gt;&gt;() &#123;&#125;.getType()); </span><br><span class="line"></span><br><span class="line">          System.out.println(citys.get(<span class="string">"1"</span>).name+<span class="string">"----------"</span>+citys.get(<span class="string">"2"</span>).code);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
           
         
