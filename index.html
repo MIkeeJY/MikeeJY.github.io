@@ -385,7 +385,7 @@
 <li><a href="https://github.com/jinloong/BannerLayout" target="_blank" rel="external">https://github.com/jinloong/BannerLayout</a> 虽然star不多但是用起来非常稳定的一个轮播库（比较冷门，相反star数多的库反而各种bug,(⊙﹏⊙)b）</li>
 </ul>
 <p><strong>总结</strong> ：面试也是一个不断总结跟学习的过程，可能拿到合适的offer还需要一些运气的成份，我始终坚信就算大的环境再不好，但是其实整个行业还是缺牛人的！一时的不景气并不会影响真正技术好的人，博主已经入职了，祝大家好运~</p>
-<p><strong>PS</strong> ：首先写这篇文章的目的不在于针对某某公司，这个选择都是双向的，大家谁都不欠谁，只是想把遇到的公司做一个总结展示给大家看，供大家以后求职时候的参考，在于告诫大家如果没什么想不开的千万不要在这个时候离职，比较目前环境可以说是非常的严峻，离职要慎重！！！离职要慎重！！！离职要慎重！！！重要的事情说三遍~！如果有针对某些公司负能量的言语，可能言语过激，希望大家能及时指出，我会及时修改，目测应该还有人对我的技术做出了评价，我也承认目前跟真正的Android高级是有差距的（但是毕竟还是有些技术实力的，15年面过腾讯，优酷，16年面了Apus都拿到了offer，只是我当时想法太年轻没去而已），但是目前Android层的东西还是蛮杂的，我也不可能什么都会，而且我面的也不是BAT那种级别的公司，面一般的公司汲取经验总可以吧…</p>
+<p><strong>PS</strong> ：首先写这篇文章的目的不在于针对某某公司，这个选择都是双向的，大家谁都不欠谁，只是想把遇到的公司做一个总结展示给大家看，供大家以后求职时候的参考，在于告诫大家如果没什么想不开的千万不要在这个时候离职，比较目前环境可以说是非常的严峻，离职要慎重！！！离职要慎重！！！离职要慎重！！！重要的事情说三遍~！如果有针对某些公司负能量的言语，可能言语过激，希望大家能及时指出，我会及时修改，目测应该还有人对我的技术做出了评价，我也承认目前跟真正的Android高级是有差距的（但是毕竟还是有些技术实力的，15年面过腾讯，优酷，16年面了Apus都拿到了offer，只是我当时想法太年轻没去而已），但是目前Android层的东西还是蛮杂的，我也不可能什么都会，目前已经拿到几家offer也已经做出选择了，这里记录下辛酸的面试历程吧~</p>
 <hr>
 
           
@@ -544,101 +544,6 @@
             
               
                 
-                <a class="post-title-link" href="/2016/04/20/gsonUtil/" itemprop="url">
-                  Gson工具类
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-04-20T14:58:25+08:00" content="2016-04-20">
-              2016-04-20
-            </time>
-          </span>
-
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>使用泛型来封装Gson</p>
-<h2 id="泛型才是JAVA的精髓"><a href="#泛型才是JAVA的精髓" class="headerlink" title="泛型才是JAVA的精髓"></a>泛型才是JAVA的精髓</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br></pre></td><td class="code"><pre><span class="line">import com.google.gson.Gson;</span><br><span class="line">import com.google.gson.JsonArray;</span><br><span class="line">import com.google.gson.JsonElement;</span><br><span class="line">import com.google.gson.JsonParser;</span><br><span class="line">import com.google.gson.reflect.TypeToken;</span><br><span class="line"></span><br><span class="line">import java.util.ArrayList;</span><br><span class="line">import java.util.List;</span><br><span class="line">import java.util.Map;</span><br><span class="line"></span><br><span class="line">public class GsonUtil &#123;</span><br><span class="line">    private static Gson gson = null;</span><br><span class="line"></span><br><span class="line">    static &#123;</span><br><span class="line">        <span class="keyword">if</span> (gson == null) &#123;</span><br><span class="line">            gson = new Gson();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    private <span class="function"><span class="title">GsonUtil</span></span>() &#123;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * 转成json</span><br><span class="line">     *</span><br><span class="line">     * @param object</span><br><span class="line">     * @<span class="built_in">return</span></span><br><span class="line">     */</span><br><span class="line">    public static String GsonString(Object object) &#123;</span><br><span class="line">        String gsonString = null;</span><br><span class="line">        <span class="keyword">if</span> (gson != null) &#123;</span><br><span class="line">            gsonString = gson.toJson(object);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">return</span> gsonString;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * 转成bean</span><br><span class="line">     *</span><br><span class="line">     * @param gsonString</span><br><span class="line">     * @param cls</span><br><span class="line">     * @<span class="built_in">return</span></span><br><span class="line">     */</span><br><span class="line">    public static &lt;T&gt; T GsonToBean(String gsonString, Class&lt;T&gt; cls) &#123;</span><br><span class="line">        T t = null;</span><br><span class="line">        <span class="keyword">if</span> (gson != null) &#123;</span><br><span class="line">            t = gson.fromJson(gsonString, cls);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">return</span> t;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * 转成list</span><br><span class="line">     * 解决泛型问题</span><br><span class="line">     *</span><br><span class="line">     * @param json</span><br><span class="line">     * @param cls</span><br><span class="line">     * @param &lt;T&gt;</span><br><span class="line">     * @<span class="built_in">return</span></span><br><span class="line">     */</span><br><span class="line">    public static &lt;T&gt; List&lt;T&gt; GsonToList(String json, Class&lt;T&gt; cls) &#123;</span><br><span class="line">        Gson gson = new Gson();</span><br><span class="line">        List&lt;T&gt; list = new ArrayList&lt;T&gt;();</span><br><span class="line">        JsonArray array = new JsonParser().parse(json).getAsJsonArray();</span><br><span class="line">        <span class="keyword">for</span> (final JsonElement elem : array) &#123;</span><br><span class="line">            list.add(gson.fromJson(elem, cls));</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">return</span> list;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * 转成list中有map的</span><br><span class="line">     *</span><br><span class="line">     * @param gsonString</span><br><span class="line">     * @<span class="built_in">return</span></span><br><span class="line">     */</span><br><span class="line">    public static &lt;T&gt; List&lt;Map&lt;String, T&gt;&gt; GsonToListMaps(String gsonString) &#123;</span><br><span class="line">        List&lt;Map&lt;String, T&gt;&gt; list = null;</span><br><span class="line">        <span class="keyword">if</span> (gson != null) &#123;</span><br><span class="line">            list = gson.fromJson(gsonString, new TypeToken&lt;List&lt;Map&lt;String, T&gt;&gt;&gt;() &#123;</span><br><span class="line">            &#125;.getType());</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">return</span> list;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * 转成map的</span><br><span class="line">     *</span><br><span class="line">     * @param gsonString</span><br><span class="line">     * @<span class="built_in">return</span></span><br><span class="line">     */</span><br><span class="line">    public static &lt;T&gt; Map&lt;String, T&gt; GsonToMaps(String gsonString) &#123;</span><br><span class="line">        Map&lt;String, T&gt; map = null;</span><br><span class="line">        <span class="keyword">if</span> (gson != null) &#123;</span><br><span class="line">            map = gson.fromJson(gsonString, new TypeToken&lt;Map&lt;String, T&gt;&gt;() &#123;</span><br><span class="line">            &#125;.getType());</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">return</span> map;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * 将Map转化为Json</span><br><span class="line">     *</span><br><span class="line">     * @param map</span><br><span class="line">     * @<span class="built_in">return</span> String</span><br><span class="line">     */</span><br><span class="line">    public static &lt;T&gt; String mapToJson(Map&lt;String, T&gt; map) &#123;</span><br><span class="line">        Gson gson = new Gson();</span><br><span class="line">        String jsonStr = gson.toJson(map);</span><br><span class="line">        <span class="built_in">return</span> jsonStr;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-    
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
                 <a class="post-title-link" href="/2016/04/20/BaseRecyclerView/" itemprop="url">
                   对RecyclerView.Adapter的简单封装
                 </a>
@@ -692,6 +597,101 @@
 <h3 id="BaseRecyclerViewAdapter"><a href="#BaseRecyclerViewAdapter" class="headerlink" title="BaseRecyclerViewAdapter"></a>BaseRecyclerViewAdapter</h3><p>话不多说,上代码</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line">public abstract class BaseRecyclerAdapter&lt;T, VH extends RecyclerView.ViewHolder&gt; extends RecyclerView.Adapter&lt;VH&gt; &#123;</span><br><span class="line">    protected List&lt;T&gt; mDatas = new ArrayList&lt;&gt;();</span><br><span class="line">    protected Context mContext;</span><br><span class="line">    protected LayoutInflater inflater;</span><br><span class="line">    AdapterView.OnItemClickListener mItemClickListener;</span><br><span class="line">    public BaseRecyclerAdapter(List&lt;T&gt; mDatas, Context mContext) &#123;</span><br><span class="line">        this.mDatas = mDatas;</span><br><span class="line">        this.mContext = mContext;</span><br><span class="line">        inflater = LayoutInflater.from(mContext);</span><br><span class="line">    &#125;</span><br><span class="line">    @Override</span><br><span class="line">    public void onBindViewHolder(VH holder, int position) &#123;</span><br><span class="line">        final T item = getItem(position);</span><br><span class="line">        bindItemData(holder, item, position);</span><br><span class="line">        setupOnItemClick(holder, position);</span><br><span class="line">    &#125;</span><br><span class="line">    protected abstract void bindItemData(VH viewHolder, T data, int position);</span><br><span class="line">    protected void setupOnItemClick(final VH viewHolder, final int position) &#123;</span><br><span class="line">        if (mItemClickListener != null) &#123;</span><br><span class="line">            viewHolder.itemView.setOnClickListener(new View.OnClickListener() &#123;</span><br><span class="line">                @Override</span><br><span class="line">                public void onClick(View v) &#123;</span><br><span class="line">                    mItemClickListener.onItemClick(null, viewHolder.itemView, position, position);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    @Override</span><br><span class="line">    public int getItemCount() &#123;</span><br><span class="line">        return mDatas != null ? mDatas.size() : 0;</span><br><span class="line">    &#125;</span><br><span class="line">    public T getItem(int position) &#123;</span><br><span class="line">        position = Math.max(0, position);</span><br><span class="line">        return mDatas.get(position);</span><br><span class="line">    &#125;</span><br><span class="line">    public List&lt;T&gt; getDataSource() &#123;</span><br><span class="line">        return mDatas;</span><br><span class="line">    &#125;</span><br><span class="line">    public void addData(List&lt;T&gt; newItems) &#123;</span><br><span class="line">        if (newItems != null) &#123;</span><br><span class="line">            mDatas.addAll(newItems);</span><br><span class="line">            notifyDataSetChanged();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    public void updateListViewData(List&lt;T&gt; lists) &#123;</span><br><span class="line">        mDatas.clear();</span><br><span class="line">        if (lists != null) &#123;</span><br><span class="line">            mDatas.addAll(lists);</span><br><span class="line">            notifyDataSetChanged();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    public void setOnItemClickListener(AdapterView.OnItemClickListener listener) &#123;</span><br><span class="line">        this.mItemClickListener = listener;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">public class NotesAdapter extends BaseRecyclerAdapter&lt;NoteItem, NotesAdapter.NotesViewHolder&gt; &#123;</span><br><span class="line">    public NotesAdapter(List&lt;NoteItem&gt; mDatas, Context mContext) &#123;</span><br><span class="line">        super(mDatas, mContext);</span><br><span class="line">    &#125;</span><br><span class="line">    @Override</span><br><span class="line">    public NotesViewHolder onCreateViewHolder(ViewGroup parent, int viewType) &#123;</span><br><span class="line">        View contentView = LayoutInflater.from(mContext)</span><br><span class="line">                .inflate(R.layout.recycler_item_note, parent, false);</span><br><span class="line">        NotesViewHolder vh = new NotesViewHolder(contentView);</span><br><span class="line">        return vh;</span><br><span class="line">    &#125;</span><br><span class="line">    @Override</span><br><span class="line">    protected void bindItemData(NotesViewHolder viewHolder, NoteItem data, int position) &#123;</span><br><span class="line">        viewHolder.titleTxt.setText(data.getTitle());</span><br><span class="line">        viewHolder.timeTxt.setText(data.getCreatedTime());</span><br><span class="line">        viewHolder.tagTxt.setText(data.getTags().size() != 0 ? data.getTags().get(0) : &quot;other&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">    static class NotesViewHolder extends RecyclerView.ViewHolder &#123;</span><br><span class="line">        @Bind(R.id.title_txt)</span><br><span class="line">        TextView titleTxt;</span><br><span class="line">        @Bind(R.id.time_txt)</span><br><span class="line">        TextView timeTxt;</span><br><span class="line">        @Bind(R.id.tag_txt)</span><br><span class="line">        TextView tagTxt;</span><br><span class="line">        NotesViewHolder(View view) &#123;</span><br><span class="line">            super(view);</span><br><span class="line">            ButterKnife.bind(this, view);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/04/20/gsonUtil/" itemprop="url">
+                  Gson工具类
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-04-20T14:58:25+08:00" content="2016-04-20">
+              2016-04-20
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>使用泛型来封装Gson</p>
+<h2 id="泛型才是JAVA的精髓"><a href="#泛型才是JAVA的精髓" class="headerlink" title="泛型才是JAVA的精髓"></a>泛型才是JAVA的精髓</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br></pre></td><td class="code"><pre><span class="line">import com.google.gson.Gson;</span><br><span class="line">import com.google.gson.JsonArray;</span><br><span class="line">import com.google.gson.JsonElement;</span><br><span class="line">import com.google.gson.JsonParser;</span><br><span class="line">import com.google.gson.reflect.TypeToken;</span><br><span class="line"></span><br><span class="line">import java.util.ArrayList;</span><br><span class="line">import java.util.List;</span><br><span class="line">import java.util.Map;</span><br><span class="line"></span><br><span class="line">public class GsonUtil &#123;</span><br><span class="line">    private static Gson gson = null;</span><br><span class="line"></span><br><span class="line">    static &#123;</span><br><span class="line">        <span class="keyword">if</span> (gson == null) &#123;</span><br><span class="line">            gson = new Gson();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    private <span class="function"><span class="title">GsonUtil</span></span>() &#123;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * 转成json</span><br><span class="line">     *</span><br><span class="line">     * @param object</span><br><span class="line">     * @<span class="built_in">return</span></span><br><span class="line">     */</span><br><span class="line">    public static String GsonString(Object object) &#123;</span><br><span class="line">        String gsonString = null;</span><br><span class="line">        <span class="keyword">if</span> (gson != null) &#123;</span><br><span class="line">            gsonString = gson.toJson(object);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">return</span> gsonString;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * 转成bean</span><br><span class="line">     *</span><br><span class="line">     * @param gsonString</span><br><span class="line">     * @param cls</span><br><span class="line">     * @<span class="built_in">return</span></span><br><span class="line">     */</span><br><span class="line">    public static &lt;T&gt; T GsonToBean(String gsonString, Class&lt;T&gt; cls) &#123;</span><br><span class="line">        T t = null;</span><br><span class="line">        <span class="keyword">if</span> (gson != null) &#123;</span><br><span class="line">            t = gson.fromJson(gsonString, cls);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">return</span> t;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * 转成list</span><br><span class="line">     * 解决泛型问题</span><br><span class="line">     *</span><br><span class="line">     * @param json</span><br><span class="line">     * @param cls</span><br><span class="line">     * @param &lt;T&gt;</span><br><span class="line">     * @<span class="built_in">return</span></span><br><span class="line">     */</span><br><span class="line">    public static &lt;T&gt; List&lt;T&gt; GsonToList(String json, Class&lt;T&gt; cls) &#123;</span><br><span class="line">        Gson gson = new Gson();</span><br><span class="line">        List&lt;T&gt; list = new ArrayList&lt;T&gt;();</span><br><span class="line">        JsonArray array = new JsonParser().parse(json).getAsJsonArray();</span><br><span class="line">        <span class="keyword">for</span> (final JsonElement elem : array) &#123;</span><br><span class="line">            list.add(gson.fromJson(elem, cls));</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">return</span> list;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * 转成list中有map的</span><br><span class="line">     *</span><br><span class="line">     * @param gsonString</span><br><span class="line">     * @<span class="built_in">return</span></span><br><span class="line">     */</span><br><span class="line">    public static &lt;T&gt; List&lt;Map&lt;String, T&gt;&gt; GsonToListMaps(String gsonString) &#123;</span><br><span class="line">        List&lt;Map&lt;String, T&gt;&gt; list = null;</span><br><span class="line">        <span class="keyword">if</span> (gson != null) &#123;</span><br><span class="line">            list = gson.fromJson(gsonString, new TypeToken&lt;List&lt;Map&lt;String, T&gt;&gt;&gt;() &#123;</span><br><span class="line">            &#125;.getType());</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">return</span> list;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * 转成map的</span><br><span class="line">     *</span><br><span class="line">     * @param gsonString</span><br><span class="line">     * @<span class="built_in">return</span></span><br><span class="line">     */</span><br><span class="line">    public static &lt;T&gt; Map&lt;String, T&gt; GsonToMaps(String gsonString) &#123;</span><br><span class="line">        Map&lt;String, T&gt; map = null;</span><br><span class="line">        <span class="keyword">if</span> (gson != null) &#123;</span><br><span class="line">            map = gson.fromJson(gsonString, new TypeToken&lt;Map&lt;String, T&gt;&gt;() &#123;</span><br><span class="line">            &#125;.getType());</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">return</span> map;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * 将Map转化为Json</span><br><span class="line">     *</span><br><span class="line">     * @param map</span><br><span class="line">     * @<span class="built_in">return</span> String</span><br><span class="line">     */</span><br><span class="line">    public static &lt;T&gt; String mapToJson(Map&lt;String, T&gt; map) &#123;</span><br><span class="line">        Gson gson = new Gson();</span><br><span class="line">        String jsonStr = gson.toJson(map);</span><br><span class="line">        <span class="built_in">return</span> jsonStr;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
           
         
