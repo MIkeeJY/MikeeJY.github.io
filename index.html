@@ -294,7 +294,7 @@ public static float getScreenDensity(Context context) {
     return context.getResources().getDisplayMetrics().density;
 }
 }
-</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">####5. dp、sp 转换为 px 的工具类</span><br></pre></td></tr></table></figure>
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">####5. dp、sp 转换为 px 的工具类</span><br></pre></td></tr></table></figure>
 <p>public  class  DisplayUtil {<br>    /**</p>
 <pre><code> * 将px值转换为dip或dp值，保证尺寸大小不变
  */
@@ -479,7 +479,8 @@ public void onTick(long millisUntilFinished) {// 计时过程
     button.setBackground(MyApplication.getContext().getResources().getDrawable(R.drawable.radius_gray));
 }
 </code></pre><p>}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">####10.屏幕截图工具类</span><br></pre></td></tr></table></figure></p>
-<pre><code>public class ScreenShot {    
+<pre><code>public class ScreenShot {
+
 public static void shoot(Activity a, File filePath) {        
 if (filePath == null) {            
     return;
@@ -505,7 +506,9 @@ try {
             }
         }
     }
-}    private static Bitmap takeScreenShot(Activity activity) {
+}    
+
+private static Bitmap takeScreenShot(Activity activity) {
     View view = activity.getWindow().getDecorView();
     view.setDrawingCacheEnabled(true);
     view.buildDrawingCache();
@@ -518,7 +521,8 @@ try {
             .getHeight();        //去掉标题栏
     Bitmap b = Bitmap.createBitmap(bitmap, 0, statusBarHeight, width,
             height - statusBarHeight);
-    view.destroyDrawingCache();        return b;
+    view.destroyDrawingCache();        
+    return b;
 }
 </code></pre><p>}<br>```</p>
 
