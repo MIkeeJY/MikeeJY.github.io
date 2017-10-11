@@ -229,6 +229,347 @@
             
               
                 
+                <a class="post-title-link" href="/2017/10/10/CommonUtils/" itemprop="url">
+                  未命名
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-10-10T20:17:30+08:00" content="2017-10-10">
+              2017-10-10
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Android工具类常用的几种方法"><a href="#Android工具类常用的几种方法" class="headerlink" title="Android工具类常用的几种方法"></a>Android工具类常用的几种方法</h1><h4 id="1-安装应用APK"><a href="#1-安装应用APK" class="headerlink" title="1.安装应用APK"></a>1.安装应用APK</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"> private void installApk(String apkFilePath) &#123;</span><br><span class="line">        File apkfile = new File(apkFilePath);        </span><br><span class="line">        if (!apkfile.exists()) &#123;            </span><br><span class="line">            return;</span><br><span class="line">        &#125;</span><br><span class="line">        Intent i = new Intent(Intent.ACTION_VIEW);</span><br><span class="line">        i.setDataAndType(Uri.parse(&quot;file://&quot; + apkfile.toString()), &quot;application/vnd.android.package-archive&quot;);</span><br><span class="line">        startActivity(i);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="2-MD5算法"><a href="#2-MD5算法" class="headerlink" title="2. MD5算法"></a>2. MD5算法</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">public final static String MD5(String s) &#123;        </span><br><span class="line">            char hexDigits[] = &#123;&apos;0&apos;, &apos;1&apos;, &apos;2&apos;, &apos;3&apos;, &apos;4&apos;, &apos;5&apos;, &apos;6&apos;, &apos;7&apos;, &apos;8&apos;, &apos;9&apos;, &apos;A&apos;, &apos;B&apos;, &apos;C&apos;, &apos;D&apos;, &apos;E&apos;, &apos;F&apos;&#125;;        </span><br><span class="line">            try &#123;            </span><br><span class="line">            byte[] btInput = s.getBytes();          // 获得MD5摘要算法的 MessageDigest 对象</span><br><span class="line">            MessageDigest mdInst = MessageDigest.getInstance(&quot;MD5&quot;);  // 使用指定的字节更新摘要</span><br><span class="line">            mdInst.update(btInput);                 // 获得密文</span><br><span class="line">            byte[] md = mdInst.digest();            // 把密文转换成十六进制的字符串形式</span><br><span class="line">            int j = md.length;            </span><br><span class="line">            char str[] = new char[j * 2];            </span><br><span class="line">            int k = 0;            //把字节转换成对应的字符串</span><br><span class="line">            for (int i = 0; i &lt; j; i++) &#123;                </span><br><span class="line">                byte byte0 = md[i];</span><br><span class="line">                str[k++] = hexDigits[byte0 &gt;&gt;&gt; 4 &amp; 0xf];</span><br><span class="line">                str[k++] = hexDigits[byte0 &amp; 0xf];</span><br><span class="line">            &#125;           </span><br><span class="line">                 return new String(str);</span><br><span class="line">        &#125; catch (Exception e) &#123;</span><br><span class="line">            e.printStackTrace();            </span><br><span class="line">                 return null;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>####3.判断现在是否有网络</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">   private boolean NetWorkStatus() &#123;</span><br><span class="line">        ConnectivityManager cwjManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);</span><br><span class="line"></span><br><span class="line">        cwjManager.getActiveNetworkInfo();        </span><br><span class="line">        boolean netSataus = true;        </span><br><span class="line">        if (cwjManager.getActiveNetworkInfo() != null) &#123;</span><br><span class="line"></span><br><span class="line">        netSataus = cwjManager.getActiveNetworkInfo().isAvailable();</span><br><span class="line"></span><br><span class="line">        Toast.makeText(this, &quot;网络已经打开&quot;, Toast.LENGTH_LONG).show();</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">    else &#123;</span><br><span class="line">        Builder b = new AlertDialog.Builder(this).setTitle(&quot;没有可用的网络&quot;)</span><br><span class="line">                                        .setMessage(&quot;是否对网络进行设置？&quot;);</span><br><span class="line">        b.setPositiveButton(&quot;是&quot;, new DialogInterface.OnClickListener() </span><br><span class="line">        &#123;    </span><br><span class="line">                public void onClick(DialogInterface dialog, int whichButton) &#123;</span><br><span class="line">                Intent mIntent = new Intent(&quot;/&quot;);</span><br><span class="line">                ComponentName comp = new ComponentName( &quot;com.android.settings&quot;, &quot;com.android.settings.WirelessSettings&quot;);</span><br><span class="line">                mIntent.setComponent(comp);</span><br><span class="line">                mIntent.setAction(&quot;android.intent.action.VIEW&quot;);</span><br><span class="line">                startActivityForResult(mIntent,0); </span><br><span class="line">                &#125;</span><br><span class="line">                &#125;).setNeutralButton(&quot;否&quot;, new DialogInterface.OnClickListener() &#123;                        </span><br><span class="line">                public void onClick(DialogInterface dialog, int whichButton) &#123;</span><br><span class="line">                        dialog.cancel();</span><br><span class="line">                        &#125;</span><br><span class="line">                &#125;).show();</span><br><span class="line">                &#125;                </span><br><span class="line">                return netSataus;</span><br><span class="line">        &#125;</span><br><span class="line">```     </span><br><span class="line">        </span><br><span class="line">####4. 获取设备屏幕的宽度高度密度</span><br></pre></td></tr></table></figure>
+<p>public  class   DisplayUtil {<br>     /**</p>
+<pre><code> * 得到设备屏幕的宽度
+ */
+public static int getScreenWidth(Context context) {        
+    return context.getResources().getDisplayMetrics().widthPixels;
+}    /**
+ * 得到设备屏幕的高度
+ */
+public static int getScreenHeight(Context context) {        
+    return context.getResources().getDisplayMetrics().heightPixels;
+}    /**
+ * 得到设备的密度
+ */
+public static float getScreenDensity(Context context) {        
+    return context.getResources().getDisplayMetrics().density;
+}
+}
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">####5. dp、sp 转换为 px 的工具类</span><br></pre></td></tr></table></figure>
+<p>public  class  DisplayUtil {<br>    /**</p>
+<pre><code> * 将px值转换为dip或dp值，保证尺寸大小不变
+ */
+public static int px2dip(Context context, float pxValue) {        
+    final float scale = context.getResources().getDisplayMetrics().density;        
+    return (int) (pxValue / scale + 0.5f);
+}    /**
+ * 将dip或dp值转换为px值，保证尺寸大小不变
+ * 
+ * @param dipValue
+ * @param scale
+ *            （DisplayMetrics类中属性density）
+ * @return
+ */
+public static int dip2px(Context context, float dipValue) {        
+    final float scale = context.getResources().getDisplayMetrics().density;        
+    return (int) (dipValue * scale + 0.5f);
+}    /**
+ * 将px值转换为sp值，保证文字大小不变
+ * 
+ * @param pxValue
+ * @param fontScale
+ *            （DisplayMetrics类中属性scaledDensity）
+ * @return
+ */
+public static int px2sp(Context context, float pxValue) {        
+    final float fontScale = context.getResources().getDisplayMetrics().scaledDensity;        
+    return (int) (pxValue / fontScale + 0.5f);
+}    /**
+ * 将sp值转换为px值，保证文字大小不变
+ * 
+ * @param spValue
+ * @param fontScale
+ *            （DisplayMetrics类中属性scaledDensity）
+ * @return
+ */
+public static int sp2px(Context context, float spValue) {        
+    final float fontScale = context.getResources().getDisplayMetrics().scaledDensity;        
+    return (int) (spValue * fontScale + 0.5f);
+}
+}
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">	</span><br><span class="line">####6.drawable转bitmap的工具类</span><br></pre></td></tr></table></figure>
+<pre><code>/**
+ * drawable转bitmap
+ *
+ * @param drawable
+ * @return
+*/
+</code></pre><p> private Bitmap drawableToBitamp(Drawable drawable) {<br>        if (null == drawable) {<br>        return null;<br>        }if (drawable instanceof BitmapDrawable) {<br>        BitmapDrawable bd = (BitmapDrawable) drawable;<br>        return bd.getBitmap();<br>    }<br>        int w = drawable.getIntrinsicWidth();<br>        int h = drawable.getIntrinsicHeight();<br>        Bitmap bitmap = Bitmap.createBitmap(w, h, Bitmap.Config.ARGB_8888);<br>        Canvas canvas = new Canvas(bitmap);<br>        drawable.setBounds(0, 0, w, h);<br>        drawable.draw(canvas);<br>        return bitmap;<br>    }<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">	</span><br><span class="line">####7.文章发布模仿朋友圈时间显示</span><br></pre></td></tr></table></figure></p>
+<p>public static String ChangeTime(Date time) {<br>        String ftime = “”;<br>        Calendar cal = Calendar.getInstance();        // 判断是否是同一天<br>        String curDate = dateFormater2.get().format(cal.getTime());<br>        String paramDate = dateFormater2.get().format(time);        </p>
+<pre><code>if (curDate.equals(paramDate)) {            
+
+int hour = (int) ((cal.getTimeInMillis() - time.getTime()) / 3600000);            
+
+if (hour == 0)
+            ftime = Math.max(
+                    (cal.getTimeInMillis() - time.getTime()) / 60000, 1)
+                    + &quot;分钟前&quot;;            
+
+        else
+            ftime = hour + &quot;小时前&quot;;            
+
+        return ftime;
+    }        long lt = time.getTime() / 86400000;        
+
+        long ct = cal.getTimeInMillis() / 86400000;        
+
+        int days = (int) (ct - lt);        
+
+        if (days == 0) {            
+
+        int hour = (int) ((cal.getTimeInMillis() - time.getTime()) / 3600000);            
+
+        if (hour == 0)
+        ftime = Math.max( (cal.getTimeInMillis() - time.getTime()) / 60000, 1)
+                    + &quot;分钟前&quot;;           
+         else
+            ftime = hour + &quot;小时前&quot;;
+    } else if (days == 1) {
+        ftime = &quot;昨天&quot;;
+    } else if (days == 2) {
+        ftime = &quot;前天 &quot;;
+    } else if (days &gt; 2 &amp;&amp; days &lt; 31) {
+        ftime = days + &quot;天前&quot;;
+    } else if (days &gt;= 31 &amp;&amp; days &lt;= 2 * 31) {
+        ftime = &quot;一个月前&quot;;
+    } else if (days &gt; 2 * 31 &amp;&amp; days &lt;= 3 * 31) {
+        ftime = &quot;2个月前&quot;;
+    } else if (days &gt; 3 * 31 &amp;&amp; days &lt;= 4 * 31) {
+        ftime = &quot;3个月前&quot;;
+    } else {
+        ftime = dateFormater2.get().format(time);
+    }        return ftime;
+}    public static String friendly_time(String sdate) {
+    Date time = null;        
+
+        if (TimeZoneUtil.isInEasternEightZones())
+        time = toDate(sdate);        else
+        time = TimeZoneUtil.transformTime(toDate(sdate),
+                TimeZone.getTimeZone(&quot;GMT+08&quot;), TimeZone.getDefault());        
+
+        if (time == null) {            
+
+        return &quot;Unknown&quot;;
+    }
+    String ftime = &quot;&quot;;
+    Calendar cal = Calendar.getInstance();        // 判断是否是同一天
+    String curDate = dateFormater2.get().format(cal.getTime());
+    String paramDate = dateFormater2.get().format(time);        
+
+        if (curDate.equals(paramDate)) {            
+
+        int hour = (int) ((cal.getTimeInMillis() - time.getTime()) / 3600000);            
+
+        if (hour == 0)
+            ftime = Math.max(
+                    (cal.getTimeInMillis() - time.getTime()) / 60000, 1)
+                    + &quot;分钟前&quot;;           
+         else
+            ftime = hour + &quot;小时前&quot;;            
+
+         return ftime;
+    }        long lt = time.getTime() / 86400000;        
+
+         long ct = cal.getTimeInMillis() / 86400000;        
+
+         int days = (int) (ct - lt);        
+
+         if (days == 0) {            
+
+         int hour = (int) ((cal.getTimeInMillis() - time.getTime()) / 3600000);            
+
+         if (hour == 0)
+            ftime = Math.max(
+                    (cal.getTimeInMillis() - time.getTime()) / 60000, 1)
+                    + &quot;分钟前&quot;;           
+
+          else
+            ftime = hour + &quot;小时前&quot;;
+    } else if (days == 1) {
+        ftime = &quot;昨天&quot;;
+    } else if (days == 2) {
+        ftime = &quot;前天 &quot;;
+    } else if (days &gt; 2 &amp;&amp; days &lt; 31) {
+        ftime = days + &quot;天前&quot;;
+    } else if (days &gt;= 31 &amp;&amp; days &lt;= 2 * 31) {
+        ftime = &quot;一个月前&quot;;
+    } else if (days &gt; 2 * 31 &amp;&amp; days &lt;= 3 * 31) {
+        ftime = &quot;2个月前&quot;;
+    } else if (days &gt; 3 * 31 &amp;&amp; days &lt;= 4 * 31) {
+        ftime = &quot;3个月前&quot;;
+    } else {
+        ftime = dateFormater2.get().format(time);
+    }        return ftime;
+}
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">	</span><br><span class="line">####8.时间格式转换工具类</span><br></pre></td></tr></table></figure>
+<p>public static String ConverToString(Date date) {<br>        DateFormat df = new SimpleDateFormat(“yyyy-MM-dd”);<br>        return df.format(date);<br>    }<br>        public static String ConverToString2(Date date){<br>        DateFormat df = new SimpleDateFormat(“yyyy-MM-dd HH:mm”);<br>        return df.format(date);<br>    }<br>        public static String ConverToString3(Date date){<br>        DateFormat df = new SimpleDateFormat(“yyyy-MM-dd HH:mm:ss”);<br>        return df.format(date);<br>    }<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">	</span><br><span class="line">####9.验证码倒计时工具类</span><br></pre></td></tr></table></figure></p>
+<pre><code>public class TimeCount extends CountDownTimer {    
+private Button button;    /**
+ * 到计时
+ * @param millisInFuture  到计时多久,毫秒
+ * @param countDownInterval 周期
+ * @param button   按钮
+ */
+public TimeCount(long millisInFuture, long countDownInterval,Button button) {        
+super(millisInFuture, countDownInterval);        
+this.button =button;
+}    
+public TimeCount(long millisInFuture, long countDownInterval) {        
+super(millisInFuture, countDownInterval);
+}    
+@Override
+public void onFinish() {// 计时完毕
+    button.setText(&quot;获取验证码&quot;);
+    button.setClickable(true);
+    button.setBackground(MyApplication.getContext().getResources().getDrawable(R.drawable.radius14));
+}   
+ @Override
+public void onTick(long millisUntilFinished) {// 计时过程
+    button.setClickable(false);//防止重复点击
+    button.setText(millisUntilFinished / 1000 + &quot;s后重试&quot;);
+    button.setBackground(MyApplication.getContext().getResources().getDrawable(R.drawable.radius_gray));
+}
+</code></pre><p>}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">####10.屏幕截图工具类</span><br></pre></td></tr></table></figure></p>
+<pre><code>public class ScreenShot {    
+public static void shoot(Activity a, File filePath) {        
+if (filePath == null) {            
+    return;
+    }        
+if (!filePath.getParentFile().exists()) {
+        filePath.getParentFile().mkdirs();
+    }
+    FileOutputStream fos = null;        
+try {
+        fos = new FileOutputStream(filePath);            
+if (null != fos) {
+            takeScreenShot(a).compress(Bitmap.CompressFormat.PNG, 100, fos);
+        }
+    } catch (FileNotFoundException e) {
+        e.printStackTrace();
+    } finally {            
+if (fos != null) {                
+try {
+                fos.flush();
+                fos.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+}    private static Bitmap takeScreenShot(Activity activity) {
+    View view = activity.getWindow().getDecorView();
+    view.setDrawingCacheEnabled(true);
+    view.buildDrawingCache();
+    Bitmap bitmap = view.getDrawingCache();
+    Rect frame = new Rect();
+    activity.getWindow().getDecorView().getWindowVisibleDisplayFrame(frame);        
+    int statusBarHeight = frame.top;        
+    int width = activity.getWindowManager().getDefaultDisplay().getWidth();        
+    int height = activity.getWindowManager().getDefaultDisplay()
+            .getHeight();        //去掉标题栏
+    Bitmap b = Bitmap.createBitmap(bitmap, 0, statusBarHeight, width,
+            height - statusBarHeight);
+    view.destroyDrawingCache();        return b;
+}
+</code></pre><p>}<br>```</p>
+
+          
+        
+      
+    </div>
+    
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2017/06/06/job/" itemprop="url">
                   2017年Android曲折的求职之路
                 </a>
@@ -544,101 +885,6 @@
             
               
                 
-                <a class="post-title-link" href="/2016/04/20/gson/" itemprop="url">
-                  Gson解析（List和Map）格式json数据
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-04-20T14:58:25+08:00" content="2016-04-20">
-              2016-04-20
-            </time>
-          </span>
-
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>有时候服务端非得返回比较傻逼的Json</p>
-<h2 id="这时候可以用gson解析带有键值对的json"><a href="#这时候可以用gson解析带有键值对的json" class="headerlink" title="这时候可以用gson解析带有键值对的json"></a>这时候可以用gson解析带有键值对的json</h2><h3 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line">public class jsonParse&#123;</span><br><span class="line"></span><br><span class="line">        </span><br><span class="line"></span><br><span class="line">class City&#123;</span><br><span class="line"></span><br><span class="line">        int id;</span><br><span class="line"></span><br><span class="line">        String name;</span><br><span class="line"></span><br><span class="line">        String code;</span><br><span class="line"></span><br><span class="line">        String map;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">        </span><br><span class="line"></span><br><span class="line">        </span><br><span class="line"></span><br><span class="line">public static void main(String[] args) &#123;</span><br><span class="line"></span><br><span class="line">        //列表/array 数据</span><br><span class="line"></span><br><span class="line">                 String str=<span class="string">"[&#123;'id': '1','code': 'bj','name': '北京','map': '39.90403, 116.40752599999996'&#125;, &#123;'id': '2','code': 'sz','name': '深圳','map': '22.543099, 114.05786799999998'&#125;, &#123;'id': '9','code': 'sh','name': '上海','map': '31.230393,121.473704'&#125;, &#123;'id': '10','code': 'gz','name': '广州','map': '23.129163,113.26443500000005'&#125;]"</span>;</span><br><span class="line"></span><br><span class="line">        Gson gson=new Gson();</span><br><span class="line"></span><br><span class="line">        List&lt;City&gt; rs=new ArrayList&lt;City&gt;();</span><br><span class="line"></span><br><span class="line">         Type <span class="built_in">type</span> = new TypeToken&lt;ArrayList&lt;City&gt;&gt;() &#123;&#125;.getType();</span><br><span class="line"></span><br><span class="line">          rs=gson.fromJson(str, <span class="built_in">type</span>);</span><br><span class="line"></span><br><span class="line">          <span class="keyword">for</span>(City o:rs)&#123;</span><br><span class="line"></span><br><span class="line">                  System.out.println(o.name);</span><br><span class="line"></span><br><span class="line">          &#125;</span><br><span class="line"></span><br><span class="line">          </span><br><span class="line"></span><br><span class="line">          //map数据</span><br><span class="line"></span><br><span class="line">          String jsonStr=<span class="string">"&#123;'1': &#123;'id': '1','code': 'bj','name': '北京','map': '39.90403, 116.40752599999996'&#125;,'2': &#123;'id': '2','code': 'sz','name': '深圳','map': '22.543099, 114.05786799999998'&#125;,'9': &#123;'id': '9','code': 'sh','name': '上海','map': '31.230393,121.473704'&#125;,'10': &#123;'id': '10','code': 'gz','name': '广州','map': '23.129163,113.26443500000005'&#125;&#125;"</span>;</span><br><span class="line"></span><br><span class="line">          Map&lt;String, City&gt; citys = gson.fromJson(jsonStr, new TypeToken&lt;Map&lt;String, City&gt;&gt;() &#123;&#125;.getType()); </span><br><span class="line"></span><br><span class="line">          System.out.println(citys.get(<span class="string">"1"</span>).name+<span class="string">"----------"</span>+citys.get(<span class="string">"2"</span>).code);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-    
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
                 <a class="post-title-link" href="/2016/04/20/BaseRecyclerView/" itemprop="url">
                   对RecyclerView.Adapter的简单封装
                 </a>
@@ -692,6 +938,101 @@
 <h3 id="BaseRecyclerViewAdapter"><a href="#BaseRecyclerViewAdapter" class="headerlink" title="BaseRecyclerViewAdapter"></a>BaseRecyclerViewAdapter</h3><p>话不多说,上代码</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line">public abstract class BaseRecyclerAdapter&lt;T, VH extends RecyclerView.ViewHolder&gt; extends RecyclerView.Adapter&lt;VH&gt; &#123;</span><br><span class="line">    protected List&lt;T&gt; mDatas = new ArrayList&lt;&gt;();</span><br><span class="line">    protected Context mContext;</span><br><span class="line">    protected LayoutInflater inflater;</span><br><span class="line">    AdapterView.OnItemClickListener mItemClickListener;</span><br><span class="line">    public BaseRecyclerAdapter(List&lt;T&gt; mDatas, Context mContext) &#123;</span><br><span class="line">        this.mDatas = mDatas;</span><br><span class="line">        this.mContext = mContext;</span><br><span class="line">        inflater = LayoutInflater.from(mContext);</span><br><span class="line">    &#125;</span><br><span class="line">    @Override</span><br><span class="line">    public void onBindViewHolder(VH holder, int position) &#123;</span><br><span class="line">        final T item = getItem(position);</span><br><span class="line">        bindItemData(holder, item, position);</span><br><span class="line">        setupOnItemClick(holder, position);</span><br><span class="line">    &#125;</span><br><span class="line">    protected abstract void bindItemData(VH viewHolder, T data, int position);</span><br><span class="line">    protected void setupOnItemClick(final VH viewHolder, final int position) &#123;</span><br><span class="line">        if (mItemClickListener != null) &#123;</span><br><span class="line">            viewHolder.itemView.setOnClickListener(new View.OnClickListener() &#123;</span><br><span class="line">                @Override</span><br><span class="line">                public void onClick(View v) &#123;</span><br><span class="line">                    mItemClickListener.onItemClick(null, viewHolder.itemView, position, position);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    @Override</span><br><span class="line">    public int getItemCount() &#123;</span><br><span class="line">        return mDatas != null ? mDatas.size() : 0;</span><br><span class="line">    &#125;</span><br><span class="line">    public T getItem(int position) &#123;</span><br><span class="line">        position = Math.max(0, position);</span><br><span class="line">        return mDatas.get(position);</span><br><span class="line">    &#125;</span><br><span class="line">    public List&lt;T&gt; getDataSource() &#123;</span><br><span class="line">        return mDatas;</span><br><span class="line">    &#125;</span><br><span class="line">    public void addData(List&lt;T&gt; newItems) &#123;</span><br><span class="line">        if (newItems != null) &#123;</span><br><span class="line">            mDatas.addAll(newItems);</span><br><span class="line">            notifyDataSetChanged();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    public void updateListViewData(List&lt;T&gt; lists) &#123;</span><br><span class="line">        mDatas.clear();</span><br><span class="line">        if (lists != null) &#123;</span><br><span class="line">            mDatas.addAll(lists);</span><br><span class="line">            notifyDataSetChanged();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    public void setOnItemClickListener(AdapterView.OnItemClickListener listener) &#123;</span><br><span class="line">        this.mItemClickListener = listener;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">public class NotesAdapter extends BaseRecyclerAdapter&lt;NoteItem, NotesAdapter.NotesViewHolder&gt; &#123;</span><br><span class="line">    public NotesAdapter(List&lt;NoteItem&gt; mDatas, Context mContext) &#123;</span><br><span class="line">        super(mDatas, mContext);</span><br><span class="line">    &#125;</span><br><span class="line">    @Override</span><br><span class="line">    public NotesViewHolder onCreateViewHolder(ViewGroup parent, int viewType) &#123;</span><br><span class="line">        View contentView = LayoutInflater.from(mContext)</span><br><span class="line">                .inflate(R.layout.recycler_item_note, parent, false);</span><br><span class="line">        NotesViewHolder vh = new NotesViewHolder(contentView);</span><br><span class="line">        return vh;</span><br><span class="line">    &#125;</span><br><span class="line">    @Override</span><br><span class="line">    protected void bindItemData(NotesViewHolder viewHolder, NoteItem data, int position) &#123;</span><br><span class="line">        viewHolder.titleTxt.setText(data.getTitle());</span><br><span class="line">        viewHolder.timeTxt.setText(data.getCreatedTime());</span><br><span class="line">        viewHolder.tagTxt.setText(data.getTags().size() != 0 ? data.getTags().get(0) : &quot;other&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">    static class NotesViewHolder extends RecyclerView.ViewHolder &#123;</span><br><span class="line">        @Bind(R.id.title_txt)</span><br><span class="line">        TextView titleTxt;</span><br><span class="line">        @Bind(R.id.time_txt)</span><br><span class="line">        TextView timeTxt;</span><br><span class="line">        @Bind(R.id.tag_txt)</span><br><span class="line">        TextView tagTxt;</span><br><span class="line">        NotesViewHolder(View view) &#123;</span><br><span class="line">            super(view);</span><br><span class="line">            ButterKnife.bind(this, view);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/04/20/gson/" itemprop="url">
+                  Gson解析（List和Map）格式json数据
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-04-20T14:58:25+08:00" content="2016-04-20">
+              2016-04-20
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>有时候服务端非得返回比较傻逼的Json</p>
+<h2 id="这时候可以用gson解析带有键值对的json"><a href="#这时候可以用gson解析带有键值对的json" class="headerlink" title="这时候可以用gson解析带有键值对的json"></a>这时候可以用gson解析带有键值对的json</h2><h3 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line">public class jsonParse&#123;</span><br><span class="line"></span><br><span class="line">        </span><br><span class="line"></span><br><span class="line">class City&#123;</span><br><span class="line"></span><br><span class="line">        int id;</span><br><span class="line"></span><br><span class="line">        String name;</span><br><span class="line"></span><br><span class="line">        String code;</span><br><span class="line"></span><br><span class="line">        String map;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">        </span><br><span class="line"></span><br><span class="line">        </span><br><span class="line"></span><br><span class="line">public static void main(String[] args) &#123;</span><br><span class="line"></span><br><span class="line">        //列表/array 数据</span><br><span class="line"></span><br><span class="line">                 String str=<span class="string">"[&#123;'id': '1','code': 'bj','name': '北京','map': '39.90403, 116.40752599999996'&#125;, &#123;'id': '2','code': 'sz','name': '深圳','map': '22.543099, 114.05786799999998'&#125;, &#123;'id': '9','code': 'sh','name': '上海','map': '31.230393,121.473704'&#125;, &#123;'id': '10','code': 'gz','name': '广州','map': '23.129163,113.26443500000005'&#125;]"</span>;</span><br><span class="line"></span><br><span class="line">        Gson gson=new Gson();</span><br><span class="line"></span><br><span class="line">        List&lt;City&gt; rs=new ArrayList&lt;City&gt;();</span><br><span class="line"></span><br><span class="line">         Type <span class="built_in">type</span> = new TypeToken&lt;ArrayList&lt;City&gt;&gt;() &#123;&#125;.getType();</span><br><span class="line"></span><br><span class="line">          rs=gson.fromJson(str, <span class="built_in">type</span>);</span><br><span class="line"></span><br><span class="line">          <span class="keyword">for</span>(City o:rs)&#123;</span><br><span class="line"></span><br><span class="line">                  System.out.println(o.name);</span><br><span class="line"></span><br><span class="line">          &#125;</span><br><span class="line"></span><br><span class="line">          </span><br><span class="line"></span><br><span class="line">          //map数据</span><br><span class="line"></span><br><span class="line">          String jsonStr=<span class="string">"&#123;'1': &#123;'id': '1','code': 'bj','name': '北京','map': '39.90403, 116.40752599999996'&#125;,'2': &#123;'id': '2','code': 'sz','name': '深圳','map': '22.543099, 114.05786799999998'&#125;,'9': &#123;'id': '9','code': 'sh','name': '上海','map': '31.230393,121.473704'&#125;,'10': &#123;'id': '10','code': 'gz','name': '广州','map': '23.129163,113.26443500000005'&#125;&#125;"</span>;</span><br><span class="line"></span><br><span class="line">          Map&lt;String, City&gt; citys = gson.fromJson(jsonStr, new TypeToken&lt;Map&lt;String, City&gt;&gt;() &#123;&#125;.getType()); </span><br><span class="line"></span><br><span class="line">          System.out.println(citys.get(<span class="string">"1"</span>).name+<span class="string">"----------"</span>+citys.get(<span class="string">"2"</span>).code);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
           
         
@@ -856,7 +1197,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">5</span>
+              <span class="site-state-item-count">6</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
