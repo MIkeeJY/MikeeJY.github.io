@@ -86,7 +86,7 @@
 <meta property="og:url" content="http://yoursite.com/2016/05/11/camera/index.html">
 <meta property="og:site_name" content="Mikee的八度空间">
 <meta property="og:description" content="在项目中需要启用系统照相机来拍照。本来很容易的一个问题。但在适配中出现了问题。简单说一下问题：    有些手机拍照成功，有些手机拍完照后确定返回后activity数据丢失，被销毁了。问题查找：    经过代码查找发现，当这些出问题的手机被调用系统手机拍照时，当前activity被销毁了之后又被重新创建了。即Acitivity 执行了ondestory()–&amp;gt;onCreate()，所以Acti">
-<meta property="og:updated_time" content="2017-05-03T14:00:57.000Z">
+<meta property="og:updated_time" content="2018-09-04T09:26:28.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="关于调用系统照相机Activity被销毁问题解决">
 <meta name="twitter:description" content="在项目中需要启用系统照相机来拍照。本来很容易的一个问题。但在适配中出现了问题。简单说一下问题：    有些手机拍照成功，有些手机拍完照后确定返回后activity数据丢失，被销毁了。问题查找：    经过代码查找发现，当这些出问题的手机被调用系统手机拍照时，当前activity被销毁了之后又被重新创建了。即Acitivity 执行了ondestory()–&amp;gt;onCreate()，所以Acti">
@@ -269,20 +269,27 @@
       
         <p>在项目中需要启用系统照相机来拍照。本来很容易的一个问题。但在适配中出现了问题。<br>简单说一下问题：<br>    有些手机拍照成功，有些手机拍完照后确定返回后activity数据丢失，被销毁了。<br>问题查找：<br>    经过代码查找发现，当这些出问题的手机被调用系统手机拍照时，当前activity被销毁了之后又被重新创建了。即Acitivity 执行了ondestory()–&gt;onCreate()，所以Activity被重新创建了从而内部的数据丢失,而按照正常的逻辑该Activity应该入后台堆栈。一开始以为是系统启用照相机内存不够自动销毁回收。可有些手机不会出现该问题。很无奈。<br>    之后经过本人细心研究activity的生命周期才恍然大悟，原来当手机横竖屏时系统会重新创建一个activity，这就是为什么上个activity会ondestory()–&gt;onCreate()。但为什么有些手机会执行有些不会呢。问题就出在横竖屏上。因为有些手机的系统照相机弄的很炫会自动旋转90度，从而导致了横竖屏的发生（–！看来最潮的也不是好东西，苦了我们这些碼农）。这就是为什有些手机会发生有些不会。跟系统照相机是否旋转有关系。<br>    最后贴上解决方案。<br>    AndroidMainifest.xml中加入</p>
 <pre><code>&lt;activity
-      android:name=&quot;.Activity&quot;
-      android:launchMode=&quot;singleTask&quot;          
-      android:configChanges=&quot;orientation|keyboardHidden&quot;                       
-      android:theme=&quot;@android:style/Theme.Black.NoTitleBar.Fullscreen&quot;/&gt;
-</code></pre><p>   @Override<br>    public void onConfigurationChanged(Configuration newConfig) {<br>    //其实这里什么都不要做<br>    super.onConfigurationChanged(newConfig);</p>
-<p>}</p>
-<p>######PS:在level13以后加入了一个screenSize的属性，这个属性很重要如果在android3.2以后的版本中没有添加”screenSize”的话依然会触发横竖屏activity销毁周期(也就是说不能屏蔽activity销毁，从而调用onConfigurationChanged方法，而在3.2之前只要设置orientation|keyboardHidden就可以)。由于智能机的迅速普及手机的系统大多数升级到4.0以上，这样会导致很多没有设置screenSize属性的程序activity又出现销毁情况。</p>
-<p>试试如下代码：<br> AndroidMainifest.xml中加入</p>
-<activity android:name=".Activity" android:launchmode="singleTask" android:configchanges="orientationkeyboardHidden|screenSize">
-
-
-<p>   复写acitivity的onConfigurationChanged方法</p>
-<p>   @Override<br>    public void onConfigurationChanged(Configuration newConfig) {<br>    //其实这里什么都不要做<br>    super.onConfigurationChanged(newConfig);<br>        }</p>
-</activity>
+            android:name=&quot;.Activity&quot;
+            android:launchMode=&quot;singleTask&quot;          
+            android:configChanges=&quot;orientation|keyboardHidden&quot;                       
+            android:theme=&quot;@android:style/Theme.Black.NoTitleBar.Fullscreen&quot;/&gt;
+</code></pre><pre><code>@Override
+public void onConfigurationChanged(Configuration newConfig) {
+    //其实这里什么都不要做
+    super.onConfigurationChanged(newConfig);
+}
+</code></pre><h6 id="PS-在level13以后加入了一个screenSize的属性，这个属性很重要如果在android3-2以后的版本中没有添加”screenSize”的话依然会触发横竖屏activity销毁周期-也就是说不能屏蔽activity销毁，从而调用onConfigurationChanged方法，而在3-2之前只要设置orientation-keyboardHidden就可以-。由于智能机的迅速普及手机的系统大多数升级到4-0以上，这样会导致很多没有设置screenSize属性的程序activity又出现销毁情况。"><a href="#PS-在level13以后加入了一个screenSize的属性，这个属性很重要如果在android3-2以后的版本中没有添加”screenSize”的话依然会触发横竖屏activity销毁周期-也就是说不能屏蔽activity销毁，从而调用onConfigurationChanged方法，而在3-2之前只要设置orientation-keyboardHidden就可以-。由于智能机的迅速普及手机的系统大多数升级到4-0以上，这样会导致很多没有设置screenSize属性的程序activity又出现销毁情况。" class="headerlink" title="PS:在level13以后加入了一个screenSize的属性，这个属性很重要如果在android3.2以后的版本中没有添加”screenSize”的话依然会触发横竖屏activity销毁周期(也就是说不能屏蔽activity销毁，从而调用onConfigurationChanged方法，而在3.2之前只要设置orientation|keyboardHidden就可以)。由于智能机的迅速普及手机的系统大多数升级到4.0以上，这样会导致很多没有设置screenSize属性的程序activity又出现销毁情况。"></a>PS:在level13以后加入了一个screenSize的属性，这个属性很重要如果在android3.2以后的版本中没有添加”screenSize”的话依然会触发横竖屏activity销毁周期(也就是说不能屏蔽activity销毁，从而调用onConfigurationChanged方法，而在3.2之前只要设置orientation|keyboardHidden就可以)。由于智能机的迅速普及手机的系统大多数升级到4.0以上，这样会导致很多没有设置screenSize属性的程序activity又出现销毁情况。</h6><p>试试如下代码：<br>AndroidMainifest.xml中加入</p>
+<pre><code>&lt;activity  
+  android:name=&quot;.Activity&quot; 
+  android:launchMode=&quot;singleTask&quot;    
+  android:configChanges=&quot;orientationkeyboardHidden|screenSize&quot;/&gt;
+</code></pre><p>复写acitivity的onConfigurationChanged方法</p>
+<pre><code>@Override
+public void onConfigurationChanged(Configuration newConfig) {
+    //其实这里什么都不要做
+    super.onConfigurationChanged(newConfig);
+}
+</code></pre>
       
     </div>
     
@@ -415,7 +422,7 @@
               
             
             
-              <p class="post-toc-empty">此文章未包含目录</p>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-6"><a class="nav-link" href="#PS-在level13以后加入了一个screenSize的属性，这个属性很重要如果在android3-2以后的版本中没有添加”screenSize”的话依然会触发横竖屏activity销毁周期-也就是说不能屏蔽activity销毁，从而调用onConfigurationChanged方法，而在3-2之前只要设置orientation-keyboardHidden就可以-。由于智能机的迅速普及手机的系统大多数升级到4-0以上，这样会导致很多没有设置screenSize属性的程序activity又出现销毁情况。"><span class="nav-number">1.</span> <span class="nav-text">PS:在level13以后加入了一个screenSize的属性，这个属性很重要如果在android3.2以后的版本中没有添加”screenSize”的话依然会触发横竖屏activity销毁周期(也就是说不能屏蔽activity销毁，从而调用onConfigurationChanged方法，而在3.2之前只要设置orientation|keyboardHidden就可以)。由于智能机的迅速普及手机的系统大多数升级到4.0以上，这样会导致很多没有设置screenSize属性的程序activity又出现销毁情况。</span></a></li></ol></div>
             
           </div>
         </section>
