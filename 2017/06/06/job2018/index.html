@@ -80,19 +80,28 @@
 
 
 
-<meta name="description" content="有时候服务端非得返回比较傻逼的Json
-这时候可以用gson解析带有键值对的json例子12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455public class jsonParse&amp;#123;        class City&amp;#123;">
+<meta name="description" content="本人近况年底裁人了，一年半没准备面试了，之前换也是内推的，在这个寒冬的冬天还经历此遭，偏偏还赶上要特么的跟裁人的公司仲裁心态早已爆炸，大的环境不好，各位且干且珍惜….记录下最近的面试经历，整理下让自己不断进步！
+右划
+这公司是在拉勾上投的，CEO号称曾于字节跳动，任视频负责人，创建了头条视频APP。公司待遇15薪非常不错，坐落于望京Soho对面的望京融科写字楼
+
+面试过程觉得自己挺失败的没有充分准">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Gson解析（List和Map）格式json数据">
-<meta property="og:url" content="http://yoursite.com/2016/04/20/gson/index.html">
+<meta property="og:title" content="2018年年底Android悲催的面试之路">
+<meta property="og:url" content="http://yoursite.com/2017/06/06/job2018/index.html">
 <meta property="og:site_name" content="Mikee的八度空间">
-<meta property="og:description" content="有时候服务端非得返回比较傻逼的Json
-这时候可以用gson解析带有键值对的json例子12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455public class jsonParse&amp;#123;        class City&amp;#123;">
-<meta property="og:updated_time" content="2016-04-20T08:36:35.000Z">
+<meta property="og:description" content="本人近况年底裁人了，一年半没准备面试了，之前换也是内推的，在这个寒冬的冬天还经历此遭，偏偏还赶上要特么的跟裁人的公司仲裁心态早已爆炸，大的环境不好，各位且干且珍惜….记录下最近的面试经历，整理下让自己不断进步！
+右划
+这公司是在拉勾上投的，CEO号称曾于字节跳动，任视频负责人，创建了头条视频APP。公司待遇15薪非常不错，坐落于望京Soho对面的望京融科写字楼
+
+面试过程觉得自己挺失败的没有充分准">
+<meta property="og:updated_time" content="2018-12-10T12:21:52.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Gson解析（List和Map）格式json数据">
-<meta name="twitter:description" content="有时候服务端非得返回比较傻逼的Json
-这时候可以用gson解析带有键值对的json例子12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455public class jsonParse&amp;#123;        class City&amp;#123;">
+<meta name="twitter:title" content="2018年年底Android悲催的面试之路">
+<meta name="twitter:description" content="本人近况年底裁人了，一年半没准备面试了，之前换也是内推的，在这个寒冬的冬天还经历此遭，偏偏还赶上要特么的跟裁人的公司仲裁心态早已爆炸，大的环境不好，各位且干且珍惜….记录下最近的面试经历，整理下让自己不断进步！
+右划
+这公司是在拉勾上投的，CEO号称曾于字节跳动，任视频负责人，创建了头条视频APP。公司待遇15薪非常不错，坐落于望京Soho对面的望京融科写字楼
+
+面试过程觉得自己挺失败的没有充分准">
 
 
 
@@ -110,7 +119,7 @@
   };
 </script>
 
-  <title> Gson解析（List和Map）格式json数据 | Mikee的八度空间 </title>
+  <title> 2018年年底Android悲催的面试之路 | Mikee的八度空间 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -230,7 +239,7 @@
             
             
               
-                Gson解析（List和Map）格式json数据
+                2018年年底Android悲催的面试之路
               
             
           </h1>
@@ -242,8 +251,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-04-20T14:58:25+08:00" content="2016-04-20">
-              2016-04-20
+            <time itemprop="dateCreated" datetime="2017-06-06T18:12:35+08:00" content="2017-06-06">
+              2017-06-06
             </time>
           </span>
 
@@ -270,9 +279,16 @@
       
 
       
-        <p>有时候服务端非得返回比较傻逼的Json</p>
-<h2 id="这时候可以用gson解析带有键值对的json"><a href="#这时候可以用gson解析带有键值对的json" class="headerlink" title="这时候可以用gson解析带有键值对的json"></a>这时候可以用gson解析带有键值对的json</h2><h3 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line">public class jsonParse&#123;</span><br><span class="line"></span><br><span class="line">        </span><br><span class="line"></span><br><span class="line">class City&#123;</span><br><span class="line"></span><br><span class="line">        int id;</span><br><span class="line"></span><br><span class="line">        String name;</span><br><span class="line"></span><br><span class="line">        String code;</span><br><span class="line"></span><br><span class="line">        String map;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">        </span><br><span class="line"></span><br><span class="line">        </span><br><span class="line"></span><br><span class="line">public static void main(String[] args) &#123;</span><br><span class="line"></span><br><span class="line">        //列表/array 数据</span><br><span class="line"></span><br><span class="line">                 String str=<span class="string">"[&#123;'id': '1','code': 'bj','name': '北京','map': '39.90403, 116.40752599999996'&#125;, &#123;'id': '2','code': 'sz','name': '深圳','map': '22.543099, 114.05786799999998'&#125;, &#123;'id': '9','code': 'sh','name': '上海','map': '31.230393,121.473704'&#125;, &#123;'id': '10','code': 'gz','name': '广州','map': '23.129163,113.26443500000005'&#125;]"</span>;</span><br><span class="line"></span><br><span class="line">        Gson gson=new Gson();</span><br><span class="line"></span><br><span class="line">        List&lt;City&gt; rs=new ArrayList&lt;City&gt;();</span><br><span class="line"></span><br><span class="line">         Type <span class="built_in">type</span> = new TypeToken&lt;ArrayList&lt;City&gt;&gt;() &#123;&#125;.getType();</span><br><span class="line"></span><br><span class="line">          rs=gson.fromJson(str, <span class="built_in">type</span>);</span><br><span class="line"></span><br><span class="line">          <span class="keyword">for</span>(City o:rs)&#123;</span><br><span class="line"></span><br><span class="line">                  System.out.println(o.name);</span><br><span class="line"></span><br><span class="line">          &#125;</span><br><span class="line"></span><br><span class="line">          </span><br><span class="line"></span><br><span class="line">          //map数据</span><br><span class="line"></span><br><span class="line">          String jsonStr=<span class="string">"&#123;'1': &#123;'id': '1','code': 'bj','name': '北京','map': '39.90403, 116.40752599999996'&#125;,'2': &#123;'id': '2','code': 'sz','name': '深圳','map': '22.543099, 114.05786799999998'&#125;,'9': &#123;'id': '9','code': 'sh','name': '上海','map': '31.230393,121.473704'&#125;,'10': &#123;'id': '10','code': 'gz','name': '广州','map': '23.129163,113.26443500000005'&#125;&#125;"</span>;</span><br><span class="line"></span><br><span class="line">          Map&lt;String, City&gt; citys = gson.fromJson(jsonStr, new TypeToken&lt;Map&lt;String, City&gt;&gt;() &#123;&#125;.getType()); </span><br><span class="line"></span><br><span class="line">          System.out.println(citys.get(<span class="string">"1"</span>).name+<span class="string">"----------"</span>+citys.get(<span class="string">"2"</span>).code);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+        <h1 id="本人近况"><a href="#本人近况" class="headerlink" title="本人近况"></a>本人近况</h1><p>年底裁人了，一年半没准备面试了，之前换也是内推的，在这个寒冬的冬天还经历此遭，偏偏还赶上要特么的跟裁人的公司仲裁<br>心态早已爆炸，大的环境不好，各位且干且珍惜….<br>记录下最近的面试经历，整理下让自己不断进步！</p>
+<h2 id="右划"><a href="#右划" class="headerlink" title="右划"></a>右划</h2><blockquote>
+<p>这公司是在拉勾上投的，CEO号称曾于字节跳动，任视频负责人，创建了头条视频APP。公司待遇15薪非常不错，坐落于望京Soho对面的望京融科写字楼</p>
+<ul>
+<li>面试过程觉得自己挺失败的没有充分准备算法再加上由于一年半没有再面试过了，有点手生，好多应该答上来的问题都没有答好，面试官确实是大牛，没会的问题也稍微讲解了下，不过深度确实蛮深的</li>
+<li>印象比较深的几个问题：Lru算法，Binder机制，EventBus实现原理和为什么不能跨进程，Handler如何在handleMessage方法拦截之前发出的message，手写二分法查找（没准备直接跪了），后来让我手写冒泡，我觉得前面已经没戏了（大致说了下双重循环然后赋值也没手写），跨进程几种方式，AIDL，handler机制，ThreadLocal实现原理（回答的很模糊，附上正确答案：每个Thread的对象都有一个ThreadLocalMap，当创建一个ThreadLocal的时候，就会将该ThreadLocal对象添加到该Map中，其中键就是ThreadLocal，值可以是任意类型。</li>
+</ul>
+</blockquote>
+<p>在该类中，最重要的方法就是两个：set()和get()方法。当调用ThreadLocal的get()方法的时候，会先找到当前线程的ThreadLocalMap，然后再找到对应的值。set()方法也是一样。）系统是如何监听ANR的（他说是androidframework层有一个单独的进程），后来问到如何定位和排查我不小心说了blockCanary，他有追问了一下源码和原理我回答的也不是很好（应用发生卡顿，一定是在dispatchMessage中执行了耗时操作。我们通过给主线程的Looper设置一个Printer，打点统计dispatchMessage方法执行的时间，如果超出阀值，表示发生卡顿，则dump出各种信息，提供开发者分析性能瓶颈。）<br>最后知道今天一定挂了，不过还是很有收获的知道自己哪里不足…<br>PS:明天去五道口面试斗鱼，希望能好好把握</p>
+<h2 id="斗鱼"><a href="#斗鱼" class="headerlink" title="斗鱼"></a>斗鱼</h2>
       
     </div>
     
@@ -295,12 +311,16 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2017/06/06/job/" rel="next" title="2017年Android曲折的求职之路">
+                <i class="fa fa-chevron-left"></i> 2017年Android曲折的求职之路
+              </a>
+            
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/04/20/gsonUtil/" rel="prev" title="Gson工具类">
-                Gson工具类 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/10/10/CommonUtils/" rel="prev" title="Android工具类常用的几种方法">
+                Android工具类常用的几种方法 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -401,7 +421,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#这时候可以用gson解析带有键值对的json"><span class="nav-number">1.</span> <span class="nav-text">这时候可以用gson解析带有键值对的json</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#例子"><span class="nav-number">1.1.</span> <span class="nav-text">例子</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#本人近况"><span class="nav-number">1.</span> <span class="nav-text">本人近况</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#右划"><span class="nav-number">1.1.</span> <span class="nav-text">右划</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#斗鱼"><span class="nav-number">1.2.</span> <span class="nav-text">斗鱼</span></a></li></ol></li></ol></div>
             
           </div>
         </section>
