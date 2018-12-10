@@ -227,6 +227,108 @@
             
               
                 
+                <a class="post-title-link" href="/2018/12/10/job2018/" itemprop="url">
+                  2018年年底Android悲催的面试之路
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2018-12-10T21:32:46+08:00" content="2018-12-10">
+              2018-12-10
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="本人近况"><a href="#本人近况" class="headerlink" title="本人近况"></a>本人近况</h1><p>年底裁人了，一年半没准备面试了，之前换也是内推的，在这个寒冬的冬天还经历此遭，偏偏还赶上要特么的跟裁人的公司仲裁<br>心态早已爆炸，大的环境不好，各位且干且珍惜….<br>记录下最近的面试经历，整理下让自己不断进步！</p>
+<h2 id="右划"><a href="#右划" class="headerlink" title="右划"></a>右划</h2><blockquote>
+<p>这公司是在拉勾上投的，CEO号称曾于字节跳动，任视频负责人，创建了头条视频APP。公司待遇15薪非常不错，坐落于望京Soho对面的望京融科写字楼</p>
+<ul>
+<li>面试过程觉得自己挺失败的没有充分准备算法再加上由于一年半没有再面试过了，有点手生，好多应该答上来的问题都没有答好，面试官确实是大牛，没会的问题也稍微讲解了下，不过深度确实蛮深的</li>
+<li>印象比较深的几个问题：Lru算法，Binder机制，EventBus实现原理和为什么不能跨进程，Handler如何在handleMessage方法拦截之前发出的message，手写二分法查找（没准备直接跪了），后来让我手写冒泡，我觉得前面已经没戏了（大致说了下双重循环然后赋值也没手写），跨进程几种方式，AIDL，handler机制，ThreadLocal实现原理（回答的很模糊，附上正确答案：每个Thread的对象都有一个ThreadLocalMap，当创建一个ThreadLocal的时候，就会将该ThreadLocal对象添加到该Map中，其中键就是ThreadLocal，值可以是任意类型。</li>
+</ul>
+</blockquote>
+<p>在该类中，最重要的方法就是两个：set()和get()方法。当调用ThreadLocal的get()方法的时候，会先找到当前线程的ThreadLocalMap，然后再找到对应的值。set()方法也是一样。）系统是如何监听ANR的（他说是androidframework层有一个单独的进程），后来问到如何定位和排查我不小心说了blockCanary，他有追问了一下源码和原理我回答的也不是很好（应用发生卡顿，一定是在dispatchMessage中执行了耗时操作。我们通过给主线程的Looper设置一个Printer，打点统计dispatchMessage方法执行的时间，如果超出阀值，表示发生卡顿，则dump出各种信息，提供开发者分析性能瓶颈。）<br>最后知道今天一定挂了，不过还是很有收获的知道自己哪里不足…<br>PS:明天去五道口面试斗鱼，希望能好好把握</p>
+<h2 id="斗鱼"><a href="#斗鱼" class="headerlink" title="斗鱼"></a>斗鱼</h2>
+          
+        
+      
+    </div>
+    
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope="" itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2017/10/10/CommonUtils/" itemprop="url">
                   Android工具类常用的几种方法
                 </a>
@@ -282,108 +384,6 @@
 <h4 id="9-验证码倒计时工具类"><a href="#9-验证码倒计时工具类" class="headerlink" title="9.验证码倒计时工具类"></a>9.验证码倒计时工具类</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">	public class TimeCount extends CountDownTimer &#123;    </span><br><span class="line">    private Button button;    /**</span><br><span class="line">     * 到计时</span><br><span class="line">     * @param millisInFuture  到计时多久,毫秒</span><br><span class="line">     * @param countDownInterval 周期</span><br><span class="line">     * @param button   按钮</span><br><span class="line">     */</span><br><span class="line">    public TimeCount(long millisInFuture, long countDownInterval,Button button) &#123;        </span><br><span class="line">    super(millisInFuture, countDownInterval);        </span><br><span class="line">    this.button =button;</span><br><span class="line">    &#125;    </span><br><span class="line">    public TimeCount(long millisInFuture, long countDownInterval) &#123;        </span><br><span class="line">    super(millisInFuture, countDownInterval);</span><br><span class="line">    &#125;    </span><br><span class="line">    @Override</span><br><span class="line">    public void <span class="function"><span class="title">onFinish</span></span>() &#123;// 计时完毕</span><br><span class="line">        button.setText(<span class="string">"获取验证码"</span>);</span><br><span class="line">        button.setClickable(<span class="literal">true</span>);</span><br><span class="line">        button.setBackground(MyApplication.getContext().getResources().getDrawable(R.drawable.radius14));</span><br><span class="line">    &#125;   </span><br><span class="line">     @Override</span><br><span class="line">    public void onTick(long millisUntilFinished) &#123;// 计时过程</span><br><span class="line">        button.setClickable(<span class="literal">false</span>);//防止重复点击</span><br><span class="line">        button.setText(millisUntilFinished / 1000 + <span class="string">"s后重试"</span>);</span><br><span class="line">        button.setBackground(MyApplication.getContext().getResources().getDrawable(R.drawable.radius_gray));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h4 id="10-屏幕截图工具类"><a href="#10-屏幕截图工具类" class="headerlink" title="10.屏幕截图工具类"></a>10.屏幕截图工具类</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">	public class ScreenShot &#123;</span><br><span class="line">	    </span><br><span class="line">	public static void shoot(Activity a, File filePath) &#123;        </span><br><span class="line">    <span class="keyword">if</span> (filePath == null) &#123;            </span><br><span class="line">        <span class="built_in">return</span>;</span><br><span class="line">        &#125;        </span><br><span class="line">    <span class="keyword">if</span> (!filePath.getParentFile().exists()) &#123;</span><br><span class="line">            filePath.getParentFile().mkdirs();</span><br><span class="line">        &#125;</span><br><span class="line">        FileOutputStream fos = null;        </span><br><span class="line">    try &#123;</span><br><span class="line">            fos = new FileOutputStream(filePath);            </span><br><span class="line">    <span class="keyword">if</span> (null != fos) &#123;</span><br><span class="line">                takeScreenShot(a).compress(Bitmap.CompressFormat.PNG, 100, fos);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; catch (FileNotFoundException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125; finally &#123;            </span><br><span class="line">    <span class="keyword">if</span> (fos != null) &#123;                </span><br><span class="line">    try &#123;</span><br><span class="line">                    fos.flush();</span><br><span class="line">                    fos.close();</span><br><span class="line">                &#125; catch (IOException e) &#123;</span><br><span class="line">                    e.printStackTrace();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;    </span><br><span class="line">    </span><br><span class="line">    private static Bitmap takeScreenShot(Activity activity) &#123;</span><br><span class="line">        View view = activity.getWindow().getDecorView();</span><br><span class="line">        view.setDrawingCacheEnabled(<span class="literal">true</span>);</span><br><span class="line">        view.buildDrawingCache();</span><br><span class="line">        Bitmap bitmap = view.getDrawingCache();</span><br><span class="line">        Rect frame = new Rect();</span><br><span class="line">        activity.getWindow().getDecorView().getWindowVisibleDisplayFrame(frame);        </span><br><span class="line">        int statusBarHeight = frame.top;        </span><br><span class="line">        int width = activity.getWindowManager().getDefaultDisplay().getWidth();        </span><br><span class="line">        int height = activity.getWindowManager().getDefaultDisplay()</span><br><span class="line">                .getHeight();        //去掉标题栏</span><br><span class="line">        Bitmap b = Bitmap.createBitmap(bitmap, 0, statusBarHeight, width,</span><br><span class="line">                height - statusBarHeight);</span><br><span class="line">        view.destroyDrawingCache();        </span><br><span class="line">        <span class="built_in">return</span> b;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-          
-        
-      
-    </div>
-    
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope="" itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/06/06/job2018/" itemprop="url">
-                  2018年年底Android悲催的面试之路
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-06-06T18:12:35+08:00" content="2017-06-06">
-              2017-06-06
-            </time>
-          </span>
-
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="本人近况"><a href="#本人近况" class="headerlink" title="本人近况"></a>本人近况</h1><p>年底裁人了，一年半没准备面试了，之前换也是内推的，在这个寒冬的冬天还经历此遭，偏偏还赶上要特么的跟裁人的公司仲裁<br>心态早已爆炸，大的环境不好，各位且干且珍惜….<br>记录下最近的面试经历，整理下让自己不断进步！</p>
-<h2 id="右划"><a href="#右划" class="headerlink" title="右划"></a>右划</h2><blockquote>
-<p>这公司是在拉勾上投的，CEO号称曾于字节跳动，任视频负责人，创建了头条视频APP。公司待遇15薪非常不错，坐落于望京Soho对面的望京融科写字楼</p>
-<ul>
-<li>面试过程觉得自己挺失败的没有充分准备算法再加上由于一年半没有再面试过了，有点手生，好多应该答上来的问题都没有答好，面试官确实是大牛，没会的问题也稍微讲解了下，不过深度确实蛮深的</li>
-<li>印象比较深的几个问题：Lru算法，Binder机制，EventBus实现原理和为什么不能跨进程，Handler如何在handleMessage方法拦截之前发出的message，手写二分法查找（没准备直接跪了），后来让我手写冒泡，我觉得前面已经没戏了（大致说了下双重循环然后赋值也没手写），跨进程几种方式，AIDL，handler机制，ThreadLocal实现原理（回答的很模糊，附上正确答案：每个Thread的对象都有一个ThreadLocalMap，当创建一个ThreadLocal的时候，就会将该ThreadLocal对象添加到该Map中，其中键就是ThreadLocal，值可以是任意类型。</li>
-</ul>
-</blockquote>
-<p>在该类中，最重要的方法就是两个：set()和get()方法。当调用ThreadLocal的get()方法的时候，会先找到当前线程的ThreadLocalMap，然后再找到对应的值。set()方法也是一样。）系统是如何监听ANR的（他说是androidframework层有一个单独的进程），后来问到如何定位和排查我不小心说了blockCanary，他有追问了一下源码和原理我回答的也不是很好（应用发生卡顿，一定是在dispatchMessage中执行了耗时操作。我们通过给主线程的Looper设置一个Printer，打点统计dispatchMessage方法执行的时间，如果超出阀值，表示发生卡顿，则dump出各种信息，提供开发者分析性能瓶颈。）<br>最后知道今天一定挂了，不过还是很有收获的知道自己哪里不足…<br>PS:明天去五道口面试斗鱼，希望能好好把握</p>
-<h2 id="斗鱼"><a href="#斗鱼" class="headerlink" title="斗鱼"></a>斗鱼</h2>
           
         
       
