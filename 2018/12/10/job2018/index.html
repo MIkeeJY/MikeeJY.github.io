@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="Mikee的八度空间">
 <meta property="og:description" content="本人近况年底裁人了，一年半没准备面试了，之前换也是内推的，在这个寒冬的冬天还经历此遭，偏偏还赶上裁员心态早已爆炸，大的环境不好，各位且干且珍惜….记录下最近的面试经历，整理下让自己不断进步！ 题外话我不知道一个人人性究竟可以坏到什么程度，但是我最近亲身经历的确实是这样，我一个安心想做技术的人跟你TMD HR部门的八竿子打不着，又何苦为难我呢？ 之前有个公司的薪酬绩效主管，邵X，只因为我在大会上顶撞">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-11T08:43:18.000Z">
+<meta property="og:updated_time" content="2018-12-13T15:32:09.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="2018年年底Android悲催的面试之路">
 <meta name="twitter:description" content="本人近况年底裁人了，一年半没准备面试了，之前换也是内推的，在这个寒冬的冬天还经历此遭，偏偏还赶上裁员心态早已爆炸，大的环境不好，各位且干且珍惜….记录下最近的面试经历，整理下让自己不断进步！ 题外话我不知道一个人人性究竟可以坏到什么程度，但是我最近亲身经历的确实是这样，我一个安心想做技术的人跟你TMD HR部门的八竿子打不着，又何苦为难我呢？ 之前有个公司的薪酬绩效主管，邵X，只因为我在大会上顶撞">
@@ -285,6 +285,47 @@
 <li>二面印象最深的是根据面向对象设计一个电梯系统，问题的关键点在于所有的属性都跟电梯有关，跟人无关，楼层数是固定的常量…我当时设计跑偏了，总联想到人然后去设计。。<br>结束以后没有HR面，估计歇菜了…再接再厉吧…</li>
 </ul>
 </blockquote>
+<h2 id="Zenjoy"><a href="#Zenjoy" class="headerlink" title="Zenjoy"></a>Zenjoy</h2><blockquote>
+<p>这家公司是猎头推荐的，坐落于银河SohoA座，办公环境蛮不错的，产品方向是做海外项目的，不过前后历经将近三个小时的面试着实很令人崩溃，我喝了将近三瓶小瓶怡宝矿泉水才撑到了最后。。。</p>
+</blockquote>
+<h3 id="一面-amp-二面"><a href="#一面-amp-二面" class="headerlink" title="一面&amp;二面"></a>一面&amp;二面</h3><p>一面，二面问的太多了根本记不住，只记得几个印象深刻的问题，</p>
+<ul>
+<li>hashcode（）和equals（）的作用、区别、联系？<br>因为hashCode()并不是完全可靠，有时候不同的对象他们生成的hashcode也会一样（生成hash值得公式可能存在的问题），所以hashCode()只能说是大部分时候可靠，并不是绝对可靠，所以我们可以得出：<br>1.equal()相等的两个对象他们的hashCode()肯定相等，也就是用equal()对比是绝对可靠的。<br>2.hashCode()相等的两个对象他们的equal()不一定相等，也就是hashCode()不是绝对可靠的。）</li>
+<li>Handler、Looper、MessageQueue、Thread关系？<br>一个线程可以有多个Handler实例，一个线程对应一个Looper，一个Looper也只对应一个MessageQueue，一个MessageQueue对应多个Message和Runnable。所以就形成了一对多的对应关系，一方：线程、Looper、MessageQueue；多方：Handler、Message。同时可以看出另一个一对一关系：一个Message实例对应一个Handler实例。</li>
+<li>Service 和 Activity如何交互, 如何在后台下载任务, 并在Activity显示进度？</li>
+<li>https握手过程，如何实现数据加密？客户端如何保证安全实现双重证书校验？请你设计一个登录功能，需要注意哪些安全问题?</li>
+<li>Hashmap实现原理和如何解决散列碰撞（必问），Hashmap底层为什么是线程不安全的？</li>
+<li>HandlerThread原理以及对比单个New Thread的好处，优点以及试用场景？需要注意的是HandlerThread 是单个线程的不太适合执行网络的IO操作，要注意。。</li>
+<li>EventBus实现原理</li>
+<li>SurfaceView, TextureView区别？<br>从性能和安全性角度出发，使用播放器优先选SurfaceView。<br>1.在android 7.0上系统surfaceview的性能比TextureView更有优势，支持对象的内容位置和包含的应用内容同步更新，平移、缩放不会产生黑边。 在7.0以下系统如果使用场景有动画效果，可以选择性使用TextureView<br>2.SurfaceView优点及缺点优点：可以在一个独立的线程中进行绘制，不会影响主线程，使用双缓冲机制，播放视频时画面更流畅<br>缺点：Surface不在View hierachy中，它的显示也不受View的属性控制，所以不能进行平移，缩放等变换，也不能放在其它ViewGroup中。SurfaceView 不能嵌套使用<br>3.TextureView优点及缺点<br>优点：支持移动、旋转、缩放等动画，支持截图<br>缺点：必须在硬件加速的窗口中使用，占用内存比SurfaceView高，在5.0以前在主线程渲染，5.0以后有单独的渲染线程。</li>
+<li>handler postDelay这个延迟是怎么实现的？</li>
+<li>Appliction启动过程（App启动过程）？</li>
+<li>如何测量应用启动时间？<br>1.可以通过代码打桩，计算启动时间<br>2.命令 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb shell am start -W [packageName]/[packageName.launchActivity]</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="三面"><a href="#三面" class="headerlink" title="三面"></a>三面</h3><p>根据之前猎头的情报，三面是没有技术相关的问题的，但是我这个不一样，三面是总监面，首先先手写一个算法，不难，大致意思是：给你一个无序的数组，又给了一个目标值，如果这个数组其中有两个数相加等于这个目标值，请你输出对应两个数的下标？<br>思路也蛮简单的，直接Arrays.sort先排序 按升序来，然后双重循环就可以了。。。写完总监会问下单层for循环时间复杂度—<br>for(int i=1;i &lt;=n;i++) //O(N);<br>for(int j=1;j &lt;=i;j++) //O(N^2);<br>然后是</p>
+<ul>
+<li>设计模式</li>
+<li>Restful接口规范 我俩争论了好半天</li>
+<li>观察者模式的原理<br>大概能记得的就是这些，总监可能比较注重基础吧，自认为总体发挥一般可能一面和三面有一些瑕疵，主要二面有一些问题反问面试官也没有给我相应的解释比如那个handler postDelay怎么delay的。。。前前后后面了将近三个小时，最后HR进来让我回去等消息，我知道估计凉凉了。。。</li>
+</ul>
+<h2 id="莱熙科技"><a href="#莱熙科技" class="headerlink" title="莱熙科技"></a>莱熙科技</h2><blockquote>
+<p>这家公司我依稀记得去年年初考虑新机会的时候，那时候还在职，偷偷去面过，真心觉得面试官总是问一些我意想不到的问题，原本是要拒了的，可是Boss直聘上HR小姐姐一再要求要我再来一次，我就安排了今天的第三面（第一面已经拿到offer但是工资与预期差距较大，而且没有太深的技术面再加上公司较小，与我预期的差距也很大就不写了）依稀记得大概一年零八个月前吧，那时候他们还没做海外项目，没想到现在的产品居然是我上家公司的同类竞品项目，他们做的叫LivU，Live Chat，在线视频聊天~于是我决定去试试水。。。</p>
+<h3 id="一面"><a href="#一面" class="headerlink" title="一面"></a>一面</h3><p>面试官还是1年零八个月之前的小哥，问题问的果然没有辜负我对他的期望，因为产品做的都是一个路子还有用的框架也是Agora的，答起来轻车熟路，但是有好多让我耳目一新的问题</p>
+<ul>
+<li>使用GreenDao如何实现创建表、关联表(一对一,一对多,多对多)？</li>
+<li>Java调用kotlin 如何不用companion object{}包裹？<br>我解答他之前一直纠结的：在Java中调用kotlin中静态的成员<br>如果一个类中所有的成员都是静态成员，将class改为object就不用每个方法都用companion object{}包裹了。但是小哥说据说是最新kotlin加个注解可以不需要这个包裹？</li>
+<li>断点续传实现</li>
+<li>代理模式和装饰器模式区别？</li>
+<li>java io 装饰器模式。。当时问我用过的哪个包是装饰器模式，我没答上来！</li>
+<li>App启动速度优化？</li>
+<li>Android 5.0-8.0新特性</li>
+<li>Dalvik与ART区别？</li>
+<li>进程保活？（伪命题）没有真正意义的进程保活，都是白明单才OK</li>
+<li>Retrofit CreateApi实现原理</li>
+</ul>
+</blockquote>
+<h3 id="二面"><a href="#二面" class="headerlink" title="二面"></a>二面</h3><p>二面主要是总监面试，穿插了一些技术，不过总是暗示我来了需要加班啥的要我考虑清楚（我当然想你钱到位，啥都不是事）不过既然这么说了，因为我问了一些公司流程方面的事，他回答是产品快速迭代，本身需求不可能流程化，只能产品做出来去试水，然后再推翻，如此往复计划跟不上变化快，大致我想要的工作方式并不是这样，可能有点分歧，也可能由于本来之前本来三面三个小时心态崩溃，可能态度没有顺着他来，So二面失败，HR小姐姐招人的佣金也没了。。<br>PS:其实内心还是蛮想去的，不过由于之前可能这种工作流程不太适合我，我刚跳出坑，他可能看到了我的犹豫和顾虑吧，所以技术过了也把我Pass了。。不过佛系的我已经无所谓了。。</p>
 
       
     </div>
@@ -412,7 +453,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#本人近况"><span class="nav-number">1.</span> <span class="nav-text">本人近况</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#题外话"><span class="nav-number">1.0.1.</span> <span class="nav-text">题外话</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#右划"><span class="nav-number">1.1.</span> <span class="nav-text">右划</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#斗鱼"><span class="nav-number">1.2.</span> <span class="nav-text">斗鱼</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#本人近况"><span class="nav-number">1.</span> <span class="nav-text">本人近况</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#题外话"><span class="nav-number">1.0.1.</span> <span class="nav-text">题外话</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#右划"><span class="nav-number">1.1.</span> <span class="nav-text">右划</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#斗鱼"><span class="nav-number">1.2.</span> <span class="nav-text">斗鱼</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Zenjoy"><span class="nav-number">1.3.</span> <span class="nav-text">Zenjoy</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#一面-amp-二面"><span class="nav-number">1.3.1.</span> <span class="nav-text">一面&amp;二面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三面"><span class="nav-number">1.3.2.</span> <span class="nav-text">三面</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#莱熙科技"><span class="nav-number">1.4.</span> <span class="nav-text">莱熙科技</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#一面"><span class="nav-number">1.4.1.</span> <span class="nav-text">一面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二面"><span class="nav-number">1.4.2.</span> <span class="nav-text">二面</span></a></li></ol></li></ol></div>
             
           </div>
         </section>
