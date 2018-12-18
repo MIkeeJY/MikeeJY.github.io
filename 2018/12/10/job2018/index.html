@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="Mikee的八度空间">
 <meta property="og:description" content="本人近况年底裁人了，一年半没准备面试了，之前换也是内推的，在这个寒冬的冬天还经历此遭，偏偏还赶上裁员心态早已爆炸，大的环境不好，各位且干且珍惜….记录下最近的面试经历，整理下让自己不断进步！ 题外话我不知道一个人人性究竟可以坏到什么程度，但是我最近亲身经历的确实是这样，我一个安心想做技术的人跟你TMD HR部门的八竿子打不着，又何苦为难我呢？ 之前有个公司的薪酬绩效主管，邵X，只因为我在大会上顶撞">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-13T15:32:09.000Z">
+<meta property="og:updated_time" content="2018-12-18T17:00:21.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="2018年年底Android悲催的面试之路">
 <meta name="twitter:description" content="本人近况年底裁人了，一年半没准备面试了，之前换也是内推的，在这个寒冬的冬天还经历此遭，偏偏还赶上裁员心态早已爆炸，大的环境不好，各位且干且珍惜….记录下最近的面试经历，整理下让自己不断进步！ 题外话我不知道一个人人性究竟可以坏到什么程度，但是我最近亲身经历的确实是这样，我一个安心想做技术的人跟你TMD HR部门的八竿子打不着，又何苦为难我呢？ 之前有个公司的薪酬绩效主管，邵X，只因为我在大会上顶撞">
@@ -326,6 +326,24 @@
 </ul>
 </blockquote>
 <h3 id="二面"><a href="#二面" class="headerlink" title="二面"></a>二面</h3><p>二面主要是总监面试，穿插了一些技术，不过总是暗示我来了需要加班啥的要我考虑清楚（我当然想你钱到位，啥都不是事）不过既然这么说了，因为我问了一些公司流程方面的事，他回答是产品快速迭代，本身需求不可能流程化，只能产品做出来去试水，然后再推翻，如此往复计划跟不上变化快，大致我想要的工作方式并不是这样，可能有点分歧，也可能由于本来之前本来三面三个小时心态崩溃，可能态度没有顺着他来，So二面失败，HR小姐姐招人的佣金也没了。。<br>PS:其实内心还是蛮想去的，不过由于之前可能这种工作流程不太适合我，我刚跳出坑，他可能看到了我的犹豫和顾虑吧，所以技术过了也把我Pass了。。不过佛系的我已经无所谓了。。</p>
+<h2 id="站酷（ZCOOL）"><a href="#站酷（ZCOOL）" class="headerlink" title="站酷（ZCOOL）"></a>站酷（ZCOOL）</h2><blockquote>
+<p>这家公司是拉勾投的，面试官貌似是帮别的部门招聘，应该是做一个在线教育的项目，听名字貌似叫“高高手”？遇到答的不好的题面试官都给予了细致的讲解，我觉得收获蛮大。</p>
+</blockquote>
+<p>具体的问题大概都有：</p>
+<ul>
+<li>Retrofit 如何实现文件（或图片上传）接口是如何定义的<br>大意要回答multipart/form-data 文件上传表单中<br>它会将表单的数据处理为一条消息，以标签为单元，用分隔符分开。既可以上传键值对，也可以上传文件。当上传的字段是文件时，会有Content-Type来表名文件类型；content-disposition，用来说明字段的一些信息；<br>由于有boundary隔离，所以multipart/form-data既可以上传文件，也可以上传键值对，它采用了键值对的方式，所以可以上传多个文件。</li>
+<li>自定义View的属性引用attr，styleable里定义的名称可否与系统已经存在的name重复？当然是不可以的，编译器会预先检查系统已经存在或者之前已经定义重复的</li>
+<li>自定义View OnMeasure方法的三种Mode<br>UNSPECIFIED(未指定),父控件对子控件不加任何束缚，子元素可以得到任意想要的大小，这种MeasureSpec一般是由父控件自身的特性决定的。比如ScrollView，它的子View可以随意设置大小，无论多高，都能滚动显示，这个时候，size一般就没什么意义。<br>EXACTLY(完全)，父控件为子View指定确切大小，希望子View完全按照自己给定尺寸来处理，跟上面的场景1跟2比较相似，这时的MeasureSpec一般是父控件根据自身的MeasureSpec跟子View的布局参数来确定的。一般这种情况下size&gt;0,有个确定值。<br>AT_MOST(至多)，父控件为子元素指定最大参考尺寸，希望子View的尺寸不要超过这个尺寸，跟上面场景3比较相似。这种模式也是父控件根据自身的MeasureSpec跟子View的布局参数来确定的，一般是子View的布局参数采用wrap_content的时候。</li>
+<li>WebView拦截Url和cookie相关？网页需要设置登录状态等情形</li>
+<li>Android中为什么主线程不会因为Looper.loop()里的死循环卡死？<br>Android应用程序的主线程在进入消息循环过程前，会在内部创建一个Linux管道（Pipe），这个管道的作用是使得Android应用程序主线程在消息队列为空时可以进入空闲等待状态，并且使得当应用程序的消息队列有消息需要处理时唤醒应用程序的主线程。</li>
+<li>解决Android多线程访问SQLite数据库死锁问题？database is locked<br>解决的办法就是保持sqlite连接单例，保持单个SqliteOpenHelper实例，同时对所有数据库操作的方法添加synchronized关键字。也就是说是读写数据库时存在的同步问题，所以采用单例+同步锁的方法，并且在每次数据库操作后都关闭数据库</li>
+<li>Android多进程解决单个进程内存分配？<br>微信貌似也用了拆分多进程去降低单个进程的heapSize</li>
+<li>Android如何实现大图加载？</li>
+<li>WeakReference使用场景？</li>
+<li>在Service里实现下载如何刷新UI？</li>
+<li>Handler postDelay如何实现不阻塞UI线程？<br>1.postDelay()一个1秒钟的MyTask任务、消息进队，MessageQueue开始阻塞，Looper阻塞，mBlocked为true，在enqueueMessage的if中将needWake = mBlocked。<br>2.然后post一个新的任务、消息进队，判断现在A时间还没到、正在阻塞，把新的任务插入消息队列的头部（MyTask任务的前面），然后此时needWake为true调用nativeWake()方法唤醒线程。<br>3.MessageQueue.next()方法被唤醒后，重新开始读取消息链表，第一个消息B无延时，直接返回给Looper；<br>4.Looper处理完这个消息再次调用next()方法，MessageQueue继续读取消息链表，第二个消息A还没到时间，计算一下剩余时间（假如还剩9秒）继续阻塞；<br>5.直到阻塞时间到或者下一次有Message进队；</li>
+</ul>
+<h3 id="心得"><a href="#心得" class="headerlink" title="心得"></a>心得</h3><p>这次面试还算是比较全面的面试吧，无论是深度和广度问的都很深，面试之后收获了自己的不足，感觉自己表现还可以，可能由于这个岗位是刚开始招的，时间周期会很长不知道会不会给offer… 不过有收获就是好的~</p>
 
       
     </div>
@@ -453,7 +471,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#本人近况"><span class="nav-number">1.</span> <span class="nav-text">本人近况</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#题外话"><span class="nav-number">1.0.1.</span> <span class="nav-text">题外话</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#右划"><span class="nav-number">1.1.</span> <span class="nav-text">右划</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#斗鱼"><span class="nav-number">1.2.</span> <span class="nav-text">斗鱼</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Zenjoy"><span class="nav-number">1.3.</span> <span class="nav-text">Zenjoy</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#一面-amp-二面"><span class="nav-number">1.3.1.</span> <span class="nav-text">一面&amp;二面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三面"><span class="nav-number">1.3.2.</span> <span class="nav-text">三面</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#莱熙科技"><span class="nav-number">1.4.</span> <span class="nav-text">莱熙科技</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#一面"><span class="nav-number">1.4.1.</span> <span class="nav-text">一面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二面"><span class="nav-number">1.4.2.</span> <span class="nav-text">二面</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#本人近况"><span class="nav-number">1.</span> <span class="nav-text">本人近况</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#题外话"><span class="nav-number">1.0.1.</span> <span class="nav-text">题外话</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#右划"><span class="nav-number">1.1.</span> <span class="nav-text">右划</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#斗鱼"><span class="nav-number">1.2.</span> <span class="nav-text">斗鱼</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Zenjoy"><span class="nav-number">1.3.</span> <span class="nav-text">Zenjoy</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#一面-amp-二面"><span class="nav-number">1.3.1.</span> <span class="nav-text">一面&amp;二面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三面"><span class="nav-number">1.3.2.</span> <span class="nav-text">三面</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#莱熙科技"><span class="nav-number">1.4.</span> <span class="nav-text">莱熙科技</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#一面"><span class="nav-number">1.4.1.</span> <span class="nav-text">一面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二面"><span class="nav-number">1.4.2.</span> <span class="nav-text">二面</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#站酷（ZCOOL）"><span class="nav-number">1.5.</span> <span class="nav-text">站酷（ZCOOL）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#心得"><span class="nav-number">1.5.1.</span> <span class="nav-text">心得</span></a></li></ol></li></ol></div>
             
           </div>
         </section>
