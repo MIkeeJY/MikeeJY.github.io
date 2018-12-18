@@ -80,13 +80,20 @@
 
 
 
-<meta property="og:type" content="website">
+<meta name="description" content="Java面试题面向对象的三个特征封装,继承,多态.这个应该是人人皆知.有时候也会加上抽象. 多态的好处允许不同类对象对同一消息做出响应,即同一消息可以根据发送对象的不同而采用多种不同的行为方式(发送消息就是函数调用).主要有以下优点:  可替换性:多态对已存在代码具有可替换性. 可扩充性:增加新的子类不影响已经存在的类结构. 接口性:多态是超类通过方法签名,向子类提供一个公共接口,由子类来完善或">
+<meta property="og:type" content="article">
 <meta property="og:title" content="Mikee的八度空间">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta property="og:url" content="http://yoursite.com/2018/12/15/Java面试题/index.html">
 <meta property="og:site_name" content="Mikee的八度空间">
+<meta property="og:description" content="Java面试题面向对象的三个特征封装,继承,多态.这个应该是人人皆知.有时候也会加上抽象. 多态的好处允许不同类对象对同一消息做出响应,即同一消息可以根据发送对象的不同而采用多种不同的行为方式(发送消息就是函数调用).主要有以下优点:  可替换性:多态对已存在代码具有可替换性. 可扩充性:增加新的子类不影响已经存在的类结构. 接口性:多态是超类通过方法签名,向子类提供一个公共接口,由子类来完善或">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://img.blog.csdn.net/20141105193133812?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvZGQ4NjQxNDAxMzA=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center">
+<meta property="og:image" content="http://uploadfiles.nowcoder.com/images/20151010/214250_1444467985224_6A144C1382BBEF1BE30E9B91BC2973C8">
+<meta property="og:updated_time" content="2018-12-18T17:05:05.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Mikee的八度空间">
+<meta name="twitter:description" content="Java面试题面向对象的三个特征封装,继承,多态.这个应该是人人皆知.有时候也会加上抽象. 多态的好处允许不同类对象对同一消息做出响应,即同一消息可以根据发送对象的不同而采用多种不同的行为方式(发送消息就是函数调用).主要有以下优点:  可替换性:多态对已存在代码具有可替换性. 可扩充性:增加新的子类不影响已经存在的类结构. 接口性:多态是超类通过方法签名,向子类提供一个公共接口,由子类来完善或">
+<meta name="twitter:image" content="http://img.blog.csdn.net/20141105193133812?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvZGQ4NjQxNDAxMzA=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center">
 
 
 
@@ -104,7 +111,7 @@
   };
 </script>
 
-  <title> Mikee的八度空间 </title>
+  <title>  | Mikee的八度空间 </title>
 </head>
 
 <body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -125,9 +132,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left 
-   page-home 
- ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
@@ -204,9 +209,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
   
@@ -227,9 +232,6 @@
             
               
                 
-                <a class="post-title-link" href="/2018/12/15/Java面试题/" itemprop="url">
-                  未命名
-                </a>
               
             
           </h1>
@@ -269,9 +271,7 @@
       
 
       
-        
-          
-            <hr>
+        <hr>
 <h2 id="Java面试题"><a href="#Java面试题" class="headerlink" title="Java面试题"></a>Java面试题</h2><h4 id="面向对象的三个特征"><a href="#面向对象的三个特征" class="headerlink" title="面向对象的三个特征"></a>面向对象的三个特征</h4><p>封装,继承,多态.这个应该是人人皆知.有时候也会加上抽象.</p>
 <h4 id="多态的好处"><a href="#多态的好处" class="headerlink" title="多态的好处"></a>多态的好处</h4><p>允许不同类对象对同一消息做出响应,即同一消息可以根据发送对象的不同而采用多种不同的行为方式(发送消息就是函数调用).主要有以下优点:</p>
 <ol>
@@ -1103,16 +1103,18 @@
 <p>所以非静态内部类不能有静态成员变量或静态方法。</p>
 <h4 id="48-手写实现二分查找"><a href="#48-手写实现二分查找" class="headerlink" title="48. 手写实现二分查找"></a>48. 手写实现二分查找</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">binarySearch</span><span class="params">(<span class="keyword">int</span>[] arr,<span class="keyword">int</span> key,<span class="keyword">int</span> low,<span class="keyword">int</span> high)</span></span>&#123;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">if</span>(key &lt; arr[low] || key &gt; arr[high] || low &gt; high)&#123;</span><br><span class="line">		<span class="keyword">return</span> -<span class="number">1</span>;				</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">int</span> middle = (low + high) / <span class="number">2</span>;			<span class="comment">//初始中间位置</span></span><br><span class="line">	<span class="keyword">if</span>(arr[middle] &gt; key)&#123;</span><br><span class="line">		<span class="comment">//比关键字大则关键字在左区域</span></span><br><span class="line">		<span class="keyword">return</span> recursionBinarySearch(arr, key, low, middle - <span class="number">1</span>);</span><br><span class="line">	&#125;<span class="keyword">else</span> <span class="keyword">if</span>(arr[middle] &lt; key)&#123;</span><br><span class="line">		<span class="comment">//比关键字小则关键字在右区域</span></span><br><span class="line">		<span class="keyword">return</span> recursionBinarySearch(arr, key, middle + <span class="number">1</span>, high);</span><br><span class="line">	&#125;<span class="keyword">else</span> &#123;</span><br><span class="line">		<span class="keyword">return</span> middle;</span><br><span class="line">	&#125;	</span><br><span class="line">	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-          
-        
       
     </div>
     
     <div>
       
+        
+      
     </div>
 
     <div>
+      
+        
       
     </div>
 
@@ -1120,905 +1122,32 @@
       
 
       
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope="" itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
             
+              <a href="/2018/12/10/job2018/" rel="next" title="2018年年底Android悲催的面试之路">
+                <i class="fa fa-chevron-left"></i> 2018年年底Android悲催的面试之路
+              </a>
             
-              
-                
-                <a class="post-title-link" href="/2018/12/10/job2018/" itemprop="url">
-                  2018年年底Android悲催的面试之路
-                </a>
-              
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
             
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2018-12-10T21:32:46+08:00" content="2018-12-10">
-              2018-12-10
-            </time>
-          </span>
-
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
+          </div>
         </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          
-            <h1 id="本人近况"><a href="#本人近况" class="headerlink" title="本人近况"></a>本人近况</h1><p>年底裁人了，一年半没准备面试了，之前换也是内推的，在这个寒冬的冬天还经历此遭，偏偏还赶上裁员<br>心态早已爆炸，大的环境不好，各位且干且珍惜….<br>记录下最近的面试经历，整理下让自己不断进步！</p>
-<h3 id="题外话"><a href="#题外话" class="headerlink" title="题外话"></a>题外话</h3><p>我不知道一个人人性究竟可以坏到什么程度，但是我最近亲身经历的确实是这样，我一个安心想做技术的人跟你TMD HR部门的八竿子打不着，又何苦为难我呢？ 之前有个公司的薪酬绩效主管，邵X，只因为我在大会上顶撞了她一个问题，一味着揪着我的把柄不放，甚至特么的为了少给我一个季度的绩效不允许提前转正，真的是坏透了，可能这就是职场，这就是江湖充满尔虞我诈，真的人真是身不由己的，本想与世无争安心踏实做技术，但是某些人却看不得你的安宁。。。还是那句话，出来混的迟早要还的，望好自为之</p>
-<h2 id="右划"><a href="#右划" class="headerlink" title="右划"></a>右划</h2><blockquote>
-<p>这公司是在拉勾上投的，CEO号称曾于字节跳动，任视频负责人，创建了头条视频APP。公司待遇15薪非常不错，坐落于望京Soho对面的望京融科写字楼</p>
-<ul>
-<li>面试过程觉得自己挺失败的没有充分准备算法再加上由于一年半没有再面试过了，有点手生，好多应该答上来的问题都没有答好，面试官确实是大牛，没会的问题也稍微讲解了下，不过深度确实蛮深的</li>
-<li>印象比较深的几个问题：Lru算法，Binder机制，EventBus实现原理和为什么不能跨进程，Handler如何在handleMessage方法拦截之前发出的message，手写二分法查找（没准备直接跪了），后来让我手写冒泡，我觉得前面已经没戏了（大致说了下双重循环然后赋值也没手写），跨进程几种方式，AIDL，handler机制，ThreadLocal实现原理（回答的很模糊，附上正确答案：每个Thread的对象都有一个ThreadLocalMap，当创建一个ThreadLocal的时候，就会将该ThreadLocal对象添加到该Map中，其中键就是ThreadLocal，值可以是任意类型。</li>
-</ul>
-</blockquote>
-<p>在该类中，最重要的方法就是两个：set()和get()方法。当调用ThreadLocal的get()方法的时候，会先找到当前线程的ThreadLocalMap，然后再找到对应的值。set()方法也是一样。）系统是如何监听ANR的（他说是androidframework层有一个单独的进程），后来问到如何定位和排查我不小心说了blockCanary，他有追问了一下源码和原理我回答的也不是很好（应用发生卡顿，一定是在dispatchMessage中执行了耗时操作。我们通过给主线程的Looper设置一个Printer，打点统计dispatchMessage方法执行的时间，如果超出阀值，表示发生卡顿，则dump出各种信息，提供开发者分析性能瓶颈。）<br>最后知道今天一定挂了，不过还是很有收获的知道自己哪里不足…<br>PS:明天去五道口面试斗鱼，希望能好好把握</p>
-<h2 id="斗鱼"><a href="#斗鱼" class="headerlink" title="斗鱼"></a>斗鱼</h2><blockquote>
-<p>拉勾投的斗鱼，据说最近在疯狂裁人？只经历了两轮面试，一共面了两个多小时，没到HR，估计歇菜了</p>
-<ul>
-<li>斗鱼有份笔试题，还是蛮简单的随便写写就ok，一面问的蛮详细的，问的大致是看简历写的东西问的，中规中矩，记忆比较深刻的是问了handlerThread原理,MVP模式（因为斗鱼目前的架构都是mvp），弹幕的实现原理和重叠问题（这个没怎么做过，回答的不是太好，而且之前也是直接用的B站开源的那个库），Kotlin协程（这个没用过,kt的掌握程度还只是入门阶段），Retrofit+Okhttp+Rxjava在华为的好多手机会OOM是由线程数溢出引起如何解决？堆内存，栈内存理解，栈如何转换成堆？内存泄漏是发生在堆内存还是栈内存？为什么？ BlockCanary原理？（第二次被问了！！！看来真要看看源码了）如何实现打印指定阻塞线程的方法名？LinkedHashMap与HashMap区别。。。<br>String a=“A” 与 String a = new String（“A”); 区别，分别存储在哪个区域（这题有误导嫌疑，第一个应该是常量区，堆栈都不是，第二个是栈）MutiDex 第一次ANR以及解决方式（答案参考我简书的文章：<a href="https://www.jianshu.com/p/5a2e33a61ba2" target="_blank" rel="noopener">https://www.jianshu.com/p/5a2e33a61ba2</a> ）<br>我觉得大部分的问题回答的还是不错的，一面问了下薪资然后开始二面</li>
-<li>二面印象最深的是根据面向对象设计一个电梯系统，问题的关键点在于所有的属性都跟电梯有关，跟人无关，楼层数是固定的常量…我当时设计跑偏了，总联想到人然后去设计。。<br>结束以后没有HR面，估计歇菜了…再接再厉吧…</li>
-</ul>
-</blockquote>
-<h2 id="Zenjoy"><a href="#Zenjoy" class="headerlink" title="Zenjoy"></a>Zenjoy</h2><blockquote>
-<p>这家公司是猎头推荐的，坐落于银河SohoA座，办公环境蛮不错的，产品方向是做海外项目的，不过前后历经将近三个小时的面试着实很令人崩溃，我喝了将近三瓶小瓶怡宝矿泉水才撑到了最后。。。</p>
-</blockquote>
-<h3 id="一面-amp-二面"><a href="#一面-amp-二面" class="headerlink" title="一面&amp;二面"></a>一面&amp;二面</h3><p>一面，二面问的太多了根本记不住，只记得几个印象深刻的问题，</p>
-<ul>
-<li>hashcode（）和equals（）的作用、区别、联系？<br>因为hashCode()并不是完全可靠，有时候不同的对象他们生成的hashcode也会一样（生成hash值得公式可能存在的问题），所以hashCode()只能说是大部分时候可靠，并不是绝对可靠，所以我们可以得出：<br>1.equal()相等的两个对象他们的hashCode()肯定相等，也就是用equal()对比是绝对可靠的。<br>2.hashCode()相等的两个对象他们的equal()不一定相等，也就是hashCode()不是绝对可靠的。）</li>
-<li>Handler、Looper、MessageQueue、Thread关系？<br>一个线程可以有多个Handler实例，一个线程对应一个Looper，一个Looper也只对应一个MessageQueue，一个MessageQueue对应多个Message和Runnable。所以就形成了一对多的对应关系，一方：线程、Looper、MessageQueue；多方：Handler、Message。同时可以看出另一个一对一关系：一个Message实例对应一个Handler实例。</li>
-<li>Service 和 Activity如何交互, 如何在后台下载任务, 并在Activity显示进度？</li>
-<li>https握手过程，如何实现数据加密？客户端如何保证安全实现双重证书校验？请你设计一个登录功能，需要注意哪些安全问题?</li>
-<li>Hashmap实现原理和如何解决散列碰撞（必问），Hashmap底层为什么是线程不安全的？</li>
-<li>HandlerThread原理以及对比单个New Thread的好处，优点以及试用场景？需要注意的是HandlerThread 是单个线程的不太适合执行网络的IO操作，要注意。。</li>
-<li>EventBus实现原理</li>
-<li>SurfaceView, TextureView区别？<br>从性能和安全性角度出发，使用播放器优先选SurfaceView。<br>1.在android 7.0上系统surfaceview的性能比TextureView更有优势，支持对象的内容位置和包含的应用内容同步更新，平移、缩放不会产生黑边。 在7.0以下系统如果使用场景有动画效果，可以选择性使用TextureView<br>2.SurfaceView优点及缺点优点：可以在一个独立的线程中进行绘制，不会影响主线程，使用双缓冲机制，播放视频时画面更流畅<br>缺点：Surface不在View hierachy中，它的显示也不受View的属性控制，所以不能进行平移，缩放等变换，也不能放在其它ViewGroup中。SurfaceView 不能嵌套使用<br>3.TextureView优点及缺点<br>优点：支持移动、旋转、缩放等动画，支持截图<br>缺点：必须在硬件加速的窗口中使用，占用内存比SurfaceView高，在5.0以前在主线程渲染，5.0以后有单独的渲染线程。</li>
-<li>handler postDelay这个延迟是怎么实现的？</li>
-<li>Appliction启动过程（App启动过程）？</li>
-<li>如何测量应用启动时间？<br>1.可以通过代码打桩，计算启动时间<br>2.命令 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb shell am start -W [packageName]/[packageName.launchActivity]</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h3 id="三面"><a href="#三面" class="headerlink" title="三面"></a>三面</h3><p>根据之前猎头的情报，三面是没有技术相关的问题的，但是我这个不一样，三面是总监面，首先先手写一个算法，不难，大致意思是：给你一个无序的数组，又给了一个目标值，如果这个数组其中有两个数相加等于这个目标值，请你输出对应两个数的下标？<br>思路也蛮简单的，直接Arrays.sort先排序 按升序来，然后双重循环就可以了。。。写完总监会问下单层for循环时间复杂度—<br>for(int i=1;i &lt;=n;i++) //O(N);<br>for(int j=1;j &lt;=i;j++) //O(N^2);<br>然后是</p>
-<ul>
-<li>设计模式</li>
-<li>Restful接口规范 我俩争论了好半天</li>
-<li>观察者模式的原理<br>大概能记得的就是这些，总监可能比较注重基础吧，自认为总体发挥一般可能一面和三面有一些瑕疵，主要二面有一些问题反问面试官也没有给我相应的解释比如那个handler postDelay怎么delay的。。。前前后后面了将近三个小时，最后HR进来让我回去等消息，我知道估计凉凉了。。。</li>
-</ul>
-<h2 id="莱熙科技"><a href="#莱熙科技" class="headerlink" title="莱熙科技"></a>莱熙科技</h2><blockquote>
-<p>这家公司我依稀记得去年年初考虑新机会的时候，那时候还在职，偷偷去面过，真心觉得面试官总是问一些我意想不到的问题，原本是要拒了的，可是Boss直聘上HR小姐姐一再要求要我再来一次，我就安排了今天的第三面（第一面已经拿到offer但是工资与预期差距较大，而且没有太深的技术面再加上公司较小，与我预期的差距也很大就不写了）依稀记得大概一年零八个月前吧，那时候他们还没做海外项目，没想到现在的产品居然是我上家公司的同类竞品项目，他们做的叫LivU，Live Chat，在线视频聊天~于是我决定去试试水。。。</p>
-<h3 id="一面"><a href="#一面" class="headerlink" title="一面"></a>一面</h3><p>面试官还是1年零八个月之前的小哥，问题问的果然没有辜负我对他的期望，因为产品做的都是一个路子还有用的框架也是Agora的，答起来轻车熟路，但是有好多让我耳目一新的问题</p>
-<ul>
-<li>使用GreenDao如何实现创建表、关联表(一对一,一对多,多对多)？</li>
-<li>Java调用kotlin 如何不用companion object{}包裹？<br>我解答他之前一直纠结的：在Java中调用kotlin中静态的成员<br>如果一个类中所有的成员都是静态成员，将class改为object就不用每个方法都用companion object{}包裹了。但是小哥说据说是最新kotlin加个注解可以不需要这个包裹？</li>
-<li>断点续传实现</li>
-<li>代理模式和装饰器模式区别？</li>
-<li>java io 装饰器模式。。当时问我用过的哪个包是装饰器模式，我没答上来！</li>
-<li>App启动速度优化？</li>
-<li>Android 5.0-8.0新特性</li>
-<li>Dalvik与ART区别？</li>
-<li>进程保活？（伪命题）没有真正意义的进程保活，都是白明单才OK</li>
-<li>Retrofit CreateApi实现原理</li>
-</ul>
-</blockquote>
-<h3 id="二面"><a href="#二面" class="headerlink" title="二面"></a>二面</h3><p>二面主要是总监面试，穿插了一些技术，不过总是暗示我来了需要加班啥的要我考虑清楚（我当然想你钱到位，啥都不是事）不过既然这么说了，因为我问了一些公司流程方面的事，他回答是产品快速迭代，本身需求不可能流程化，只能产品做出来去试水，然后再推翻，如此往复计划跟不上变化快，大致我想要的工作方式并不是这样，可能有点分歧，也可能由于本来之前本来三面三个小时心态崩溃，可能态度没有顺着他来，So二面失败，HR小姐姐招人的佣金也没了。。<br>PS:其实内心还是蛮想去的，不过由于之前可能这种工作流程不太适合我，我刚跳出坑，他可能看到了我的犹豫和顾虑吧，所以技术过了也把我Pass了。。不过佛系的我已经无所谓了。。</p>
-<h2 id="站酷（ZCOOL）"><a href="#站酷（ZCOOL）" class="headerlink" title="站酷（ZCOOL）"></a>站酷（ZCOOL）</h2><blockquote>
-<p>这家公司是拉勾投的，面试官貌似是帮别的部门招聘，应该是做一个在线教育的项目，听名字貌似叫“高高手”？遇到答的不好的题面试官都给予了细致的讲解，我觉得收获蛮大。</p>
-</blockquote>
-<p>具体的问题大概都有：</p>
-<ul>
-<li>Retrofit 如何实现文件（或图片上传）接口是如何定义的<br>大意要回答multipart/form-data 文件上传表单中<br>它会将表单的数据处理为一条消息，以标签为单元，用分隔符分开。既可以上传键值对，也可以上传文件。当上传的字段是文件时，会有Content-Type来表名文件类型；content-disposition，用来说明字段的一些信息；<br>由于有boundary隔离，所以multipart/form-data既可以上传文件，也可以上传键值对，它采用了键值对的方式，所以可以上传多个文件。</li>
-<li>自定义View的属性引用attr，styleable里定义的名称可否与系统已经存在的name重复？当然是不可以的，编译器会预先检查系统已经存在或者之前已经定义重复的</li>
-<li>自定义View OnMeasure方法的三种Mode<br>UNSPECIFIED(未指定),父控件对子控件不加任何束缚，子元素可以得到任意想要的大小，这种MeasureSpec一般是由父控件自身的特性决定的。比如ScrollView，它的子View可以随意设置大小，无论多高，都能滚动显示，这个时候，size一般就没什么意义。<br>EXACTLY(完全)，父控件为子View指定确切大小，希望子View完全按照自己给定尺寸来处理，跟上面的场景1跟2比较相似，这时的MeasureSpec一般是父控件根据自身的MeasureSpec跟子View的布局参数来确定的。一般这种情况下size&gt;0,有个确定值。<br>AT_MOST(至多)，父控件为子元素指定最大参考尺寸，希望子View的尺寸不要超过这个尺寸，跟上面场景3比较相似。这种模式也是父控件根据自身的MeasureSpec跟子View的布局参数来确定的，一般是子View的布局参数采用wrap_content的时候。</li>
-<li>WebView拦截Url和cookie相关？网页需要设置登录状态等情形</li>
-<li>Android中为什么主线程不会因为Looper.loop()里的死循环卡死？<br>Android应用程序的主线程在进入消息循环过程前，会在内部创建一个Linux管道（Pipe），这个管道的作用是使得Android应用程序主线程在消息队列为空时可以进入空闲等待状态，并且使得当应用程序的消息队列有消息需要处理时唤醒应用程序的主线程。</li>
-<li>解决Android多线程访问SQLite数据库死锁问题？database is locked<br>解决的办法就是保持sqlite连接单例，保持单个SqliteOpenHelper实例，同时对所有数据库操作的方法添加synchronized关键字。也就是说是读写数据库时存在的同步问题，所以采用单例+同步锁的方法，并且在每次数据库操作后都关闭数据库</li>
-<li>Android多进程解决单个进程内存分配？<br>微信貌似也用了拆分多进程去降低单个进程的heapSize</li>
-<li>Android如何实现大图加载？</li>
-<li>WeakReference使用场景？</li>
-<li>在Service里实现下载如何刷新UI？</li>
-<li>Handler postDelay如何实现不阻塞UI线程？<br>1.postDelay()一个1秒钟的MyTask任务、消息进队，MessageQueue开始阻塞，Looper阻塞，mBlocked为true，在enqueueMessage的if中将needWake = mBlocked。<br>2.然后post一个新的任务、消息进队，判断现在A时间还没到、正在阻塞，把新的任务插入消息队列的头部（MyTask任务的前面），然后此时needWake为true调用nativeWake()方法唤醒线程。<br>3.MessageQueue.next()方法被唤醒后，重新开始读取消息链表，第一个消息B无延时，直接返回给Looper；<br>4.Looper处理完这个消息再次调用next()方法，MessageQueue继续读取消息链表，第二个消息A还没到时间，计算一下剩余时间（假如还剩9秒）继续阻塞；<br>5.直到阻塞时间到或者下一次有Message进队；</li>
-</ul>
-<h3 id="心得"><a href="#心得" class="headerlink" title="心得"></a>心得</h3><p>这次面试还算是比较全面的面试吧，无论是深度和广度问的都很深，面试之后收获了自己的不足，感觉自己表现还可以，可能由于这个岗位是刚开始招的，时间周期会很长不知道会不会给offer… 不过有收获就是好的~</p>
-
-          
-        
-      
-    </div>
-    
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </article>
 
 
-    
-      
 
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope="" itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/10/10/CommonUtils/" itemprop="url">
-                  Android工具类常用的几种方法
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-10-10T20:17:30+08:00" content="2017-10-10">
-              2017-10-10
-            </time>
-          </span>
-
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h4 id="1-安装应用APK"><a href="#1-安装应用APK" class="headerlink" title="1.安装应用APK"></a>1.安装应用APK</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"> private void installApk(String apkFilePath) &#123;</span><br><span class="line">        File apkfile = new File(apkFilePath);        </span><br><span class="line">        <span class="keyword">if</span> (!apkfile.exists()) &#123;            </span><br><span class="line">            <span class="built_in">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        Intent i = new Intent(Intent.ACTION_VIEW);</span><br><span class="line">        i.setDataAndType(Uri.parse(<span class="string">"file://"</span> + apkfile.toString()), <span class="string">"application/vnd.android.package-archive"</span>);</span><br><span class="line">        startActivity(i);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="2-MD5算法"><a href="#2-MD5算法" class="headerlink" title="2. MD5算法"></a>2. MD5算法</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">public final static String MD5(String s) &#123;        </span><br><span class="line">            char hexDigits[] = &#123;<span class="string">'0'</span>, <span class="string">'1'</span>, <span class="string">'2'</span>, <span class="string">'3'</span>, <span class="string">'4'</span>, <span class="string">'5'</span>, <span class="string">'6'</span>, <span class="string">'7'</span>, <span class="string">'8'</span>, <span class="string">'9'</span>, <span class="string">'A'</span>, <span class="string">'B'</span>, <span class="string">'C'</span>, <span class="string">'D'</span>, <span class="string">'E'</span>, <span class="string">'F'</span>&#125;;        </span><br><span class="line">            try &#123;            </span><br><span class="line">            byte[] btInput = s.getBytes();          // 获得MD5摘要算法的 MessageDigest 对象</span><br><span class="line">            MessageDigest mdInst = MessageDigest.getInstance(<span class="string">"MD5"</span>);  // 使用指定的字节更新摘要</span><br><span class="line">            mdInst.update(btInput);                 // 获得密文</span><br><span class="line">            byte[] md = mdInst.digest();            // 把密文转换成十六进制的字符串形式</span><br><span class="line">            int j = md.length;            </span><br><span class="line">            char str[] = new char[j * 2];            </span><br><span class="line">            int k = 0;            //把字节转换成对应的字符串</span><br><span class="line">            <span class="keyword">for</span> (int i = 0; i &lt; j; i++) &#123;                </span><br><span class="line">                byte byte0 = md[i];</span><br><span class="line">                str[k++] = hexDigits[byte0 &gt;&gt;&gt; 4 &amp; 0xf];</span><br><span class="line">                str[k++] = hexDigits[byte0 &amp; 0xf];</span><br><span class="line">            &#125;           </span><br><span class="line">                 <span class="built_in">return</span> new String(str);</span><br><span class="line">        &#125; catch (Exception e) &#123;</span><br><span class="line">            e.printStackTrace();            </span><br><span class="line">                 <span class="built_in">return</span> null;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-<h4 id="3-判断现在是否有网络"><a href="#3-判断现在是否有网络" class="headerlink" title="3. 判断现在是否有网络"></a>3. 判断现在是否有网络</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">private boolean <span class="function"><span class="title">NetWorkStatus</span></span>() &#123;</span><br><span class="line">        ConnectivityManager cwjManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);</span><br><span class="line"></span><br><span class="line">        cwjManager.getActiveNetworkInfo();        </span><br><span class="line">        boolean netSataus = <span class="literal">true</span>;        </span><br><span class="line">        <span class="keyword">if</span> (cwjManager.getActiveNetworkInfo() != null) &#123;</span><br><span class="line"></span><br><span class="line">        netSataus = cwjManager.getActiveNetworkInfo().isAvailable();</span><br><span class="line"></span><br><span class="line">        Toast.makeText(this, <span class="string">"网络已经打开"</span>, Toast.LENGTH_LONG).show();</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">    <span class="keyword">else</span> &#123;</span><br><span class="line">        Builder b = new AlertDialog.Builder(this).setTitle(<span class="string">"没有可用的网络"</span>)</span><br><span class="line">                                        .setMessage(<span class="string">"是否对网络进行设置？"</span>);</span><br><span class="line">        b.setPositiveButton(<span class="string">"是"</span>, new DialogInterface.OnClickListener() </span><br><span class="line">        &#123;    </span><br><span class="line">                public void onClick(DialogInterface dialog, int whichButton) &#123;</span><br><span class="line">                Intent mIntent = new Intent(<span class="string">"/"</span>);</span><br><span class="line">                ComponentName comp = new ComponentName( <span class="string">"com.android.settings"</span>, <span class="string">"com.android.settings.WirelessSettings"</span>);</span><br><span class="line">                mIntent.setComponent(comp);</span><br><span class="line">                mIntent.setAction(<span class="string">"android.intent.action.VIEW"</span>);</span><br><span class="line">                startActivityForResult(mIntent,0); </span><br><span class="line">                &#125;</span><br><span class="line">                &#125;).setNeutralButton(<span class="string">"否"</span>, new DialogInterface.<span class="function"><span class="title">OnClickListener</span></span>() &#123;                        </span><br><span class="line">                public void onClick(DialogInterface dialog, int whichButton) &#123;</span><br><span class="line">                        dialog.cancel();</span><br><span class="line">                        &#125;</span><br><span class="line">                &#125;).show();</span><br><span class="line">                &#125;                </span><br><span class="line">                <span class="built_in">return</span> netSataus;</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
-<h4 id="4-获取设备屏幕的宽度高度密度"><a href="#4-获取设备屏幕的宽度高度密度" class="headerlink" title="4. 获取设备屏幕的宽度高度密度"></a>4. 获取设备屏幕的宽度高度密度</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">public  class   DisplayUtil &#123; </span><br><span class="line">     /**</span><br><span class="line">     * 得到设备屏幕的宽度</span><br><span class="line">     */</span><br><span class="line">    public static int getScreenWidth(Context context) &#123;        </span><br><span class="line">        <span class="built_in">return</span> context.getResources().getDisplayMetrics().widthPixels;</span><br><span class="line">    &#125;    /**</span><br><span class="line">     * 得到设备屏幕的高度</span><br><span class="line">     */</span><br><span class="line">    public static int getScreenHeight(Context context) &#123;        </span><br><span class="line">        <span class="built_in">return</span> context.getResources().getDisplayMetrics().heightPixels;</span><br><span class="line">    &#125;    /**</span><br><span class="line">     * 得到设备的密度</span><br><span class="line">     */</span><br><span class="line">    public static <span class="built_in">float</span> getScreenDensity(Context context) &#123;        </span><br><span class="line">        <span class="built_in">return</span> context.getResources().getDisplayMetrics().density;</span><br><span class="line">    &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-<h4 id="5-dp、sp-转换为-px-的工具类"><a href="#5-dp、sp-转换为-px-的工具类" class="headerlink" title="5. dp、sp 转换为 px 的工具类"></a>5. dp、sp 转换为 px 的工具类</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">public  class  DisplayUtil &#123;          </span><br><span class="line">    /**</span><br><span class="line">     * 将px值转换为dip或dp值，保证尺寸大小不变</span><br><span class="line">     */</span><br><span class="line">    public static int px2dip(Context context, <span class="built_in">float</span> pxValue) &#123;        </span><br><span class="line">		final <span class="built_in">float</span> scale = context.getResources().getDisplayMetrics().density;        </span><br><span class="line">		<span class="built_in">return</span> (int) (pxValue / scale + 0.5f);</span><br><span class="line">    &#125;    /**</span><br><span class="line">     * 将dip或dp值转换为px值，保证尺寸大小不变</span><br><span class="line">     * </span><br><span class="line">     * @param dipValue</span><br><span class="line">     * @param scale</span><br><span class="line">     *            （DisplayMetrics类中属性density）</span><br><span class="line">     * @<span class="built_in">return</span></span><br><span class="line">     */</span><br><span class="line">    public static int dip2px(Context context, <span class="built_in">float</span> dipValue) &#123;        </span><br><span class="line">        final <span class="built_in">float</span> scale = context.getResources().getDisplayMetrics().density;        </span><br><span class="line">        <span class="built_in">return</span> (int) (dipValue * scale + 0.5f);</span><br><span class="line">    &#125;    /**</span><br><span class="line">     * 将px值转换为sp值，保证文字大小不变</span><br><span class="line">     * </span><br><span class="line">     * @param pxValue</span><br><span class="line">     * @param fontScale</span><br><span class="line">     *            （DisplayMetrics类中属性scaledDensity）</span><br><span class="line">     * @<span class="built_in">return</span></span><br><span class="line">     */</span><br><span class="line">    public static int px2sp(Context context, <span class="built_in">float</span> pxValue) &#123;        </span><br><span class="line">        final <span class="built_in">float</span> fontScale = context.getResources().getDisplayMetrics().scaledDensity;        </span><br><span class="line">        <span class="built_in">return</span> (int) (pxValue / fontScale + 0.5f);</span><br><span class="line">    &#125;    /**</span><br><span class="line">     * 将sp值转换为px值，保证文字大小不变</span><br><span class="line">     * </span><br><span class="line">     * @param spValue</span><br><span class="line">     * @param fontScale</span><br><span class="line">     *            （DisplayMetrics类中属性scaledDensity）</span><br><span class="line">     * @<span class="built_in">return</span></span><br><span class="line">     */</span><br><span class="line">    public static int sp2px(Context context, <span class="built_in">float</span> spValue) &#123;        </span><br><span class="line">        final <span class="built_in">float</span> fontScale = context.getResources().getDisplayMetrics().scaledDensity;        </span><br><span class="line">        <span class="built_in">return</span> (int) (spValue * fontScale + 0.5f);</span><br><span class="line">    &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-<h4 id="6-drawable转bitmap的工具类"><a href="#6-drawable转bitmap的工具类" class="headerlink" title="6.drawable转bitmap的工具类"></a>6.drawable转bitmap的工具类</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * drawable转bitmap</span><br><span class="line"> *</span><br><span class="line"> * @param drawable</span><br><span class="line"> * @<span class="built_in">return</span></span><br><span class="line">*/</span><br><span class="line">private Bitmap drawableToBitamp(Drawable drawable) &#123;    </span><br><span class="line">       <span class="keyword">if</span> (null == drawable) &#123;        </span><br><span class="line">       <span class="built_in">return</span> null;</span><br><span class="line">       &#125;<span class="keyword">if</span> (drawable instanceof BitmapDrawable) &#123;</span><br><span class="line">       BitmapDrawable bd = (BitmapDrawable) drawable;        </span><br><span class="line">       <span class="built_in">return</span> bd.getBitmap();</span><br><span class="line">   &#125;    </span><br><span class="line">       int w = drawable.getIntrinsicWidth();    </span><br><span class="line">       int h = drawable.getIntrinsicHeight();</span><br><span class="line">       Bitmap bitmap = Bitmap.createBitmap(w, h, Bitmap.Config.ARGB_8888);</span><br><span class="line">       Canvas canvas = new Canvas(bitmap);</span><br><span class="line">       drawable.setBounds(0, 0, w, h);</span><br><span class="line">       drawable.draw(canvas);    </span><br><span class="line">       <span class="built_in">return</span> bitmap;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="7-文章发布模仿朋友圈时间显示"><a href="#7-文章发布模仿朋友圈时间显示" class="headerlink" title="7.文章发布模仿朋友圈时间显示"></a>7.文章发布模仿朋友圈时间显示</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br></pre></td><td class="code"><pre><span class="line">public static String ChangeTime(Date time) &#123;</span><br><span class="line">        String ftime = <span class="string">""</span>;</span><br><span class="line">        Calendar cal = Calendar.getInstance();        // 判断是否是同一天</span><br><span class="line">        String curDate = dateFormater2.get().format(cal.getTime());</span><br><span class="line">        String paramDate = dateFormater2.get().format(time);        </span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (curDate.equals(paramDate)) &#123;            </span><br><span class="line"></span><br><span class="line">    int hour = (int) ((cal.getTimeInMillis() - time.getTime()) / 3600000);            </span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (hour == 0)</span><br><span class="line">                ftime = Math.max(</span><br><span class="line">                        (cal.getTimeInMillis() - time.getTime()) / 60000, 1)</span><br><span class="line">                        + <span class="string">"分钟前"</span>;            </span><br><span class="line"></span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                ftime = hour + <span class="string">"小时前"</span>;            </span><br><span class="line"></span><br><span class="line">            <span class="built_in">return</span> ftime;</span><br><span class="line">        &#125;        long lt = time.getTime() / 86400000;        </span><br><span class="line"></span><br><span class="line">            long ct = cal.getTimeInMillis() / 86400000;        </span><br><span class="line"></span><br><span class="line">            int days = (int) (ct - lt);        </span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (days == 0) &#123;            </span><br><span class="line"></span><br><span class="line">            int hour = (int) ((cal.getTimeInMillis() - time.getTime()) / 3600000);            </span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (hour == 0)</span><br><span class="line">            ftime = Math.max( (cal.getTimeInMillis() - time.getTime()) / 60000, 1)</span><br><span class="line">                        + <span class="string">"分钟前"</span>;           </span><br><span class="line">             <span class="keyword">else</span></span><br><span class="line">                ftime = hour + <span class="string">"小时前"</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (days == 1) &#123;</span><br><span class="line">            ftime = <span class="string">"昨天"</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (days == 2) &#123;</span><br><span class="line">            ftime = <span class="string">"前天 "</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (days &gt; 2 &amp;&amp; days &lt; 31) &#123;</span><br><span class="line">            ftime = days + <span class="string">"天前"</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (days &gt;= 31 &amp;&amp; days &lt;= 2 * 31) &#123;</span><br><span class="line">            ftime = <span class="string">"一个月前"</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (days &gt; 2 * 31 &amp;&amp; days &lt;= 3 * 31) &#123;</span><br><span class="line">            ftime = <span class="string">"2个月前"</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (days &gt; 3 * 31 &amp;&amp; days &lt;= 4 * 31) &#123;</span><br><span class="line">            ftime = <span class="string">"3个月前"</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            ftime = dateFormater2.get().format(time);</span><br><span class="line">        &#125;        <span class="built_in">return</span> ftime;</span><br><span class="line">    &#125;    public static String friendly_time(String sdate) &#123;</span><br><span class="line">        Date time = null;        </span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (TimeZoneUtil.isInEasternEightZones())</span><br><span class="line">            time = toDate(sdate);        <span class="keyword">else</span></span><br><span class="line">            time = TimeZoneUtil.transformTime(toDate(sdate),</span><br><span class="line">                    TimeZone.getTimeZone(<span class="string">"GMT+08"</span>), TimeZone.getDefault());        </span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (time == null) &#123;            </span><br><span class="line"></span><br><span class="line">            <span class="built_in">return</span> <span class="string">"Unknown"</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        String ftime = <span class="string">""</span>;</span><br><span class="line">        Calendar cal = Calendar.getInstance();        // 判断是否是同一天</span><br><span class="line">        String curDate = dateFormater2.get().format(cal.getTime());</span><br><span class="line">        String paramDate = dateFormater2.get().format(time);        </span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (curDate.equals(paramDate)) &#123;            </span><br><span class="line"></span><br><span class="line">            int hour = (int) ((cal.getTimeInMillis() - time.getTime()) / 3600000);            </span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (hour == 0)</span><br><span class="line">                ftime = Math.max(</span><br><span class="line">                        (cal.getTimeInMillis() - time.getTime()) / 60000, 1)</span><br><span class="line">                        + <span class="string">"分钟前"</span>;           </span><br><span class="line">             <span class="keyword">else</span></span><br><span class="line">                ftime = hour + <span class="string">"小时前"</span>;            </span><br><span class="line"></span><br><span class="line">             <span class="built_in">return</span> ftime;</span><br><span class="line">        &#125;        long lt = time.getTime() / 86400000;        </span><br><span class="line"></span><br><span class="line">             long ct = cal.getTimeInMillis() / 86400000;        </span><br><span class="line"></span><br><span class="line">             int days = (int) (ct - lt);        </span><br><span class="line"></span><br><span class="line">             <span class="keyword">if</span> (days == 0) &#123;            </span><br><span class="line"></span><br><span class="line">             int hour = (int) ((cal.getTimeInMillis() - time.getTime()) / 3600000);            </span><br><span class="line"></span><br><span class="line">             <span class="keyword">if</span> (hour == 0)</span><br><span class="line">                ftime = Math.max(</span><br><span class="line">                        (cal.getTimeInMillis() - time.getTime()) / 60000, 1)</span><br><span class="line">                        + <span class="string">"分钟前"</span>;           </span><br><span class="line"></span><br><span class="line">              <span class="keyword">else</span></span><br><span class="line">                ftime = hour + <span class="string">"小时前"</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (days == 1) &#123;</span><br><span class="line">            ftime = <span class="string">"昨天"</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (days == 2) &#123;</span><br><span class="line">            ftime = <span class="string">"前天 "</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (days &gt; 2 &amp;&amp; days &lt; 31) &#123;</span><br><span class="line">            ftime = days + <span class="string">"天前"</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (days &gt;= 31 &amp;&amp; days &lt;= 2 * 31) &#123;</span><br><span class="line">            ftime = <span class="string">"一个月前"</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (days &gt; 2 * 31 &amp;&amp; days &lt;= 3 * 31) &#123;</span><br><span class="line">            ftime = <span class="string">"2个月前"</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (days &gt; 3 * 31 &amp;&amp; days &lt;= 4 * 31) &#123;</span><br><span class="line">            ftime = <span class="string">"3个月前"</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            ftime = dateFormater2.get().format(time);</span><br><span class="line">        &#125;        <span class="built_in">return</span> ftime;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-<h4 id="8-时间格式转换工具类"><a href="#8-时间格式转换工具类" class="headerlink" title="8.时间格式转换工具类"></a>8.时间格式转换工具类</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">public static String ConverToString(Date date) &#123;</span><br><span class="line">        DateFormat df = new SimpleDateFormat(<span class="string">"yyyy-MM-dd"</span>);        </span><br><span class="line">        <span class="built_in">return</span> df.format(date);</span><br><span class="line">    &#125;    </span><br><span class="line">        public static String ConverToString2(Date date)&#123;</span><br><span class="line">        DateFormat df = new SimpleDateFormat(<span class="string">"yyyy-MM-dd HH:mm"</span>);        </span><br><span class="line">        <span class="built_in">return</span> df.format(date);</span><br><span class="line">    &#125;    </span><br><span class="line">        public static String ConverToString3(Date date)&#123;</span><br><span class="line">        DateFormat df = new SimpleDateFormat(<span class="string">"yyyy-MM-dd HH:mm:ss"</span>);        </span><br><span class="line">        <span class="built_in">return</span> df.format(date);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-<h4 id="9-验证码倒计时工具类"><a href="#9-验证码倒计时工具类" class="headerlink" title="9.验证码倒计时工具类"></a>9.验证码倒计时工具类</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">	public class TimeCount extends CountDownTimer &#123;    </span><br><span class="line">    private Button button;    /**</span><br><span class="line">     * 到计时</span><br><span class="line">     * @param millisInFuture  到计时多久,毫秒</span><br><span class="line">     * @param countDownInterval 周期</span><br><span class="line">     * @param button   按钮</span><br><span class="line">     */</span><br><span class="line">    public TimeCount(long millisInFuture, long countDownInterval,Button button) &#123;        </span><br><span class="line">    super(millisInFuture, countDownInterval);        </span><br><span class="line">    this.button =button;</span><br><span class="line">    &#125;    </span><br><span class="line">    public TimeCount(long millisInFuture, long countDownInterval) &#123;        </span><br><span class="line">    super(millisInFuture, countDownInterval);</span><br><span class="line">    &#125;    </span><br><span class="line">    @Override</span><br><span class="line">    public void <span class="function"><span class="title">onFinish</span></span>() &#123;// 计时完毕</span><br><span class="line">        button.setText(<span class="string">"获取验证码"</span>);</span><br><span class="line">        button.setClickable(<span class="literal">true</span>);</span><br><span class="line">        button.setBackground(MyApplication.getContext().getResources().getDrawable(R.drawable.radius14));</span><br><span class="line">    &#125;   </span><br><span class="line">     @Override</span><br><span class="line">    public void onTick(long millisUntilFinished) &#123;// 计时过程</span><br><span class="line">        button.setClickable(<span class="literal">false</span>);//防止重复点击</span><br><span class="line">        button.setText(millisUntilFinished / 1000 + <span class="string">"s后重试"</span>);</span><br><span class="line">        button.setBackground(MyApplication.getContext().getResources().getDrawable(R.drawable.radius_gray));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="10-屏幕截图工具类"><a href="#10-屏幕截图工具类" class="headerlink" title="10.屏幕截图工具类"></a>10.屏幕截图工具类</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">	public class ScreenShot &#123;</span><br><span class="line">	    </span><br><span class="line">	public static void shoot(Activity a, File filePath) &#123;        </span><br><span class="line">    <span class="keyword">if</span> (filePath == null) &#123;            </span><br><span class="line">        <span class="built_in">return</span>;</span><br><span class="line">        &#125;        </span><br><span class="line">    <span class="keyword">if</span> (!filePath.getParentFile().exists()) &#123;</span><br><span class="line">            filePath.getParentFile().mkdirs();</span><br><span class="line">        &#125;</span><br><span class="line">        FileOutputStream fos = null;        </span><br><span class="line">    try &#123;</span><br><span class="line">            fos = new FileOutputStream(filePath);            </span><br><span class="line">    <span class="keyword">if</span> (null != fos) &#123;</span><br><span class="line">                takeScreenShot(a).compress(Bitmap.CompressFormat.PNG, 100, fos);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; catch (FileNotFoundException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125; finally &#123;            </span><br><span class="line">    <span class="keyword">if</span> (fos != null) &#123;                </span><br><span class="line">    try &#123;</span><br><span class="line">                    fos.flush();</span><br><span class="line">                    fos.close();</span><br><span class="line">                &#125; catch (IOException e) &#123;</span><br><span class="line">                    e.printStackTrace();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;    </span><br><span class="line">    </span><br><span class="line">    private static Bitmap takeScreenShot(Activity activity) &#123;</span><br><span class="line">        View view = activity.getWindow().getDecorView();</span><br><span class="line">        view.setDrawingCacheEnabled(<span class="literal">true</span>);</span><br><span class="line">        view.buildDrawingCache();</span><br><span class="line">        Bitmap bitmap = view.getDrawingCache();</span><br><span class="line">        Rect frame = new Rect();</span><br><span class="line">        activity.getWindow().getDecorView().getWindowVisibleDisplayFrame(frame);        </span><br><span class="line">        int statusBarHeight = frame.top;        </span><br><span class="line">        int width = activity.getWindowManager().getDefaultDisplay().getWidth();        </span><br><span class="line">        int height = activity.getWindowManager().getDefaultDisplay()</span><br><span class="line">                .getHeight();        //去掉标题栏</span><br><span class="line">        Bitmap b = Bitmap.createBitmap(bitmap, 0, statusBarHeight, width,</span><br><span class="line">                height - statusBarHeight);</span><br><span class="line">        view.destroyDrawingCache();        </span><br><span class="line">        <span class="built_in">return</span> b;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-          
-        
+    <div class="post-spread">
       
     </div>
-    
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope="" itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/06/06/job/" itemprop="url">
-                  2017年Android曲折的求职之路
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-06-06T18:12:35+08:00" content="2017-06-06">
-              2017-06-06
-            </time>
-          </span>
-
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="本人近况"><a href="#本人近况" class="headerlink" title="本人近况"></a>本人近况</h1><p>先说下博主最近近况，5月底毅然离职没想到目前市场这么萧条，怪自己太作，有好的机会不好好把握，非得出来受虐哈，人都是犯贱的……所以目前整理几家去过的公司以免以后被坑。</p>
-<h2 id="金开门（好贷网旗下孵化创业公司）"><a href="#金开门（好贷网旗下孵化创业公司）" class="headerlink" title="金开门（好贷网旗下孵化创业公司）"></a>金开门（好贷网旗下孵化创业公司）</h2><blockquote>
-<p>这公司是在BOSS直聘上投的<br>总体面试还算不错吧Android技术那面一般也不会问特别深主要是最新的主流技术一般会问下，还有就是之前的项目会大致问一下<br>接下来是总监面，总监是个蛮不错的人，满有亲和力的，大概就是聊推送这一块的，还有支付，因为这公司主要业务是聚合支付相关的，总体还OK<br>接着是HR 谈薪水还有介绍公司近况，貌似最近一直是995的节奏<br>最后是大Boss面貌似很屌的说了一句目前我们就是996的节奏（应该是试探我的），我觉得跟他也没啥好谈，他一幅咄咄逼人的气势，由于他比较强势，我又不妥协，所以就没有后续了…</p>
-</blockquote>
-<h2 id="音悦台"><a href="#音悦台" class="headerlink" title="音悦台"></a>音悦台</h2><blockquote>
-<p>这个也是在Boss直聘上约的，公司就在三里屯SOHO<br>公司主要业务主打MV的剩下的我就不多说了，前几年业务还是挺火的</p>
-<p>HR人还是很不错的，公司的环境神马的都没得说，妹子也多╮(╯_╰)╭没给offer确实感觉挺遗憾的</p>
-<p>首先光技术面问的就蛮深入的，基本最近貌似招人都比较苛刻~多线程，线程池，handler，Looper源码层，activity源码，四种启动模式，生命周期，View的绘制流程，自定义view，手势传递问的最复杂也最多<br>还有一些开源项目相关的问题吧 okhttp，glide，eventbus相关的</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">但是特么的这个面完之后就没有然后了，估计是薪资没谈拢？</span><br><span class="line">只说按公司流程来说还要有次复试，</span><br><span class="line">HR说下周一大概会通知结果，也确实通知了（比较少有的有职业素质的公司吧）</span><br></pre></td></tr></table></figure>
-<h2 id="1905电影网"><a href="#1905电影网" class="headerlink" title="1905电影网"></a>1905电影网</h2><blockquote>
-<p>这个是在拉勾上投的，公司在西直门<br>我敢说这个面试官是这么多年我遇到的最能装逼一个，当然人家技术也蛮不错的，你不会的，遇到问题的，人家也耐心给你讲解哟，无形装逼，最为致命啊！如果你技术不是很好的话千万不要去这家公司找虐</p>
-<p>博主之前有个朋友也来过这家面试，貌似最后给说开不了他的工资，还跟他说来面试很多<br>给我种感觉 就是面试造核弹，工作拧螺丝？最后还问了我项目里有啥亮点<br>问题蛮多的好多都忘了，大致记住几个</p>
-</blockquote>
-<p>Glide ，Picasso都分别有几个线程池<br>Asynctask 源码，为什么android4.0以后是串行</p>
-<p>OnMeasure 方法几个参数对应含义（这个题问的最多的所以我把答案贴上O(∩_∩)O~</p>
-<p>首先我们要理解的是widthMeasureSpec, heightMeasureSpec这两个参数是从哪里来的？onMeasure()函数由包含这个View的具体的ViewGroup调用，因此值也是从这个ViewGroup中传入的。这里我直接给出答案：子类View的这两个参数，由ViewGroup中的layout_width，layout_height和padding以及View自身的layout_margin共同决定。权值weight也是尤其需要考虑的因素，有它的存在情况可能会稍微复杂点。<br>了解了这两个参数的来源，还要知道这两个值的作用。我们只取heightMeasureSpec作说明。这个值由高32位和低16位组成，高32位保存的值叫specMode，可以通过如代码中所示的MeasureSpec.getMode()获取；低16位为specSize，同样可以由MeasureSpec.getSize()获取。那么specMode和specSize的作用有是什么呢？要想知道这一点，我们需要知道代码中的最后一行，所有的View的onMeasure()的最后一行都会调用setMeasureDimension()函数的作用——这个函数调用中传进去的值是View最终的视图大小。也就是说onMeasure()中之前所作的所有工作都是为了最后这一句话服务的。</p>
-<p>我们知道在ViewGroup中，给View分配的空间大小并不是确定的，有可能随着具体的变化而变化，而这个变化的条件就是传到specMode中决定的，specMode一共有三种可能：</p>
-<p>MeasureSpec.EXACTLY：父视图希望子视图的大小应该是specSize中指定的。</p>
-<p>MeasureSpec.AT_MOST：子视图的大小最多是specSize中指定的值，也就是说不建议子视图的大小超过specSize中给定的值。</p>
-<p>MeasureSpec.UNSPECIFIED：我们可以随意指定视图的大小。)</p>
-<p>广播怎么不跨进程<br>Rxjava 操作符<br>Rxjava 1 2的区别<br>还有问了轮播怎么让用户按下三秒之后继续翻页<br>还有五种进程级别<br>多线程下载，3个线程如何下载10M的文件<br>两列Recyclerview 如果是表格布局怎么添加header view<br>Thread 和intent service </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">最牛B的一个问题是类似天猫这种大厂APP实现的全局应用代理是怎么实现的</span><br><span class="line">（本意就是类似于推送的时候处理推送的逻辑不写一大堆switch case，而是在入口处动态去配置就可以）</span><br></pre></td></tr></table></figure>
-<h2 id="凡普金科（普惠金融旗下）"><a href="#凡普金科（普惠金融旗下）" class="headerlink" title="凡普金科（普惠金融旗下）"></a>凡普金科（普惠金融旗下）</h2><blockquote>
-<p>这个是在拉勾上投的，公司在银河SOHO<br>当时面试地点其实是发的有问题的，前台大门明明在A座嘛，你非得发个D座那边的位置，结果那边的门锁了，我敲了半天才有人开，我才知道走错门了应该从A座的电梯上来，可是就是发的D座，这里吐槽下。。。然后前台妹子给我的笔试题居然是Java的（貌似给错了）</p>
-<p>面试的深度基本跟1905那哥们差不多，也是activity启动模式跟手势传递还有Looper的源码那块问的比较多只是这个人最后问了一个尺子的效果：附上项目地址哈<br><a href="https://github.com/kailaisi/WheelSelect" target="_blank" rel="noopener">https://github.com/kailaisi/WheelSelect</a><br>类似这个地址demo的实现效果只是年龄换成了金额（毕竟是做金融的公司 当然这样咯）</p>
-<p>只说还有复试，但是也是没下文了 ~~o(&gt;_&lt;)o ~~</p>
-</blockquote>
-<h2 id="映社（木蚂蚁）"><a href="#映社（木蚂蚁）" class="headerlink" title="映社（木蚂蚁）"></a>映社（木蚂蚁）</h2><blockquote>
-<p>这个公司绝对是坑比中的战斗机，去了就让你一直等啊等，等到花都谢了的那种<br>PS：他们现在的项目主要是做直播的产品叫“映社”（有种抄袭映客的嫌疑~~）<br>去的时候公司前台都没人，打电话也没人接，后来一个快递小哥进门了我和另外的一个也是面试的才进去</p>
-<p>首先是有笔试题的话说蛮弱智的（做完感觉也不会怎么看，完全就是浪费时间啊啊）然后那哥们把你领到一个类似小会议室的屋子里，这哥们给人的感觉技术也很一般，没有之前面的那么强势，基本都是照着简历问的，问直播跟FFmpeg那块偏多，贝塞尔曲线？自定义View，偶尔穿插下retrofit，Rxjava，热修复神马的，面完之后就出去了让你一直等啊等，等了快40分钟的时候进来说总监在开会<br>这个公司真特么的是个奇葩，你约人的时候不会挑个没会的时间么，貌似拉勾上有个面php的哥们跟我一样也是被搁置一直等啊等，真是日了狗了！最后来了一句改天复试吧</p>
-<p>只说还有复试，让我来我也不会来了。。。</p>
-</blockquote>
-<h2 id="Melons-北京知行远科技"><a href="#Melons-北京知行远科技" class="headerlink" title="Melons(北京知行远科技)"></a>Melons(北京知行远科技)</h2><blockquote>
-<p>这家公司是我在拉勾上投的，公司成立于2016年太初创了（我能怎么办，我也很绝望啊，貌似最近拉勾的公司比较少，稀里糊涂就投了╮(╯▽╰)╭）<br>Boss也是做android的，而且还是前最美应用的联合创始人，技术出身还是蛮不错的公司早10晚8做海外项目</p>
-<p>但是目前的状况是跟别人挤在一间办公室里，那个隔壁组的貌似是Google天气的团队。。。</p>
-<p>技术面还是跟之前的那几家差不多，基本都不会看你做过的项目就咔咔的问底层源码咯，唯一不同的是启动模式那块多问了taskAffinity这个属性，我确实是没用过，面试官拿着macbook一个一个的循序渐进的问着，面试流程大概一个半小时左右，然后跟boss聊了聊薪资和之前为什么离职，因为是早上十点半约的，一直聊到了中午12点40多</p>
-<p>我中午饭都没吃，然后紧接着就去中关村准备下午那家的面试</p>
-<p>PS:今天还下着雨，挺苦逼的。。。</p>
-<p>目测不会发offer，可能是小公司给不起薪资。。。</p>
-</blockquote>
-<h2 id="NewsDog-公司名字就叫这个薪资标的还挺高"><a href="#NewsDog-公司名字就叫这个薪资标的还挺高" class="headerlink" title="NewsDog(公司名字就叫这个薪资标的还挺高)"></a>NewsDog(公司名字就叫这个薪资标的还挺高)</h2><blockquote>
-<p>这家公司是我在拉勾上投的，公司应该是B轮了已经<br>因为是约的是下午两点，而且刚从Melons那里面完就来了，所以去这家公司的时候连中午饭都没吃，让前台给接了杯水暂时压压惊。。。</p>
-<p>看简介公司应该是做海外市场主要是信息推荐跟数据挖掘的业务（不知道他们现在的产品是啥）</p>
-<p>技术面主要是根据简历去问的，比较在意内存泄漏，内存优化还有View的过渡绘制这一块的东西，还有就是问了问图片开源库Picasso v/s Imageloader v/s Fresco vs Glide 区别以及如何去选择吧，还有eventbus的源码以及注解的优点，其它的大概就是还问了问项目的难点之类的</p>
-<p>比较操蛋的是没有讨论薪资，然后就直接送客了，不造差在哪里。。。</p>
-</blockquote>
-<h2 id="曙光无限"><a href="#曙光无限" class="headerlink" title="曙光无限"></a>曙光无限</h2><p><strong>曙光无限</strong>这家公司是在boss上约的，公司地址在回龙观东大街的腾讯众创空间（办公楼的环境蛮好的），公司主打产品是海外的项目，旗下产品几十种还是蛮多的</p>
-<ul>
-<li><strong>第一面</strong> ：只是人事先照着简历初略的聊了聊以前的项目经验，由于公司是做海外滤镜软件的，可能对图片算法这块要求蛮高的，福利这块目前是采取接近避税的方式，第一年还不给交住房公积金，貌似还需要第二面总监面，而且还要上机写demo…</li>
-<li><strong>目前android行情</strong> ：从以往的面试分析来看基本android的行情接近饱和状态，薪资这块基本稍微要高点的话直接就给你pass然后可能用其它人候选人去对比，市场的行情还真是惨淡</li>
-<li><strong>后续</strong> ：没有通知进一步的面试~~~~ HR先面的公司一般都会要求复试各位如果考虑时间成本的话要慎重去这种公司。。。。</li>
-</ul>
-<hr>
-<h2 id="遇见科技"><a href="#遇见科技" class="headerlink" title="遇见科技"></a>遇见科技</h2><p><strong>遇见科技</strong>这家公司是在boss上约的，公司地址在知春路附近，公司的办公环境也还不错哈，项目应该是一款社交软件，貌似起步还是蛮早的，已经做了几年了</p>
-<ul>
-<li><strong>第一面</strong> ：主要是技术面，问的以简历的内容为主还有面试官会看以往做过的项目（现在看项目的公司确实不多了）比较在意的是之前做过的项目整体的流程，整体架构设计模式还有业务这块的详情，基本都是围绕做的项目这块的技术点来的涉及的知识点也基本涵盖了目前比较流行的开源组件，还有会问一些关于同类框架之前的区别与对比：比如volley与okhttp，图片框架，数据库greenDao，realm，litepal等等性能方面的问题</li>
-<li><strong>第二面</strong> ：第一面没什么问题之后会和HR进一步沟通，主要介绍了公司目前的产品方向还有项目节奏，福利待遇神马之类的</li>
-<li><strong>总监面</strong> ：能见到总监也基本很不容易了，基本也是聊了聊以往的项目，可能比较看重的是解决问题的能力，会问擅长哪方面（Ui还是业务？）项目难点等等。。。</li>
-<li><strong>后续</strong> ：没有通知是否给offer（难道是薪资问题？？现在市场要到20K左右貌似就要考虑考虑了）</li>
-</ul>
-<hr>
-<h2 id="邻动"><a href="#邻动" class="headerlink" title="邻动"></a>邻动</h2><p><strong>邻动</strong> 这家公司是在boss上约的，公司地址也是在知春路附近，公司的办公环境没的说，门口摆着各种零食饮料，面试等待的过程，前台妹子还给了一杯饮料喝O(∩_∩)O~，公司主要做视频方向的项目，目前已知产品叫“快牙”</p>
-<ul>
-<li><strong>第一面</strong> ：主要是技术面，基本问的跟之前遇到的问题一样，其中回答的不是很好的问题户要是MessageQue的源码实现（我回答错了，应该是链表）还有自定义线程池（应该是问线程池那几个参数），但是公司的技术要求可能希望更倾向于有FFmpeg相关经验还有做过视频剪切，裁剪之类的经验吧，问完就送客了….内心其实还是挺喜欢做视频这块的项目(⊙﹏⊙)b</li>
-</ul>
-<blockquote>
-<p>感觉问到的问题除了那两块其他的回答还是蛮好的，尼玛心累</p>
-</blockquote>
-<hr>
-<h2 id="元宝亿家"><a href="#元宝亿家" class="headerlink" title="元宝亿家"></a>元宝亿家</h2><p><strong>元宝亿家</strong> 这家公司是在boss上约的，公司地址在东直门，去了直接在前台填表，然后一个目测像总监的人直接面试，他们现在的项目是采用MVP写的应该是想找个人快速接手</p>
-<ul>
-<li><strong>第一面</strong> ：主要是技术面，问的东西感觉还好，但是感觉自己发挥的不是很好，Java String类的底层源码（其实就是char数组），Hashmap实现原理，Android 广播 Service相关的，ANR，gson高级用法（比如序列化的时候如何排除某个字段），项目里用到的设计模式，android手势机制用到了什么设计模式（是责任链模式，这个我回答错了），内存泄漏和内存溢出，子线程不能更新view的机制，Rxjava retrofit okhttp，给我印象比较深的是问了mac上pwd这个命令是干嘛的（我用了这么久mac确实没有用过这个命令，是显示当前文件全路径的）还有用没用过Home brew，最后问了问Git相关的命令pull跟fetch</li>
-<li>git rm a.a 移除文件(从暂存区和工作区中删除)</li>
-<li><p>git rm –cached a.a 移除文件(只从暂存区中删除)</p>
-</li>
-<li><p>PS:技术很耐心的给我讲解了我没能答对的问题</p>
-</li>
-<li><p><strong>总结</strong> ：感觉自己跟目前市场上需求真正意义的Android高级工程职位还是有一定差距的，好多东西还是欠缺好多，还要继续恶补了，fighting…</p>
-<blockquote>
-<p>约了第二天复试，信心严重受挫，不知道能不能谈拢…<br>复试完结在考虑是否过去…</p>
-</blockquote>
-</li>
-</ul>
-<hr>
-<h2 id="最近面试的几家公司"><a href="#最近面试的几家公司" class="headerlink" title="最近面试的几家公司"></a>最近面试的几家公司</h2><p>这周面的几家公司相对来说都比较正常了没有过多的问源码，基本都是看简历然后以往的项目经验，基本能把以前问过的东西能正确的说出来再面的别的公司也基本OK…</p>
-<p><strong>苏宁体育</strong> 这家公司是在boss上约的，公司地址望京锐创国际，去了直接在前台填表，然后有个笔试题（还蛮简单的，主要是写一个单例，多态）,填完就一直等，因为面Android的在排队，然后等了快半个小时，来了两个人面的一个是Android,另外一个是一个女的项目负责人。。。</p>
-<ul>
-<li><p>总体的面试感觉还OK，因为是做体育类视频项目的，会要求多一些FFmpeg的技能。。。公司会比较在意这一块的想来面试的建议先把这部分摸清，否则人家都不会往深层次的提问，就算问了也接不上哦~</p>
-</li>
-<li><p>薪资我只奢求不低于之前在信和的待遇，估计按现在的行情很难啊,有种想回原来公司的冲动~~o(&gt;_&lt;)o ~~。。。大的环境冒险离职真的很危险啊，出来都要降薪了，现在这个时间段确实不适合找工作，希望有离职想法的兄弟别冲动….</p>
-</li>
-</ul>
-<p><strong>新娱时代</strong> 这家公司都忘了是哪个大兄弟帮我推的，公司原来是在魏公村，现在搬到了中关村的鼎好电子城写字楼，去的时候还一直在装修，面试的地方极其简陋，因为是内推的技术这块基本就大致聊聊，感觉薪资也是给不到。。而且目前公司还是996的节奏，做海外直播，貌似项目还蛮多的工作强度很大。。。</p>
-<ul>
-<li>目前他们公司的项目是采用MVP写的，不理解的是为什么项目还用比较陈旧的Volley作为请求框架…</li>
-</ul>
-<p><strong>半糖</strong> 这家公司是一个非常好的哥们推给他们公司的php的童鞋然后帮我推的，公司在雍和宫的一个胡同里，非常有文艺气息，来到公司首先要填表然后还要填一份性格测试，之后来的面试官也非常的有亲和力，基本都在聊以往互相的项目经验之类的，面试官做Android也蛮久了可能比较保守，自己公司的产品并木有用到最新比较主流的技术框架，应该是考虑项目稳定吧，但是我感觉也太保守了，公司的产品做了三年按他的话来说就是迭代的时间太紧张，基本没有重构的时间就开始做下个版本了，我觉得还是应该搞一搞技术变革的，肯定能提升团队整体的效率，并跟他推荐了一个蛮好用的插件jrebel for android…</p>
-<ul>
-<li><p>这里安利几个本人一直在用的比较好用库  </p>
-</li>
-<li><p>下拉刷新&amp;滚动到底部加载更多 <a href="https://github.com/MIkeeJY/demo-1" target="_blank" rel="noopener">https://github.com/MIkeeJY/demo-1</a></p>
-</li>
-<li><p>这个项目是由一个CSDN大神叫Li Hong修改自PulltoRefresh那个库而来，基本做到了View的分离，用法也比较简单就是直接把拓展的控件放进去，理论上支持所有的View的下拉，需要注意的是这个库只实现了listview的加载更多，recyclerview需要自己拓展</p>
-</li>
-<li><p><a href="https://github.com/ybq/Endless-RecyclerView" target="_blank" rel="noopener">https://github.com/ybq/Endless-RecyclerView</a> 这个库实现了recyclerview的加载更多配合上面的下拉刷新控件对比别的recyclerview的扩展，这个是代码量最少最简单且bug比较少的，其它类似的扩展大概就是用装饰器模式去封装recyclerview的adapter咯~</p>
-</li>
-<li><a href="https://github.com/MIkeeJY/OkHttpUtils-2" target="_blank" rel="noopener">https://github.com/MIkeeJY/OkHttpUtils-2</a> 自用Okhttp封装，参考了鸿洋大神Okhttp2.x版本的封装，采用纯Okhttp实现，基本能满足所有的网络请求</li>
-<li>Glide封装可以参考 <a href="https://github.com/whyalwaysmea/BigBoom" target="_blank" rel="noopener">https://github.com/whyalwaysmea/BigBoom</a> 这个项目中抽出接口的方式</li>
-<li><a href="https://github.com/jinloong/BannerLayout" target="_blank" rel="noopener">https://github.com/jinloong/BannerLayout</a> 虽然star不多但是用起来非常稳定的一个轮播库（比较冷门，相反star数多的库反而各种bug,(⊙﹏⊙)b）</li>
-</ul>
-<p><strong>总结</strong> ：面试也是一个不断总结跟学习的过程，可能拿到合适的offer还需要一些运气的成份，我始终坚信就算大的环境再不好，但是其实整个行业还是缺牛人的！一时的不景气并不会影响真正技术好的人，博主已经入职了，祝大家好运~</p>
-<p><strong>PS</strong> ：首先写这篇文章的目的不在于针对某某公司，这个选择都是双向的，大家谁都不欠谁，只是想把遇到的公司做一个总结展示给大家看，供大家以后求职时候的参考，在于告诫大家如果没什么想不开的千万不要在这个时候离职，比较目前环境可以说是非常的严峻，离职要慎重！！！离职要慎重！！！离职要慎重！！！重要的事情说三遍~！如果有针对某些公司负能量的言语，可能言语过激，希望大家能及时指出，我会及时修改，目测应该还有人对我的技术做出了评价，我也承认目前跟真正的Android高级是有差距的（但是毕竟还是有些技术实力的，15年面过腾讯，优酷，16年面了Apus都拿到了offer，只是我当时想法太年轻没去而已），但是目前Android层的东西还是蛮杂的，我也不可能什么都会，目前已经拿到几家offer也已经做出选择了，这里记录下辛酸的面试历程吧~</p>
-<hr>
-
-          
-        
-      
-    </div>
-    
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope="" itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/05/11/camera/" itemprop="url">
-                  关于调用系统照相机Activity被销毁问题解决
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-05-11T17:08:26+08:00" content="2016-05-11">
-              2016-05-11
-            </time>
-          </span>
-
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>在项目中需要启用系统照相机来拍照。本来很容易的一个问题。但在适配中出现了问题。<br>简单说一下问题：<br>    有些手机拍照成功，有些手机拍完照后确定返回后activity数据丢失，被销毁了。<br>问题查找：<br>    经过代码查找发现，当这些出问题的手机被调用系统手机拍照时，当前activity被销毁了之后又被重新创建了。即Acitivity 执行了ondestory()–&gt;onCreate()，所以Activity被重新创建了从而内部的数据丢失,而按照正常的逻辑该Activity应该入后台堆栈。一开始以为是系统启用照相机内存不够自动销毁回收。可有些手机不会出现该问题。很无奈。<br>    之后经过本人细心研究activity的生命周期才恍然大悟，原来当手机横竖屏时系统会重新创建一个activity，这就是为什么上个activity会ondestory()–&gt;onCreate()。但为什么有些手机会执行有些不会呢。问题就出在横竖屏上。因为有些手机的系统照相机弄的很炫会自动旋转90度，从而导致了横竖屏的发生（–！看来最潮的也不是好东西，苦了我们这些碼农）。这就是为什有些手机会发生有些不会。跟系统照相机是否旋转有关系。<br>    最后贴上解决方案。<br>    AndroidMainifest.xml中加入</p>
-<pre><code>&lt;activity
-            android:name=&quot;.Activity&quot;
-            android:launchMode=&quot;singleTask&quot;          
-            android:configChanges=&quot;orientation|keyboardHidden&quot;                       
-            android:theme=&quot;@android:style/Theme.Black.NoTitleBar.Fullscreen&quot;/&gt;
-</code></pre><pre><code>@Override
-public void onConfigurationChanged(Configuration newConfig) {
-    //其实这里什么都不要做
-    super.onConfigurationChanged(newConfig);
-}
-</code></pre><h6 id="PS-在level13以后加入了一个screenSize的属性，这个属性很重要如果在android3-2以后的版本中没有添加”screenSize”的话依然会触发横竖屏activity销毁周期-也就是说不能屏蔽activity销毁，从而调用onConfigurationChanged方法，而在3-2之前只要设置orientation-keyboardHidden就可以-。由于智能机的迅速普及手机的系统大多数升级到4-0以上，这样会导致很多没有设置screenSize属性的程序activity又出现销毁情况。"><a href="#PS-在level13以后加入了一个screenSize的属性，这个属性很重要如果在android3-2以后的版本中没有添加”screenSize”的话依然会触发横竖屏activity销毁周期-也就是说不能屏蔽activity销毁，从而调用onConfigurationChanged方法，而在3-2之前只要设置orientation-keyboardHidden就可以-。由于智能机的迅速普及手机的系统大多数升级到4-0以上，这样会导致很多没有设置screenSize属性的程序activity又出现销毁情况。" class="headerlink" title="PS:在level13以后加入了一个screenSize的属性，这个属性很重要如果在android3.2以后的版本中没有添加”screenSize”的话依然会触发横竖屏activity销毁周期(也就是说不能屏蔽activity销毁，从而调用onConfigurationChanged方法，而在3.2之前只要设置orientation|keyboardHidden就可以)。由于智能机的迅速普及手机的系统大多数升级到4.0以上，这样会导致很多没有设置screenSize属性的程序activity又出现销毁情况。"></a>PS:在level13以后加入了一个screenSize的属性，这个属性很重要如果在android3.2以后的版本中没有添加”screenSize”的话依然会触发横竖屏activity销毁周期(也就是说不能屏蔽activity销毁，从而调用onConfigurationChanged方法，而在3.2之前只要设置orientation|keyboardHidden就可以)。由于智能机的迅速普及手机的系统大多数升级到4.0以上，这样会导致很多没有设置screenSize属性的程序activity又出现销毁情况。</h6><p>试试如下代码：<br>AndroidMainifest.xml中加入</p>
-<pre><code>&lt;activity  
-  android:name=&quot;.Activity&quot; 
-  android:launchMode=&quot;singleTask&quot;    
-  android:configChanges=&quot;orientationkeyboardHidden|screenSize&quot;/&gt;
-</code></pre><p>复写acitivity的onConfigurationChanged方法</p>
-<pre><code>@Override
-public void onConfigurationChanged(Configuration newConfig) {
-    //其实这里什么都不要做
-    super.onConfigurationChanged(newConfig);
-}
-</code></pre>
-          
-        
-      
-    </div>
-    
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope="" itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/04/20/BaseRecyclerView/" itemprop="url">
-                  对RecyclerView.Adapter的简单封装
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-04-20T14:58:25+08:00" content="2016-04-20">
-              2016-04-20
-            </time>
-          </span>
-
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>对分页展示而言，RecyclerView已经可以完全替代ListView。这里只进行一下对其Adapter的简单封装。  </p>
-<h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><ul>
-<li>目的：目的是为了减少Adapter具体实现的代码，使代码整洁，易于维护。</li>
-<li>分析：与listview面向view的adapter不同，recyclerview面向的是viewholder。所以BaseRecyclerAdapter需要两个泛型声明，一个是数据源，一个是viewholder。<br>onCreateViewHoler()方法中需要生成具体的viewhoder实例，所以暂时不去对其做封装。对onBindViewHoler()方法的操作分为两步，一步是bindItemData()将数据填充至itemview，下一步是setupOnItemClick()设置每个item的点击监听。其它方法都是对便利性的扩展，可以根据不同情况添加。</li>
-<li>并没有对viewholder动刀子，考虑到目前情况下在AS中利用ButterKnife可以高效的生成viewholder，对开发效率影响不大。不过ButterKnife毕竟是通过运行时反射对view进行绑定的，对效率是有影响，但是AS2.0之后发现Google有扶正DataBindding的趋势，所以综合考虑下，还是没有对viewholder动刀子。但是会在RecyclerView深入研究时思考这个问题。 </li>
-</ul>
-<h3 id="BaseRecyclerViewAdapter"><a href="#BaseRecyclerViewAdapter" class="headerlink" title="BaseRecyclerViewAdapter"></a>BaseRecyclerViewAdapter</h3><p>话不多说,上代码</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line">public abstract class BaseRecyclerAdapter&lt;T, VH extends RecyclerView.ViewHolder&gt; extends RecyclerView.Adapter&lt;VH&gt; &#123;</span><br><span class="line">    protected List&lt;T&gt; mDatas = new ArrayList&lt;&gt;();</span><br><span class="line">    protected Context mContext;</span><br><span class="line">    protected LayoutInflater inflater;</span><br><span class="line">    AdapterView.OnItemClickListener mItemClickListener;</span><br><span class="line">    public BaseRecyclerAdapter(List&lt;T&gt; mDatas, Context mContext) &#123;</span><br><span class="line">        this.mDatas = mDatas;</span><br><span class="line">        this.mContext = mContext;</span><br><span class="line">        inflater = LayoutInflater.from(mContext);</span><br><span class="line">    &#125;</span><br><span class="line">    @Override</span><br><span class="line">    public void onBindViewHolder(VH holder, int position) &#123;</span><br><span class="line">        final T item = getItem(position);</span><br><span class="line">        bindItemData(holder, item, position);</span><br><span class="line">        setupOnItemClick(holder, position);</span><br><span class="line">    &#125;</span><br><span class="line">    protected abstract void bindItemData(VH viewHolder, T data, int position);</span><br><span class="line">    protected void setupOnItemClick(final VH viewHolder, final int position) &#123;</span><br><span class="line">        if (mItemClickListener != null) &#123;</span><br><span class="line">            viewHolder.itemView.setOnClickListener(new View.OnClickListener() &#123;</span><br><span class="line">                @Override</span><br><span class="line">                public void onClick(View v) &#123;</span><br><span class="line">                    mItemClickListener.onItemClick(null, viewHolder.itemView, position, position);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    @Override</span><br><span class="line">    public int getItemCount() &#123;</span><br><span class="line">        return mDatas != null ? mDatas.size() : 0;</span><br><span class="line">    &#125;</span><br><span class="line">    public T getItem(int position) &#123;</span><br><span class="line">        position = Math.max(0, position);</span><br><span class="line">        return mDatas.get(position);</span><br><span class="line">    &#125;</span><br><span class="line">    public List&lt;T&gt; getDataSource() &#123;</span><br><span class="line">        return mDatas;</span><br><span class="line">    &#125;</span><br><span class="line">    public void addData(List&lt;T&gt; newItems) &#123;</span><br><span class="line">        if (newItems != null) &#123;</span><br><span class="line">            mDatas.addAll(newItems);</span><br><span class="line">            notifyDataSetChanged();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    public void updateListViewData(List&lt;T&gt; lists) &#123;</span><br><span class="line">        mDatas.clear();</span><br><span class="line">        if (lists != null) &#123;</span><br><span class="line">            mDatas.addAll(lists);</span><br><span class="line">            notifyDataSetChanged();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    public void setOnItemClickListener(AdapterView.OnItemClickListener listener) &#123;</span><br><span class="line">        this.mItemClickListener = listener;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">public class NotesAdapter extends BaseRecyclerAdapter&lt;NoteItem, NotesAdapter.NotesViewHolder&gt; &#123;</span><br><span class="line">    public NotesAdapter(List&lt;NoteItem&gt; mDatas, Context mContext) &#123;</span><br><span class="line">        super(mDatas, mContext);</span><br><span class="line">    &#125;</span><br><span class="line">    @Override</span><br><span class="line">    public NotesViewHolder onCreateViewHolder(ViewGroup parent, int viewType) &#123;</span><br><span class="line">        View contentView = LayoutInflater.from(mContext)</span><br><span class="line">                .inflate(R.layout.recycler_item_note, parent, false);</span><br><span class="line">        NotesViewHolder vh = new NotesViewHolder(contentView);</span><br><span class="line">        return vh;</span><br><span class="line">    &#125;</span><br><span class="line">    @Override</span><br><span class="line">    protected void bindItemData(NotesViewHolder viewHolder, NoteItem data, int position) &#123;</span><br><span class="line">        viewHolder.titleTxt.setText(data.getTitle());</span><br><span class="line">        viewHolder.timeTxt.setText(data.getCreatedTime());</span><br><span class="line">        viewHolder.tagTxt.setText(data.getTags().size() != 0 ? data.getTags().get(0) : &quot;other&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">    static class NotesViewHolder extends RecyclerView.ViewHolder &#123;</span><br><span class="line">        @Bind(R.id.title_txt)</span><br><span class="line">        TextView titleTxt;</span><br><span class="line">        @Bind(R.id.time_txt)</span><br><span class="line">        TextView timeTxt;</span><br><span class="line">        @Bind(R.id.tag_txt)</span><br><span class="line">        TextView tagTxt;</span><br><span class="line">        NotesViewHolder(View view) &#123;</span><br><span class="line">            super(view);</span><br><span class="line">            ButterKnife.bind(this, view);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-    
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope="" itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/04/20/gsonUtil/" itemprop="url">
-                  Gson工具类
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-04-20T14:58:25+08:00" content="2016-04-20">
-              2016-04-20
-            </time>
-          </span>
-
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>使用泛型来封装Gson</p>
-<h2 id="泛型才是JAVA的精髓"><a href="#泛型才是JAVA的精髓" class="headerlink" title="泛型才是JAVA的精髓"></a>泛型才是JAVA的精髓</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br></pre></td><td class="code"><pre><span class="line">import com.google.gson.Gson;</span><br><span class="line">import com.google.gson.JsonArray;</span><br><span class="line">import com.google.gson.JsonElement;</span><br><span class="line">import com.google.gson.JsonParser;</span><br><span class="line">import com.google.gson.reflect.TypeToken;</span><br><span class="line"></span><br><span class="line">import java.util.ArrayList;</span><br><span class="line">import java.util.List;</span><br><span class="line">import java.util.Map;</span><br><span class="line"></span><br><span class="line">public class GsonUtil &#123;</span><br><span class="line">    private static Gson gson = null;</span><br><span class="line"></span><br><span class="line">    static &#123;</span><br><span class="line">        <span class="keyword">if</span> (gson == null) &#123;</span><br><span class="line">            gson = new Gson();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    private <span class="function"><span class="title">GsonUtil</span></span>() &#123;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * 转成json</span><br><span class="line">     *</span><br><span class="line">     * @param object</span><br><span class="line">     * @<span class="built_in">return</span></span><br><span class="line">     */</span><br><span class="line">    public static String GsonString(Object object) &#123;</span><br><span class="line">        String gsonString = null;</span><br><span class="line">        <span class="keyword">if</span> (gson != null) &#123;</span><br><span class="line">            gsonString = gson.toJson(object);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">return</span> gsonString;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * 转成bean</span><br><span class="line">     *</span><br><span class="line">     * @param gsonString</span><br><span class="line">     * @param cls</span><br><span class="line">     * @<span class="built_in">return</span></span><br><span class="line">     */</span><br><span class="line">    public static &lt;T&gt; T GsonToBean(String gsonString, Class&lt;T&gt; cls) &#123;</span><br><span class="line">        T t = null;</span><br><span class="line">        <span class="keyword">if</span> (gson != null) &#123;</span><br><span class="line">            t = gson.fromJson(gsonString, cls);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">return</span> t;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * 转成list</span><br><span class="line">     * 解决泛型问题</span><br><span class="line">     *</span><br><span class="line">     * @param json</span><br><span class="line">     * @param cls</span><br><span class="line">     * @param &lt;T&gt;</span><br><span class="line">     * @<span class="built_in">return</span></span><br><span class="line">     */</span><br><span class="line">    public static &lt;T&gt; List&lt;T&gt; GsonToList(String json, Class&lt;T&gt; cls) &#123;</span><br><span class="line">        Gson gson = new Gson();</span><br><span class="line">        List&lt;T&gt; list = new ArrayList&lt;T&gt;();</span><br><span class="line">        JsonArray array = new JsonParser().parse(json).getAsJsonArray();</span><br><span class="line">        <span class="keyword">for</span> (final JsonElement elem : array) &#123;</span><br><span class="line">            list.add(gson.fromJson(elem, cls));</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">return</span> list;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * 转成list中有map的</span><br><span class="line">     *</span><br><span class="line">     * @param gsonString</span><br><span class="line">     * @<span class="built_in">return</span></span><br><span class="line">     */</span><br><span class="line">    public static &lt;T&gt; List&lt;Map&lt;String, T&gt;&gt; GsonToListMaps(String gsonString) &#123;</span><br><span class="line">        List&lt;Map&lt;String, T&gt;&gt; list = null;</span><br><span class="line">        <span class="keyword">if</span> (gson != null) &#123;</span><br><span class="line">            list = gson.fromJson(gsonString, new TypeToken&lt;List&lt;Map&lt;String, T&gt;&gt;&gt;() &#123;</span><br><span class="line">            &#125;.getType());</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">return</span> list;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * 转成map的</span><br><span class="line">     *</span><br><span class="line">     * @param gsonString</span><br><span class="line">     * @<span class="built_in">return</span></span><br><span class="line">     */</span><br><span class="line">    public static &lt;T&gt; Map&lt;String, T&gt; GsonToMaps(String gsonString) &#123;</span><br><span class="line">        Map&lt;String, T&gt; map = null;</span><br><span class="line">        <span class="keyword">if</span> (gson != null) &#123;</span><br><span class="line">            map = gson.fromJson(gsonString, new TypeToken&lt;Map&lt;String, T&gt;&gt;() &#123;</span><br><span class="line">            &#125;.getType());</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">return</span> map;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">   /**</span><br><span class="line">     * 将Map转化为Json</span><br><span class="line">     *</span><br><span class="line">     * @param map</span><br><span class="line">     * @<span class="built_in">return</span> String</span><br><span class="line">     */</span><br><span class="line">    public static &lt;T&gt; String mapToJson(Map&lt;String, T&gt; map) &#123;</span><br><span class="line">        String jsonStr = null;</span><br><span class="line">        <span class="keyword">if</span> (gson != null) &#123;</span><br><span class="line">            jsonStr = gson.toJson(map);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">return</span> jsonStr;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-    
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope="" itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/04/20/gson/" itemprop="url">
-                  Gson解析（List和Map）格式json数据
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-04-20T14:58:25+08:00" content="2016-04-20">
-              2016-04-20
-            </time>
-          </span>
-
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>有时候服务端非得返回比较傻逼的Json</p>
-<h2 id="这时候可以用gson解析带有键值对的json"><a href="#这时候可以用gson解析带有键值对的json" class="headerlink" title="这时候可以用gson解析带有键值对的json"></a>这时候可以用gson解析带有键值对的json</h2><h3 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line">public class jsonParse&#123;</span><br><span class="line"></span><br><span class="line">        </span><br><span class="line"></span><br><span class="line">class City&#123;</span><br><span class="line"></span><br><span class="line">        int id;</span><br><span class="line"></span><br><span class="line">        String name;</span><br><span class="line"></span><br><span class="line">        String code;</span><br><span class="line"></span><br><span class="line">        String map;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">        </span><br><span class="line"></span><br><span class="line">        </span><br><span class="line"></span><br><span class="line">public static void main(String[] args) &#123;</span><br><span class="line"></span><br><span class="line">        //列表/array 数据</span><br><span class="line"></span><br><span class="line">                 String str=<span class="string">"[&#123;'id': '1','code': 'bj','name': '北京','map': '39.90403, 116.40752599999996'&#125;, &#123;'id': '2','code': 'sz','name': '深圳','map': '22.543099, 114.05786799999998'&#125;, &#123;'id': '9','code': 'sh','name': '上海','map': '31.230393,121.473704'&#125;, &#123;'id': '10','code': 'gz','name': '广州','map': '23.129163,113.26443500000005'&#125;]"</span>;</span><br><span class="line"></span><br><span class="line">        Gson gson=new Gson();</span><br><span class="line"></span><br><span class="line">        List&lt;City&gt; rs=new ArrayList&lt;City&gt;();</span><br><span class="line"></span><br><span class="line">         Type <span class="built_in">type</span> = new TypeToken&lt;ArrayList&lt;City&gt;&gt;() &#123;&#125;.getType();</span><br><span class="line"></span><br><span class="line">          rs=gson.fromJson(str, <span class="built_in">type</span>);</span><br><span class="line"></span><br><span class="line">          <span class="keyword">for</span>(City o:rs)&#123;</span><br><span class="line"></span><br><span class="line">                  System.out.println(o.name);</span><br><span class="line"></span><br><span class="line">          &#125;</span><br><span class="line"></span><br><span class="line">          </span><br><span class="line"></span><br><span class="line">          //map数据</span><br><span class="line"></span><br><span class="line">          String jsonStr=<span class="string">"&#123;'1': &#123;'id': '1','code': 'bj','name': '北京','map': '39.90403, 116.40752599999996'&#125;,'2': &#123;'id': '2','code': 'sz','name': '深圳','map': '22.543099, 114.05786799999998'&#125;,'9': &#123;'id': '9','code': 'sh','name': '上海','map': '31.230393,121.473704'&#125;,'10': &#123;'id': '10','code': 'gz','name': '广州','map': '23.129163,113.26443500000005'&#125;&#125;"</span>;</span><br><span class="line"></span><br><span class="line">          Map&lt;String, City&gt; citys = gson.fromJson(jsonStr, new TypeToken&lt;Map&lt;String, City&gt;&gt;() &#123;&#125;.getType()); </span><br><span class="line"></span><br><span class="line">          System.out.println(citys.get(<span class="string">"1"</span>).name+<span class="string">"----------"</span>+citys.get(<span class="string">"2"</span>).code);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-    
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-  </section>
-
-  
+  </div>
 
 
           </div>
@@ -2026,6 +1155,10 @@ public void onConfigurationChanged(Configuration newConfig) {
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
@@ -2045,8 +1178,17 @@ public void onConfigurationChanged(Configuration newConfig) {
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image" src="/images/default_avatar.jpg" alt="Mikee">
           <p class="site-author-name" itemprop="name">Mikee</p>
@@ -2080,6 +1222,17 @@ public void onConfigurationChanged(Configuration newConfig) {
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Java面试题"><span class="nav-number">1.</span> <span class="nav-text">Java面试题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#面向对象的三个特征"><span class="nav-number">1.0.1.</span> <span class="nav-text">面向对象的三个特征</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#多态的好处"><span class="nav-number">1.0.2.</span> <span class="nav-text">多态的好处</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#代码中如何实现多态"><span class="nav-number">1.0.3.</span> <span class="nav-text">代码中如何实现多态</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#虚拟机是如何实现多态的"><span class="nav-number">1.0.4.</span> <span class="nav-text">虚拟机是如何实现多态的</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#接口的意义"><span class="nav-number">1.0.5.</span> <span class="nav-text">接口的意义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#抽象类的意义"><span class="nav-number">1.0.6.</span> <span class="nav-text">抽象类的意义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#接口和抽象类的区别"><span class="nav-number">1.0.7.</span> <span class="nav-text">接口和抽象类的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#父类的静态方法能否被子类重写"><span class="nav-number">1.0.8.</span> <span class="nav-text">父类的静态方法能否被子类重写</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#什么是不可变对象"><span class="nav-number">1.0.9.</span> <span class="nav-text">什么是不可变对象</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#静态变量和实例变量的区别"><span class="nav-number">1.0.10.</span> <span class="nav-text">静态变量和实例变量的区别?</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#能否创建一个包含可变对象的不可变对象"><span class="nav-number">1.0.11.</span> <span class="nav-text">能否创建一个包含可变对象的不可变对象?</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#java-创建对象的几种方式"><span class="nav-number">1.0.12.</span> <span class="nav-text">java 创建对象的几种方式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#switch中能否使用string做参数"><span class="nav-number">1.0.13.</span> <span class="nav-text">switch中能否使用string做参数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#switch能否作用在byte-long上"><span class="nav-number">1.0.14.</span> <span class="nav-text">switch能否作用在byte,long上?</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#String-s1-”ab”-String-s2-”a”-”b”-String-s3-”a”-String-s4-”b”-s5-s3-s4请问s5-s2返回什么"><span class="nav-number">1.0.15.</span> <span class="nav-text">String s1=”ab”,String s2=”a”+”b”,String s3=”a”,String s4=”b”,s5=s3+s4请问s5==s2返回什么?</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#你对String对象的intern-熟悉么"><span class="nav-number">1.0.16.</span> <span class="nav-text">你对String对象的intern()熟悉么?</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Object中有哪些公共方法"><span class="nav-number">1.0.17.</span> <span class="nav-text">Object中有哪些公共方法?</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#java当中的四种引用"><span class="nav-number">1.0.18.</span> <span class="nav-text">java当中的四种引用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#WeakReference与SoftReference的区别"><span class="nav-number">1.0.19.</span> <span class="nav-text">WeakReference与SoftReference的区别?</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#为什么要有不同的引用类型"><span class="nav-number">1.0.20.</span> <span class="nav-text">为什么要有不同的引用类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#java中-和eqauls-的区别-equals-和hashcode的区别"><span class="nav-number">1.0.21.</span> <span class="nav-text">java中==和eqauls()的区别,equals()和hashcode的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#equals-和hashcode-的联系"><span class="nav-number">1.0.22.</span> <span class="nav-text">equals()和hashcode()的联系</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#a-hashCode-有什么用-与a-equals-b-有什么关系"><span class="nav-number">1.0.23.</span> <span class="nav-text">a.hashCode()有什么用?与a.equals(b)有什么关系</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#有没有可能两个不相等的对象有相同的hashcode"><span class="nav-number">1.0.24.</span> <span class="nav-text">有没有可能两个不相等的对象有相同的hashcode</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#可以在hashcode中使用随机数字吗"><span class="nav-number">1.0.25.</span> <span class="nav-text">可以在hashcode中使用随机数字吗?</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#a-b与a-equals-b-有什么区别"><span class="nav-number">1.0.26.</span> <span class="nav-text">a==b与a.equals(b)有什么区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-0-1-0-3返回值是什么"><span class="nav-number">1.0.27.</span> <span class="nav-text">3*0.1==0.3返回值是什么</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#a-a-b与a-b有什么区别吗"><span class="nav-number">1.0.28.</span> <span class="nav-text">a=a+b与a+=b有什么区别吗?</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#short-s1-1-s1-s1-1-该段代码是否有错-有的话怎么改？"><span class="nav-number">1.0.29.</span> <span class="nav-text">short s1= 1; s1 = s1 + 1; 该段代码是否有错,有的话怎么改？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#short-s1-1-s1-1-该段代码是否有错-有的话怎么改？"><span class="nav-number">1.0.30.</span> <span class="nav-text">short s1= 1; s1 += 1; 该段代码是否有错,有的话怎么改？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#amp-和-amp-amp-的区别"><span class="nav-number">1.0.31.</span> <span class="nav-text">&amp; 和 &amp;&amp;的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#一个-java文件内部可以有类-非内部类"><span class="nav-number">1.0.32.</span> <span class="nav-text">一个.java文件内部可以有类?(非内部类)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#如何正确的退出多层嵌套循环"><span class="nav-number">1.0.33.</span> <span class="nav-text">如何正确的退出多层嵌套循环.</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#内部类的作用"><span class="nav-number">1.0.34.</span> <span class="nav-text">内部类的作用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#final-finalize和finally的不同之处"><span class="nav-number">1.0.35.</span> <span class="nav-text">final,finalize和finally的不同之处</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#clone-是哪个类的方法"><span class="nav-number">1.0.36.</span> <span class="nav-text">clone()是哪个类的方法?</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#深拷贝和浅拷贝的区别是什么"><span class="nav-number">1.0.37.</span> <span class="nav-text">深拷贝和浅拷贝的区别是什么?</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#static都有哪些用法"><span class="nav-number">1.0.38.</span> <span class="nav-text">static都有哪些用法?</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#final有哪些用法"><span class="nav-number">1.0.39.</span> <span class="nav-text">final有哪些用法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据类型相关"><span class="nav-number">1.1.</span> <span class="nav-text">数据类型相关</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#java中int-char-long各占多少字节"><span class="nav-number">1.1.1.</span> <span class="nav-text">java中int char,long各占多少字节?</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#64位的JVM当中-int的长度是多少"><span class="nav-number">1.1.2.</span> <span class="nav-text">64位的JVM当中,int的长度是多少?</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#int和Integer的区别"><span class="nav-number">1.1.3.</span> <span class="nav-text">int和Integer的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#int-和Integer谁占用的内存更多"><span class="nav-number">1.1.4.</span> <span class="nav-text">int 和Integer谁占用的内存更多?</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#String-StringBuffer和StringBuilder区别"><span class="nav-number">1.1.5.</span> <span class="nav-text">String,StringBuffer和StringBuilder区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#String和StringBuffer"><span class="nav-number">1.1.6.</span> <span class="nav-text">String和StringBuffer</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#StringBuffer和StringBuilder"><span class="nav-number">1.1.7.</span> <span class="nav-text">StringBuffer和StringBuilder</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#什么是编译器常量-使用它有什么风险"><span class="nav-number">1.1.8.</span> <span class="nav-text">什么是编译器常量?使用它有什么风险?</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#java当中使用什么类型表示价格比较好"><span class="nav-number">1.1.9.</span> <span class="nav-text">java当中使用什么类型表示价格比较好?</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#如何将byte转为String"><span class="nav-number">1.1.10.</span> <span class="nav-text">如何将byte转为String</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#可以将int强转为byte类型么-会产生什么问题"><span class="nav-number">1.1.11.</span> <span class="nav-text">可以将int强转为byte类型么?会产生什么问题?</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关于垃圾回收"><span class="nav-number">1.2.</span> <span class="nav-text">关于垃圾回收</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#你知道哪些垃圾回收算法"><span class="nav-number">1.2.1.</span> <span class="nav-text">你知道哪些垃圾回收算法?</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#如何判断一个对象是否应该被回收"><span class="nav-number">1.2.2.</span> <span class="nav-text">如何判断一个对象是否应该被回收</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#简单的解释一下垃圾回收"><span class="nav-number">1.2.3.</span> <span class="nav-text">简单的解释一下垃圾回收</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#调用System-gc-会发生什么"><span class="nav-number">1.2.4.</span> <span class="nav-text">调用System.gc()会发生什么?</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#进程-线程相关"><span class="nav-number">1.3.</span> <span class="nav-text">进程,线程相关</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#说说进程-线程-协程之间的区别"><span class="nav-number">1.3.1.</span> <span class="nav-text">说说进程,线程,协程之间的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#你了解守护线程吗-它和非守护线程有什么区别"><span class="nav-number">1.3.2.</span> <span class="nav-text">你了解守护线程吗?它和非守护线程有什么区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#什么是多线程上下文切换"><span class="nav-number">1.3.3.</span> <span class="nav-text">什么是多线程上下文切换</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#创建两种线程的方式-他们有什么区别"><span class="nav-number">1.3.4.</span> <span class="nav-text">创建两种线程的方式?他们有什么区别?</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Thread类中的start-和run-方法有什么区别"><span class="nav-number">1.3.5.</span> <span class="nav-text">Thread类中的start()和run()方法有什么区别?</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#怎么检测一个线程是否持有对象监视器"><span class="nav-number">1.3.6.</span> <span class="nav-text">怎么检测一个线程是否持有对象监视器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Runnable和Callable的区别"><span class="nav-number">1.3.7.</span> <span class="nav-text">Runnable和Callable的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#什么导致线程阻塞"><span class="nav-number">1.3.8.</span> <span class="nav-text">什么导致线程阻塞</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#wait-notify-和suspend-resume-之间的区别"><span class="nav-number">1.3.9.</span> <span class="nav-text">wait(),notify()和suspend(),resume()之间的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#产生死锁的条件"><span class="nav-number">1.3.10.</span> <span class="nav-text">产生死锁的条件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#为什么wait-方法和notify-notifyAll-方法要在同步块中被调用"><span class="nav-number">1.3.11.</span> <span class="nav-text">为什么wait()方法和notify()/notifyAll()方法要在同步块中被调用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#wait-方法和notify-notifyAll-方法在放弃对象监视器时有什么区别"><span class="nav-number">1.3.12.</span> <span class="nav-text">wait()方法和notify()/notifyAll()方法在放弃对象监视器时有什么区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#wait-与sleep-的区别"><span class="nav-number">1.3.13.</span> <span class="nav-text">wait()与sleep()的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#为什么wait-nofity和nofityAll这些方法不放在Thread类当中"><span class="nav-number">1.3.14.</span> <span class="nav-text">为什么wait,nofity和nofityAll这些方法不放在Thread类当中</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#怎么唤醒一个阻塞的线程"><span class="nav-number">1.3.15.</span> <span class="nav-text">怎么唤醒一个阻塞的线程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#什么是多线程的上下文切换"><span class="nav-number">1.3.16.</span> <span class="nav-text">什么是多线程的上下文切换</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#synchronized和ReentrantLock的区别"><span class="nav-number">1.3.17.</span> <span class="nav-text">synchronized和ReentrantLock的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#FutureTask是什么"><span class="nav-number">1.3.18.</span> <span class="nav-text">FutureTask是什么</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#一个线程如果出现了运行时异常怎么办"><span class="nav-number">1.3.19.</span> <span class="nav-text">一个线程如果出现了运行时异常怎么办?</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Java当中有哪几种锁"><span class="nav-number">1.3.20.</span> <span class="nav-text">Java当中有哪几种锁</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#如何在两个线程间共享数据"><span class="nav-number">1.3.21.</span> <span class="nav-text">如何在两个线程间共享数据</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#如何正确的使用wait-使用if还是while"><span class="nav-number">1.3.22.</span> <span class="nav-text">如何正确的使用wait()?使用if还是while?</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#什么是线程局部变量ThreadLocal"><span class="nav-number">1.3.23.</span> <span class="nav-text">什么是线程局部变量ThreadLocal</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ThreadLoal的作用是什么"><span class="nav-number">1.3.24.</span> <span class="nav-text">ThreadLoal的作用是什么?</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#生产者消费者模型的作用是什么"><span class="nav-number">1.3.25.</span> <span class="nav-text">生产者消费者模型的作用是什么?</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#写一个生产者-消费者队列"><span class="nav-number">1.3.26.</span> <span class="nav-text">写一个生产者-消费者队列</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#使用阻塞队列来实现"><span class="nav-number">1.3.27.</span> <span class="nav-text">使用阻塞队列来实现</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#使用wait-notify来实现"><span class="nav-number">1.3.28.</span> <span class="nav-text">使用wait-notify来实现</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#如果你提交任务时，线程池队列已满，这时会发生什么"><span class="nav-number">1.3.29.</span> <span class="nav-text">如果你提交任务时，线程池队列已满，这时会发生什么</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#为什么要使用线程池"><span class="nav-number">1.3.30.</span> <span class="nav-text">为什么要使用线程池</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#java中用到的线程调度算法是什么"><span class="nav-number">1.3.31.</span> <span class="nav-text">java中用到的线程调度算法是什么</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Thread-sleep-0-的作用是什么"><span class="nav-number">1.3.32.</span> <span class="nav-text">Thread.sleep(0)的作用是什么</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#什么是CAS"><span class="nav-number">1.3.33.</span> <span class="nav-text">什么是CAS</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#什么是乐观锁和悲观锁"><span class="nav-number">1.3.34.</span> <span class="nav-text">什么是乐观锁和悲观锁</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ConcurrentHashMap的并发度是什么"><span class="nav-number">1.3.35.</span> <span class="nav-text">ConcurrentHashMap的并发度是什么?</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ConcurrentHashMap的工作原理"><span class="nav-number">1.3.36.</span> <span class="nav-text">ConcurrentHashMap的工作原理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#jdk-1-6"><span class="nav-number">1.3.37.</span> <span class="nav-text">jdk 1.6:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#jdk-1-8"><span class="nav-number">1.3.38.</span> <span class="nav-text">jdk 1.8</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#CyclicBarrier和CountDownLatch区别"><span class="nav-number">1.3.39.</span> <span class="nav-text">CyclicBarrier和CountDownLatch区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#java中的-操作符线程安全么"><span class="nav-number">1.3.40.</span> <span class="nav-text">java中的++操作符线程安全么?</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#你有哪些多线程开发良好的实践"><span class="nav-number">1.3.41.</span> <span class="nav-text">你有哪些多线程开发良好的实践?</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关于volatile关键字"><span class="nav-number">1.4.</span> <span class="nav-text">关于volatile关键字</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#可以创建Volatile数组吗"><span class="nav-number">1.4.1.</span> <span class="nav-text">可以创建Volatile数组吗?</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#volatile能使得一个非原子操作变成原子操作吗"><span class="nav-number">1.4.2.</span> <span class="nav-text">volatile能使得一个非原子操作变成原子操作吗?</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#volatile类型变量提供什么保证"><span class="nav-number">1.4.3.</span> <span class="nav-text">volatile类型变量提供什么保证?</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关于集合"><span class="nav-number">1.5.</span> <span class="nav-text">关于集合</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Java中的集合及其继承关系"><span class="nav-number">1.5.1.</span> <span class="nav-text">Java中的集合及其继承关系</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#poll-方法和remove-方法区别"><span class="nav-number">1.5.2.</span> <span class="nav-text">poll()方法和remove()方法区别?</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#LinkedHashMap和PriorityQueue的区别"><span class="nav-number">1.5.3.</span> <span class="nav-text">LinkedHashMap和PriorityQueue的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#WeakHashMap与HashMap的区别是什么"><span class="nav-number">1.5.4.</span> <span class="nav-text">WeakHashMap与HashMap的区别是什么?</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ArrayList和LinkedList的区别"><span class="nav-number">1.5.5.</span> <span class="nav-text">ArrayList和LinkedList的区别?</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ArrayList和Array有什么区别"><span class="nav-number">1.5.6.</span> <span class="nav-text">ArrayList和Array有什么区别?</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ArrayList和HashMap默认大小"><span class="nav-number">1.5.7.</span> <span class="nav-text">ArrayList和HashMap默认大小?</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Comparator和Comparable的区别"><span class="nav-number">1.5.8.</span> <span class="nav-text">Comparator和Comparable的区别?</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#如何实现集合排序"><span class="nav-number">1.5.9.</span> <span class="nav-text">如何实现集合排序?</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#如何打印数组内容"><span class="nav-number">1.5.10.</span> <span class="nav-text">如何打印数组内容</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#LinkedList的是单向链表还是双向"><span class="nav-number">1.5.11.</span> <span class="nav-text">LinkedList的是单向链表还是双向?</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#TreeMap是实现原理"><span class="nav-number">1.5.12.</span> <span class="nav-text">TreeMap是实现原理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#遍历ArrayList时如何正确移除一个元素"><span class="nav-number">1.5.13.</span> <span class="nav-text">遍历ArrayList时如何正确移除一个元素</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#什么是ArrayMap-它和HashMap有什么区别"><span class="nav-number">1.5.14.</span> <span class="nav-text">什么是ArrayMap?它和HashMap有什么区别?</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#HashMap的实现原理"><span class="nav-number">1.5.15.</span> <span class="nav-text">HashMap的实现原理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#你了解Fail-Fast机制吗"><span class="nav-number">1.5.16.</span> <span class="nav-text">你了解Fail-Fast机制吗</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Fail-fast和Fail-safe有什么区别"><span class="nav-number">1.5.17.</span> <span class="nav-text">Fail-fast和Fail-safe有什么区别</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关于日期"><span class="nav-number">1.6.</span> <span class="nav-text">关于日期</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#SimpleDateFormat是线程安全的吗"><span class="nav-number">1.6.1.</span> <span class="nav-text">SimpleDateFormat是线程安全的吗?</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#如何格式化日期"><span class="nav-number">1.6.2.</span> <span class="nav-text">如何格式化日期?</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关于异常"><span class="nav-number">1.7.</span> <span class="nav-text">关于异常</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#简单描述java异常体系"><span class="nav-number">1.7.1.</span> <span class="nav-text">简单描述java异常体系</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#什么是异常链"><span class="nav-number">1.7.2.</span> <span class="nav-text">什么是异常链</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#throw和throws的区别"><span class="nav-number">1.7.3.</span> <span class="nav-text">throw和throws的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#关于序列化"><span class="nav-number">1.7.4.</span> <span class="nav-text">关于序列化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Java-中，Serializable-与-Externalizable-的区别"><span class="nav-number">1.7.5.</span> <span class="nav-text">Java 中，Serializable 与 Externalizable 的区别</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关于JVM"><span class="nav-number">1.8.</span> <span class="nav-text">关于JVM</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#JVM特性"><span class="nav-number">1.8.1.</span> <span class="nav-text">JVM特性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#简单解释一下类加载器"><span class="nav-number">1.8.2.</span> <span class="nav-text">简单解释一下类加载器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#简述堆和栈的区别"><span class="nav-number">1.8.3.</span> <span class="nav-text">简述堆和栈的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#简述JVM内存分配"><span class="nav-number">1.8.4.</span> <span class="nav-text">简述JVM内存分配</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#其他"><span class="nav-number">1.9.</span> <span class="nav-text">其他</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#java当中采用的是大端还是小端"><span class="nav-number">1.9.1.</span> <span class="nav-text">java当中采用的是大端还是小端?</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#XML解析的几种方式和特点"><span class="nav-number">1.9.2.</span> <span class="nav-text">XML解析的几种方式和特点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#JDK-1-7特性"><span class="nav-number">1.9.3.</span> <span class="nav-text">JDK 1.7特性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#JDK-1-8特性"><span class="nav-number">1.9.4.</span> <span class="nav-text">JDK 1.8特性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Maven和ANT有什么区别"><span class="nav-number">1.9.5.</span> <span class="nav-text">Maven和ANT有什么区别?</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#JDBC最佳实践"><span class="nav-number">1.9.6.</span> <span class="nav-text">JDBC最佳实践</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#IO操作最佳实践"><span class="nav-number">1.9.7.</span> <span class="nav-text">IO操作最佳实践</span></a></li></ol></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#Java-常见概念"><span class="nav-number">2.</span> <span class="nav-text">Java 常见概念</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-HashMap和HashTable的区别"><span class="nav-number">2.0.1.</span> <span class="nav-text">1.HashMap和HashTable的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-java的线程安全类"><span class="nav-number">2.0.2.</span> <span class="nav-text">2.java的线程安全类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-java集合框架"><span class="nav-number">2.0.3.</span> <span class="nav-text">3.java集合框架</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-Java垃圾回收机制"><span class="nav-number">2.0.4.</span> <span class="nav-text">4.Java垃圾回收机制</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-一些重要的关键字"><span class="nav-number">2.0.5.</span> <span class="nav-text">5.一些重要的关键字</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-多线程-amp-并发-amp-同步-amp-锁"><span class="nav-number">2.0.6.</span> <span class="nav-text">6.多线程 &amp; 并发 &amp; 同步 &amp; 锁</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-接口与抽象类"><span class="nav-number">2.0.7.</span> <span class="nav-text">7.接口与抽象类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8-Statement接口"><span class="nav-number">2.0.8.</span> <span class="nav-text">8.Statement接口</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#9-抽象类和最终类"><span class="nav-number">2.0.9.</span> <span class="nav-text">9.抽象类和最终类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#10-异常"><span class="nav-number">2.0.10.</span> <span class="nav-text">10.异常</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#11-this-amp-super"><span class="nav-number">2.0.11.</span> <span class="nav-text">11.this &amp; super</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#12-修饰符一览"><span class="nav-number">2.0.12.</span> <span class="nav-text">12.修饰符一览</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#13-构造内部类对象"><span class="nav-number">2.0.13.</span> <span class="nav-text">13.构造内部类对象</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#14-序列化"><span class="nav-number">2.0.14.</span> <span class="nav-text">14.序列化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#15-Java的方法区"><span class="nav-number">2.0.15.</span> <span class="nav-text">15.Java的方法区</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#16-正则表达式"><span class="nav-number">2.0.16.</span> <span class="nav-text">16.正则表达式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#17-Servlet-amp-JSP-amp-Tomcat"><span class="nav-number">2.0.17.</span> <span class="nav-text">17.Servlet &amp; JSP &amp; Tomcat</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#18-struts"><span class="nav-number">2.0.18.</span> <span class="nav-text">18.struts</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#19-Hibernate的7大鼓励措施"><span class="nav-number">2.0.19.</span> <span class="nav-text">19.Hibernate的7大鼓励措施</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#20-JVM"><span class="nav-number">2.0.20.</span> <span class="nav-text">20.JVM</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#21-面向对象的五大基本原则-solid"><span class="nav-number">2.0.21.</span> <span class="nav-text">21.面向对象的五大基本原则(solid)</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#面向对象设计原则"><span class="nav-number">2.0.21.1.</span> <span class="nav-text">面向对象设计原则</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#22-null可以被强制转型为任意类型的对象。"><span class="nav-number">2.0.22.</span> <span class="nav-text">22.null可以被强制转型为任意类型的对象。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#23-代码执行次序"><span class="nav-number">2.0.23.</span> <span class="nav-text">23.代码执行次序</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#24-红黑树"><span class="nav-number">2.0.24.</span> <span class="nav-text">24.红黑树</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#25-排序"><span class="nav-number">2.0.25.</span> <span class="nav-text">25.排序</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#26-查找与散列"><span class="nav-number">2.0.26.</span> <span class="nav-text">26.查找与散列</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#46-Java匿名内部类访问外部变量，为何需被标志为final？"><span class="nav-number">2.0.27.</span> <span class="nav-text">46. Java匿名内部类访问外部变量，为何需被标志为final？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#47-非静态内部类为什么不能有静态成员"><span class="nav-number">2.0.28.</span> <span class="nav-text">47. 非静态内部类为什么不能有静态成员</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#48-手写实现二分查找"><span class="nav-number">2.0.29.</span> <span class="nav-text">48. 手写实现二分查找</span></a></li></ol></li></div>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -2176,6 +1329,10 @@ public void onConfigurationChanged(Configuration newConfig) {
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
 
   
 
