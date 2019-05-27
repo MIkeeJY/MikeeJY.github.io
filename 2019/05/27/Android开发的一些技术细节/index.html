@@ -80,17 +80,17 @@
 
 
 
-<meta name="description" content="在项目中需要启用系统照相机来拍照。本来很容易的一个问题。但在适配中出现了问题。简单说一下问题：    有些手机拍照成功，有些手机拍完照后确定返回后activity数据丢失，被销毁了。问题查找：    经过代码查找发现，当这些出问题的手机被调用系统手机拍照时，当前activity被销毁了之后又被重新创建了。即Acitivity 执行了ondestory()–&amp;gt;onCreate()，所以Acti">
+<meta name="description" content="Android开发的一些技术细节最近总结了一些开发中应该注意的技术细节，特此记录下  Message obtain跟直接new的区别 ：本质是Message obtain是采用享元模式，所以效率会高一些 Rxjava操作符设计模式 ：看了一下源码其实就是装饰器模式 Gson泛型擦除 ：Java泛型的实现机制，使用了泛型的代码在运行期间相关的泛型参数的类型会被擦除，我们无法在运行期间获知泛型参数的具">
 <meta property="og:type" content="article">
-<meta property="og:title" content="关于调用系统照相机Activity被销毁问题解决">
-<meta property="og:url" content="http://yoursite.com/2016/05/11/camera/index.html">
+<meta property="og:title" content="Mikee的八度空间">
+<meta property="og:url" content="http://yoursite.com/2019/05/27/Android开发的一些技术细节/index.html">
 <meta property="og:site_name" content="Mikee的八度空间">
-<meta property="og:description" content="在项目中需要启用系统照相机来拍照。本来很容易的一个问题。但在适配中出现了问题。简单说一下问题：    有些手机拍照成功，有些手机拍完照后确定返回后activity数据丢失，被销毁了。问题查找：    经过代码查找发现，当这些出问题的手机被调用系统手机拍照时，当前activity被销毁了之后又被重新创建了。即Acitivity 执行了ondestory()–&amp;gt;onCreate()，所以Acti">
+<meta property="og:description" content="Android开发的一些技术细节最近总结了一些开发中应该注意的技术细节，特此记录下  Message obtain跟直接new的区别 ：本质是Message obtain是采用享元模式，所以效率会高一些 Rxjava操作符设计模式 ：看了一下源码其实就是装饰器模式 Gson泛型擦除 ：Java泛型的实现机制，使用了泛型的代码在运行期间相关的泛型参数的类型会被擦除，我们无法在运行期间获知泛型参数的具">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-09-04T09:26:28.000Z">
+<meta property="og:updated_time" content="2019-05-27T06:08:49.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="关于调用系统照相机Activity被销毁问题解决">
-<meta name="twitter:description" content="在项目中需要启用系统照相机来拍照。本来很容易的一个问题。但在适配中出现了问题。简单说一下问题：    有些手机拍照成功，有些手机拍完照后确定返回后activity数据丢失，被销毁了。问题查找：    经过代码查找发现，当这些出问题的手机被调用系统手机拍照时，当前activity被销毁了之后又被重新创建了。即Acitivity 执行了ondestory()–&amp;gt;onCreate()，所以Acti">
+<meta name="twitter:title" content="Mikee的八度空间">
+<meta name="twitter:description" content="Android开发的一些技术细节最近总结了一些开发中应该注意的技术细节，特此记录下  Message obtain跟直接new的区别 ：本质是Message obtain是采用享元模式，所以效率会高一些 Rxjava操作符设计模式 ：看了一下源码其实就是装饰器模式 Gson泛型擦除 ：Java泛型的实现机制，使用了泛型的代码在运行期间相关的泛型参数的类型会被擦除，我们无法在运行期间获知泛型参数的具">
 
 
 
@@ -108,7 +108,7 @@
   };
 </script>
 
-  <title> 关于调用系统照相机Activity被销毁问题解决 | Mikee的八度空间 </title>
+  <title>  | Mikee的八度空间 </title>
 </head>
 
 <body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -228,7 +228,7 @@
             
             
               
-                关于调用系统照相机Activity被销毁问题解决
+                
               
             
           </h1>
@@ -240,8 +240,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-05-11T17:08:26+08:00" content="2016-05-11">
-              2016-05-11
+            <time itemprop="dateCreated" datetime="2019-05-27T13:19:12+08:00" content="2019-05-27">
+              2019-05-27
             </time>
           </span>
 
@@ -268,29 +268,24 @@
       
 
       
-        <p>在项目中需要启用系统照相机来拍照。本来很容易的一个问题。但在适配中出现了问题。<br>简单说一下问题：<br>    有些手机拍照成功，有些手机拍完照后确定返回后activity数据丢失，被销毁了。<br>问题查找：<br>    经过代码查找发现，当这些出问题的手机被调用系统手机拍照时，当前activity被销毁了之后又被重新创建了。即Acitivity 执行了ondestory()–&gt;onCreate()，所以Activity被重新创建了从而内部的数据丢失,而按照正常的逻辑该Activity应该入后台堆栈。一开始以为是系统启用照相机内存不够自动销毁回收。可有些手机不会出现该问题。很无奈。<br>    之后经过本人细心研究activity的生命周期才恍然大悟，原来当手机横竖屏时系统会重新创建一个activity，这就是为什么上个activity会ondestory()–&gt;onCreate()。但为什么有些手机会执行有些不会呢。问题就出在横竖屏上。因为有些手机的系统照相机弄的很炫会自动旋转90度，从而导致了横竖屏的发生（–！看来最潮的也不是好东西，苦了我们这些碼农）。这就是为什有些手机会发生有些不会。跟系统照相机是否旋转有关系。<br>    最后贴上解决方案。<br>    AndroidMainifest.xml中加入</p>
-<pre><code>&lt;activity
-            android:name=&quot;.Activity&quot;
-            android:launchMode=&quot;singleTask&quot;          
-            android:configChanges=&quot;orientation|keyboardHidden&quot;                       
-            android:theme=&quot;@android:style/Theme.Black.NoTitleBar.Fullscreen&quot;/&gt;
-</code></pre><pre><code>@Override
-public void onConfigurationChanged(Configuration newConfig) {
-    //其实这里什么都不要做
-    super.onConfigurationChanged(newConfig);
-}
-</code></pre><h6 id="PS-在level13以后加入了一个screenSize的属性，这个属性很重要如果在android3-2以后的版本中没有添加”screenSize”的话依然会触发横竖屏activity销毁周期-也就是说不能屏蔽activity销毁，从而调用onConfigurationChanged方法，而在3-2之前只要设置orientation-keyboardHidden就可以-。由于智能机的迅速普及手机的系统大多数升级到4-0以上，这样会导致很多没有设置screenSize属性的程序activity又出现销毁情况。"><a href="#PS-在level13以后加入了一个screenSize的属性，这个属性很重要如果在android3-2以后的版本中没有添加”screenSize”的话依然会触发横竖屏activity销毁周期-也就是说不能屏蔽activity销毁，从而调用onConfigurationChanged方法，而在3-2之前只要设置orientation-keyboardHidden就可以-。由于智能机的迅速普及手机的系统大多数升级到4-0以上，这样会导致很多没有设置screenSize属性的程序activity又出现销毁情况。" class="headerlink" title="PS:在level13以后加入了一个screenSize的属性，这个属性很重要如果在android3.2以后的版本中没有添加”screenSize”的话依然会触发横竖屏activity销毁周期(也就是说不能屏蔽activity销毁，从而调用onConfigurationChanged方法，而在3.2之前只要设置orientation|keyboardHidden就可以)。由于智能机的迅速普及手机的系统大多数升级到4.0以上，这样会导致很多没有设置screenSize属性的程序activity又出现销毁情况。"></a>PS:在level13以后加入了一个screenSize的属性，这个属性很重要如果在android3.2以后的版本中没有添加”screenSize”的话依然会触发横竖屏activity销毁周期(也就是说不能屏蔽activity销毁，从而调用onConfigurationChanged方法，而在3.2之前只要设置orientation|keyboardHidden就可以)。由于智能机的迅速普及手机的系统大多数升级到4.0以上，这样会导致很多没有设置screenSize属性的程序activity又出现销毁情况。</h6><p>试试如下代码：<br>AndroidMainifest.xml中加入</p>
-<pre><code>&lt;activity  
-  android:name=&quot;.Activity&quot; 
-  android:launchMode=&quot;singleTask&quot;    
-  android:configChanges=&quot;orientationkeyboardHidden|screenSize&quot;/&gt;
-</code></pre><p>复写acitivity的onConfigurationChanged方法</p>
-<pre><code>@Override
-public void onConfigurationChanged(Configuration newConfig) {
-    //其实这里什么都不要做
-    super.onConfigurationChanged(newConfig);
-}
-</code></pre>
+        <h1 id="Android开发的一些技术细节"><a href="#Android开发的一些技术细节" class="headerlink" title="Android开发的一些技术细节"></a>Android开发的一些技术细节</h1><p>最近总结了一些开发中应该注意的技术细节，特此记录下</p>
+<ul>
+<li><strong>Message obtain跟直接new的区别</strong> ：本质是Message obtain是采用享元模式，所以效率会高一些</li>
+<li><strong>Rxjava操作符设计模式</strong> ：看了一下源码其实就是装饰器模式</li>
+<li><p><strong>Gson泛型擦除</strong> ：Java泛型的实现机制，使用了泛型的代码在运行期间相关的泛型参数的类型会被擦除，我们无法在运行期间获知泛型参数的具体类型（所有的泛型类型在运行时都是Object类型）<br>意思就是说，我们传入一个泛型T，然后gson在解析的时候，会把泛型参数的类型擦除，那么我们就没办法获得参数的类型了。所以也就报错了，会把List&lt; T &gt; 泛型解析成LinkedTreeMap</p>
+</li>
+<li><p><strong>线程池如何保证核心线程不被销毁的</strong> ： 大致可以描述为线程池就是用一堆包装住Thread的Wroker类的集合，在里面有条件的进行着死循环，从而可以不断接受任务来进行。</p>
+</li>
+<li>当有新任务来的时候，先看看当前的线程数有没有超过核心线程数，如果没超过就直接新建一个线程来执行新的任务，如果超过了就看看缓存队列有没有满，没满就将新任务放进缓存队列中，满了就新建一个线程来执行新的任务，如果线程池中的线程数已经达到了指定的最大线程数了，那就根据相应的策略拒绝任务。</li>
+<li>当缓存队列中的任务都执行完了的时候，线程池中的线程数如果大于核心线程数，就销毁多出来的线程，直到线程池中的线程数等于核心线程数。此时这些线程就不会被销毁了，它们一直处于阻塞状态，等待新的任务到来。</li>
+<li><strong>HashMap容量为2次幂的原因</strong> ：HashMap为了存取高效，要尽量较少碰撞，就是要尽量把数据分配均匀，每个链表长度大致相同，这个实现就在把数据存到哪个链表中的算法；<br>这个算法实际就是取模，hash%length，计算机中直接求余效率不如位移运算，源码中做了优化hash&amp;(length-1)，<br>hash%length==hash&amp;(length-1)的前提是length是2的n次方；<br>为什么这样能均匀分布减少碰撞呢？2的n次方实际就是1后面n个0，2的n次方-1  实际就是n个1；<br>例如长度为9时候，3&amp;(9-1)=0  2&amp;(9-1)=0 ，都在0上，碰撞了；<br>例如长度为8时候，3&amp;(8-1)=3  2&amp;(8-1)=2 ，不同位置上，不碰撞；<br>其实就是按位“与”的时候，每一位都能  &amp;1  ，也就是和1111……1111111进行与运算</li>
+<li><p><strong>从性能层面出发，尽可能直接访问变量而非方法</strong> ：<br>Android开发中，类内尽量避免通过get/set访问成员变量，虽然这在语言的开发中是一个好的习惯，但是Android虚拟机中，对方法的调用开销远大于对变量的直接访问。<br>在没有JIT的情况下，直接的变量访问比调用方法快3倍，<br>在JIT下，直接的变量访问更是比调用方法快7倍!<br>基于现有Java封装思想只写public不符合封装，故依据个人习惯而言，没有强制，不过要尽量避免无用的set方法，个人习惯可以只写get方法，没有用到set的不建议生成。</p>
+</li>
+<li><p><strong>ButterKnife只需要在Fragment里解绑，Activity不需要</strong> </p>
+</li>
+</ul>
+<hr>
+
       
     </div>
     
@@ -313,17 +308,13 @@ public void onConfigurationChanged(Configuration newConfig) {
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/04/20/BaseRecyclerView/" rel="next" title="对RecyclerView.Adapter的简单封装">
-                <i class="fa fa-chevron-left"></i> 对RecyclerView.Adapter的简单封装
+              <a href="/2018/12/10/job2018/" rel="next" title="2018年年底Android悲催的面试之路">
+                <i class="fa fa-chevron-left"></i> 2018年年底Android悲催的面试之路
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/06/06/job/" rel="prev" title="2017年Android曲折的求职之路">
-                2017年Android曲折的求职之路 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -421,7 +412,7 @@ public void onConfigurationChanged(Configuration newConfig) {
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-6"><a class="nav-link" href="#PS-在level13以后加入了一个screenSize的属性，这个属性很重要如果在android3-2以后的版本中没有添加”screenSize”的话依然会触发横竖屏activity销毁周期-也就是说不能屏蔽activity销毁，从而调用onConfigurationChanged方法，而在3-2之前只要设置orientation-keyboardHidden就可以-。由于智能机的迅速普及手机的系统大多数升级到4-0以上，这样会导致很多没有设置screenSize属性的程序activity又出现销毁情况。"><span class="nav-number">1.</span> <span class="nav-text">PS:在level13以后加入了一个screenSize的属性，这个属性很重要如果在android3.2以后的版本中没有添加”screenSize”的话依然会触发横竖屏activity销毁周期(也就是说不能屏蔽activity销毁，从而调用onConfigurationChanged方法，而在3.2之前只要设置orientation|keyboardHidden就可以)。由于智能机的迅速普及手机的系统大多数升级到4.0以上，这样会导致很多没有设置screenSize属性的程序activity又出现销毁情况。</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Android开发的一些技术细节"><span class="nav-number">1.</span> <span class="nav-text">Android开发的一些技术细节</span></a></li></ol></div>
             
           </div>
         </section>

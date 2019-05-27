@@ -227,6 +227,116 @@
             
               
                 
+                <a class="post-title-link" href="/2019/05/27/Android开发的一些技术细节/" itemprop="url">
+                  未命名
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2019-05-27T13:19:12+08:00" content="2019-05-27">
+              2019-05-27
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Android开发的一些技术细节"><a href="#Android开发的一些技术细节" class="headerlink" title="Android开发的一些技术细节"></a>Android开发的一些技术细节</h1><p>最近总结了一些开发中应该注意的技术细节，特此记录下</p>
+<ul>
+<li><strong>Message obtain跟直接new的区别</strong> ：本质是Message obtain是采用享元模式，所以效率会高一些</li>
+<li><strong>Rxjava操作符设计模式</strong> ：看了一下源码其实就是装饰器模式</li>
+<li><p><strong>Gson泛型擦除</strong> ：Java泛型的实现机制，使用了泛型的代码在运行期间相关的泛型参数的类型会被擦除，我们无法在运行期间获知泛型参数的具体类型（所有的泛型类型在运行时都是Object类型）<br>意思就是说，我们传入一个泛型T，然后gson在解析的时候，会把泛型参数的类型擦除，那么我们就没办法获得参数的类型了。所以也就报错了，会把List&lt; T &gt; 泛型解析成LinkedTreeMap</p>
+</li>
+<li><p><strong>线程池如何保证核心线程不被销毁的</strong> ： 大致可以描述为线程池就是用一堆包装住Thread的Wroker类的集合，在里面有条件的进行着死循环，从而可以不断接受任务来进行。</p>
+</li>
+<li>当有新任务来的时候，先看看当前的线程数有没有超过核心线程数，如果没超过就直接新建一个线程来执行新的任务，如果超过了就看看缓存队列有没有满，没满就将新任务放进缓存队列中，满了就新建一个线程来执行新的任务，如果线程池中的线程数已经达到了指定的最大线程数了，那就根据相应的策略拒绝任务。</li>
+<li>当缓存队列中的任务都执行完了的时候，线程池中的线程数如果大于核心线程数，就销毁多出来的线程，直到线程池中的线程数等于核心线程数。此时这些线程就不会被销毁了，它们一直处于阻塞状态，等待新的任务到来。</li>
+<li><strong>HashMap容量为2次幂的原因</strong> ：HashMap为了存取高效，要尽量较少碰撞，就是要尽量把数据分配均匀，每个链表长度大致相同，这个实现就在把数据存到哪个链表中的算法；<br>这个算法实际就是取模，hash%length，计算机中直接求余效率不如位移运算，源码中做了优化hash&amp;(length-1)，<br>hash%length==hash&amp;(length-1)的前提是length是2的n次方；<br>为什么这样能均匀分布减少碰撞呢？2的n次方实际就是1后面n个0，2的n次方-1  实际就是n个1；<br>例如长度为9时候，3&amp;(9-1)=0  2&amp;(9-1)=0 ，都在0上，碰撞了；<br>例如长度为8时候，3&amp;(8-1)=3  2&amp;(8-1)=2 ，不同位置上，不碰撞；<br>其实就是按位“与”的时候，每一位都能  &amp;1  ，也就是和1111……1111111进行与运算</li>
+<li><p><strong>从性能层面出发，尽可能直接访问变量而非方法</strong> ：<br>Android开发中，类内尽量避免通过get/set访问成员变量，虽然这在语言的开发中是一个好的习惯，但是Android虚拟机中，对方法的调用开销远大于对变量的直接访问。<br>在没有JIT的情况下，直接的变量访问比调用方法快3倍，<br>在JIT下，直接的变量访问更是比调用方法快7倍!<br>基于现有Java封装思想只写public不符合封装，故依据个人习惯而言，没有强制，不过要尽量避免无用的set方法，个人习惯可以只写get方法，没有用到set的不建议生成。</p>
+</li>
+<li><p><strong>ButterKnife只需要在Fragment里解绑，Activity不需要</strong> </p>
+</li>
+</ul>
+<hr>
+
+          
+        
+      
+    </div>
+    
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope="" itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2018/12/10/job2018/" itemprop="url">
                   2018年年底Android悲催的面试之路
                 </a>
@@ -1153,7 +1263,7 @@ public void onConfigurationChanged(Configuration newConfig) {
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">7</span>
+              <span class="site-state-item-count">8</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
