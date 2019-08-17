@@ -6,7 +6,7 @@
 
 
 <html class="theme-next muse use-motion">
-<head><meta name="generator" content="Hexo 3.8.0">
+<head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -111,7 +111,7 @@
   <title> 关于调用系统照相机Activity被销毁问题解决 | Mikee的八度空间 </title>
 </head>
 
-<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
 
@@ -132,7 +132,7 @@
   <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
-    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-meta ">
   
 
@@ -237,7 +237,7 @@
   
   
 
-  <article class="post post-type-normal " itemscope="" itemtype="http://schema.org/Article">
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
 
     
       <header class="post-header">
@@ -293,24 +293,20 @@
             android:name=&quot;.Activity&quot;
             android:launchMode=&quot;singleTask&quot;          
             android:configChanges=&quot;orientation|keyboardHidden&quot;                       
-            android:theme=&quot;@android:style/Theme.Black.NoTitleBar.Fullscreen&quot;/&gt;
-</code></pre><pre><code>@Override
+            android:theme=&quot;@android:style/Theme.Black.NoTitleBar.Fullscreen&quot;/&gt; </code></pre><pre><code>@Override
 public void onConfigurationChanged(Configuration newConfig) {
     //其实这里什么都不要做
     super.onConfigurationChanged(newConfig);
-}
-</code></pre><h6 id="PS-在level13以后加入了一个screenSize的属性，这个属性很重要如果在android3-2以后的版本中没有添加”screenSize”的话依然会触发横竖屏activity销毁周期-也就是说不能屏蔽activity销毁，从而调用onConfigurationChanged方法，而在3-2之前只要设置orientation-keyboardHidden就可以-。由于智能机的迅速普及手机的系统大多数升级到4-0以上，这样会导致很多没有设置screenSize属性的程序activity又出现销毁情况。"><a href="#PS-在level13以后加入了一个screenSize的属性，这个属性很重要如果在android3-2以后的版本中没有添加”screenSize”的话依然会触发横竖屏activity销毁周期-也就是说不能屏蔽activity销毁，从而调用onConfigurationChanged方法，而在3-2之前只要设置orientation-keyboardHidden就可以-。由于智能机的迅速普及手机的系统大多数升级到4-0以上，这样会导致很多没有设置screenSize属性的程序activity又出现销毁情况。" class="headerlink" title="PS:在level13以后加入了一个screenSize的属性，这个属性很重要如果在android3.2以后的版本中没有添加”screenSize”的话依然会触发横竖屏activity销毁周期(也就是说不能屏蔽activity销毁，从而调用onConfigurationChanged方法，而在3.2之前只要设置orientation|keyboardHidden就可以)。由于智能机的迅速普及手机的系统大多数升级到4.0以上，这样会导致很多没有设置screenSize属性的程序activity又出现销毁情况。"></a>PS:在level13以后加入了一个screenSize的属性，这个属性很重要如果在android3.2以后的版本中没有添加”screenSize”的话依然会触发横竖屏activity销毁周期(也就是说不能屏蔽activity销毁，从而调用onConfigurationChanged方法，而在3.2之前只要设置orientation|keyboardHidden就可以)。由于智能机的迅速普及手机的系统大多数升级到4.0以上，这样会导致很多没有设置screenSize属性的程序activity又出现销毁情况。</h6><p>试试如下代码：<br>AndroidMainifest.xml中加入</p>
+}</code></pre><h6 id="PS-在level13以后加入了一个screenSize的属性，这个属性很重要如果在android3-2以后的版本中没有添加”screenSize”的话依然会触发横竖屏activity销毁周期-也就是说不能屏蔽activity销毁，从而调用onConfigurationChanged方法，而在3-2之前只要设置orientation-keyboardHidden就可以-。由于智能机的迅速普及手机的系统大多数升级到4-0以上，这样会导致很多没有设置screenSize属性的程序activity又出现销毁情况。"><a href="#PS-在level13以后加入了一个screenSize的属性，这个属性很重要如果在android3-2以后的版本中没有添加”screenSize”的话依然会触发横竖屏activity销毁周期-也就是说不能屏蔽activity销毁，从而调用onConfigurationChanged方法，而在3-2之前只要设置orientation-keyboardHidden就可以-。由于智能机的迅速普及手机的系统大多数升级到4-0以上，这样会导致很多没有设置screenSize属性的程序activity又出现销毁情况。" class="headerlink" title="PS:在level13以后加入了一个screenSize的属性，这个属性很重要如果在android3.2以后的版本中没有添加”screenSize”的话依然会触发横竖屏activity销毁周期(也就是说不能屏蔽activity销毁，从而调用onConfigurationChanged方法，而在3.2之前只要设置orientation|keyboardHidden就可以)。由于智能机的迅速普及手机的系统大多数升级到4.0以上，这样会导致很多没有设置screenSize属性的程序activity又出现销毁情况。"></a>PS:在level13以后加入了一个screenSize的属性，这个属性很重要如果在android3.2以后的版本中没有添加”screenSize”的话依然会触发横竖屏activity销毁周期(也就是说不能屏蔽activity销毁，从而调用onConfigurationChanged方法，而在3.2之前只要设置orientation|keyboardHidden就可以)。由于智能机的迅速普及手机的系统大多数升级到4.0以上，这样会导致很多没有设置screenSize属性的程序activity又出现销毁情况。</h6><p>试试如下代码：<br>AndroidMainifest.xml中加入</p>
 <pre><code>&lt;activity  
   android:name=&quot;.Activity&quot; 
   android:launchMode=&quot;singleTask&quot;    
-  android:configChanges=&quot;orientationkeyboardHidden|screenSize&quot;/&gt;
-</code></pre><p>复写acitivity的onConfigurationChanged方法</p>
+  android:configChanges=&quot;orientationkeyboardHidden|screenSize&quot;/&gt;</code></pre><p>复写acitivity的onConfigurationChanged方法</p>
 <pre><code>@Override
 public void onConfigurationChanged(Configuration newConfig) {
     //其实这里什么都不要做
     super.onConfigurationChanged(newConfig);
-}
-</code></pre>
+}</code></pre>
       
     </div>
     
@@ -401,7 +397,7 @@ public void onConfigurationChanged(Configuration newConfig) {
       
 
       <section class="site-overview sidebar-panel ">
-        <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="Mikee">
           <p class="site-author-name" itemprop="name">Mikee</p>
           <p class="site-description motion-element" itemprop="description"></p>
