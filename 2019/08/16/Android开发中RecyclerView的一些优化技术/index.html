@@ -91,7 +91,7 @@
 <meta property="og:image" content="https://ss.csdn.net/p?https://mmbiz.qpic.cn/mmbiz/MOu2ZNAwZwPHKG7Ee6AKxj1ichFSy14jbZic5VZNkCfjJYiaZYNUQMpf0BZzGZOY7tOQsxu4vB0GtiaxugmOu1w3ww/640?wx_fmt=other">
 <meta property="og:image" content="https://ss.csdn.net/p?https://mmbiz.qpic.cn/mmbiz/MOu2ZNAwZwPHKG7Ee6AKxj1ichFSy14jbfcIWWr6B64RTicUicddtfYOk7ahpe4FkuxdOb87NLdmbvGZeAIAFTrOw/640?wx_fmt=other">
 <meta property="og:image" content="https://ss.csdn.net/p?https://mmbiz.qpic.cn/mmbiz_gif/MOu2ZNAwZwPHKG7Ee6AKxj1ichFSy14jb6XoM5laHaiaCfb5BUs0Nn9ia393XYFNbqZAV5x06RJsgZOzxPx53DnvQ/640?wx_fmt=gif">
-<meta property="og:updated_time" content="2019-08-16T03:04:17.000Z">
+<meta property="og:updated_time" content="2019-08-24T09:46:02.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android开发中RecyclerView的一些优化技术">
 <meta name="twitter:description" content="关于RecyclerView的优化，自己会将它们分为两大类，一类是RecyclerView自带的系统优化，另一类就是我们通过代码实现的手动优化，先来介绍下RecyclerView自带的系统优化。系统优化我们不能做太多的干预，但是通过理解RecyclerView的系统优化能够让我们更好的理解RecyclerView的工作机制。 预取功能(Prefetch) 这个功能是rv在版本25之后自带的，也就是">
@@ -297,6 +297,7 @@
 <h4 id="预取功能-Prefetch"><a href="#预取功能-Prefetch" class="headerlink" title="预取功能(Prefetch)"></a>预取功能(Prefetch)</h4><p> 这个功能是rv在版本25之后自带的，也就是说只要你使用了25或者之后版本的rv，那么就自带该功能，并且默认就是处理开启的状态，通过LinearLayoutManager的setItemPrefetchEnabled()我们可以手动控制该功能的开启关闭，但是一般情况下没必要也不推荐关闭该功能，预取功能的原理比较好理解，如图所示</p>
 <p><img src="https://ss.csdn.net/p?https://mmbiz.qpic.cn/mmbiz/MOu2ZNAwZwPHKG7Ee6AKxj1ichFSy14jbNibRVm6KDn601AEFNEC1qEial48kzDBF2UCUSVlnvnht1stlJXLxuVGA/640?wx_fmt=other" alt="img"></p>
 <p>我们都知道android是通过每16ms刷新一次页面来保证ui的流畅程度，现在android系统中刷新ui会通过cpu产生数据，然后交给gpu渲染的形式来完成，从上图可以看出当cpu完成数据处理交给gpu后就一直处于空闲状态，需要等待下一帧才会进行数据处理，而这空闲时间就被白白浪费了，如何才能压榨cpu的性能，让它一直处于忙碌状态，这就是rv的预取功能(Prefetch)要做的事情，rv会预取接下来可能要显示的item，在下一帧到来之前提前处理完数据，然后将得到的itemholder缓存起来，等到真正要使用的时候直接从缓存取出来即可</p>
+<a id="more"></a>
 <h4 id="预取代码理解"><a href="#预取代码理解" class="headerlink" title="预取代码理解"></a>预取代码理解</h4><p>虽说预取是默认开启不需要我们开发者操心的事情，但是明白原理还是能加深该功能的理解。下面就说下自己在看预取源码时的一点理解。实现预取功能的一个关键类就是gapworker，可以直接在rv源码中找到该类</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">GapWorker mGapWorker;</span><br></pre></td></tr></table></figure>
 
