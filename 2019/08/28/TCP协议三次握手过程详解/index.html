@@ -80,19 +80,19 @@
 
 
 
-<meta name="description" content="本文通过图来梳理TCP-IP协议相关知识。TCP通信过程包括三个步骤：建立TCP连接通道，传输数据，断开TCP连接通道。如图1所示，给出了TCP通信过程的示意图。   上图主要包括三部分: 建立连接、传输数据、断开连接。 建立TCP连接很简单，通过三次握手便可建立连接。建立好连接后，开始传输数据。TCP数据传输牵涉到的概念很多：超时重传、快速重传、流量控制、拥塞控制等等。断开连接的过程也很简单，">
+<meta name="description" content="本文通过图来梳理TCP-IP协议相关知识。TCP通信过程包括三个步骤：建立TCP连接通道，传输数据，断开TCP连接通道。如图1所示，给出了TCP通信过程的示意图。  上图主要包括三部分: 建立连接、传输数据、断开连接。 建立TCP连接很简单，通过三次握手便可建立连接。建立好连接后，开始传输数据。TCP数据传输牵涉到的概念很多：超时重传、快速重传、流量控制、拥塞控制等等。断开连接的过程也很简单，通过">
 <meta name="keywords" content="TCP">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Mikee的八度空间">
+<meta property="og:title" content="TCP协议三次握手过程详解">
 <meta property="og:url" content="http://yoursite.com/2019/08/28/TCP协议三次握手过程详解/index.html">
 <meta property="og:site_name" content="Mikee的八度空间">
-<meta property="og:description" content="本文通过图来梳理TCP-IP协议相关知识。TCP通信过程包括三个步骤：建立TCP连接通道，传输数据，断开TCP连接通道。如图1所示，给出了TCP通信过程的示意图。   上图主要包括三部分: 建立连接、传输数据、断开连接。 建立TCP连接很简单，通过三次握手便可建立连接。建立好连接后，开始传输数据。TCP数据传输牵涉到的概念很多：超时重传、快速重传、流量控制、拥塞控制等等。断开连接的过程也很简单，">
+<meta property="og:description" content="本文通过图来梳理TCP-IP协议相关知识。TCP通信过程包括三个步骤：建立TCP连接通道，传输数据，断开TCP连接通道。如图1所示，给出了TCP通信过程的示意图。  上图主要包括三部分: 建立连接、传输数据、断开连接。 建立TCP连接很简单，通过三次握手便可建立连接。建立好连接后，开始传输数据。TCP数据传输牵涉到的概念很多：超时重传、快速重传、流量控制、拥塞控制等等。断开连接的过程也很简单，通过">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://ss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=2590032753,2466318043&fm=173&app=49&f=JPEG?w=640&h=716&s=E7F239D247AFCCEA106594580300D072">
-<meta property="og:updated_time" content="2019-08-28T07:57:45.000Z">
+<meta property="og:updated_time" content="2019-08-28T08:03:11.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Mikee的八度空间">
-<meta name="twitter:description" content="本文通过图来梳理TCP-IP协议相关知识。TCP通信过程包括三个步骤：建立TCP连接通道，传输数据，断开TCP连接通道。如图1所示，给出了TCP通信过程的示意图。   上图主要包括三部分: 建立连接、传输数据、断开连接。 建立TCP连接很简单，通过三次握手便可建立连接。建立好连接后，开始传输数据。TCP数据传输牵涉到的概念很多：超时重传、快速重传、流量控制、拥塞控制等等。断开连接的过程也很简单，">
+<meta name="twitter:title" content="TCP协议三次握手过程详解">
+<meta name="twitter:description" content="本文通过图来梳理TCP-IP协议相关知识。TCP通信过程包括三个步骤：建立TCP连接通道，传输数据，断开TCP连接通道。如图1所示，给出了TCP通信过程的示意图。  上图主要包括三部分: 建立连接、传输数据、断开连接。 建立TCP连接很简单，通过三次握手便可建立连接。建立好连接后，开始传输数据。TCP数据传输牵涉到的概念很多：超时重传、快速重传、流量控制、拥塞控制等等。断开连接的过程也很简单，通过">
 <meta name="twitter:image" content="https://ss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=2590032753,2466318043&fm=173&app=49&f=JPEG?w=640&h=716&s=E7F239D247AFCCEA106594580300D072">
 
 
@@ -111,7 +111,7 @@
   };
 </script>
 
-  <title>  | Mikee的八度空间 </title>
+  <title> TCP协议三次握手过程详解 | Mikee的八度空间 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -251,7 +251,7 @@
             
             
               
-                
+                TCP协议三次握手过程详解
               
             
           </h1>
@@ -310,9 +310,7 @@
       
 
       
-        <ul>
-<li>本文通过图来梳理TCP-IP协议相关知识。TCP通信过程包括三个步骤：建立TCP连接通道，传输数据，断开TCP连接通道。如图1所示，给出了TCP通信过程的示意图。</li>
-</ul>
+        <p>本文通过图来梳理TCP-IP协议相关知识。TCP通信过程包括三个步骤：建立TCP连接通道，传输数据，断开TCP连接通道。如图1所示，给出了TCP通信过程的示意图。</p>
 <p><img src="https://ss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=2590032753,2466318043&fm=173&app=49&f=JPEG?w=640&h=716&s=E7F239D247AFCCEA106594580300D072" alt="img"></p>
 <p>上图主要包括三部分: <strong>建立连接、传输数据、断开连接。</strong></p>
 <p>建立TCP连接很简单，通过三次握手便可建立连接。建立好连接后，开始传输数据。TCP数据传输牵涉到的概念很多：超时重传、快速重传、流量控制、拥塞控制等等。断开连接的过程也很简单，通过四次握手完成断开连接的过程。<strong>三次握手建立连接：</strong></p>
