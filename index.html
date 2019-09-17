@@ -762,6 +762,124 @@
             
               
                 
+                <a class="post-title-link" href="/2017/06/06/最近被问到的算法整理/" itemprop="url">
+                  最近被问到的算法整理
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-06-06T18:12:35+08:00" content="2017-06-06">
+              2017-06-06
+            </time>
+          </span>
+
+          
+            <span class="post-category">
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/算法相关/" itemprop="url" rel="index">
+                    <span itemprop="name">算法相关</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="题目："><a href="#题目：" class="headerlink" title="题目："></a>题目：</h2><h3 id="1、取出一个整数的4-7位"><a href="#1、取出一个整数的4-7位" class="headerlink" title="1、取出一个整数的4-7位"></a>1、取出一个整数的4-7位</h3><p>解题思路：</p>
+<p>比如一个数  00000000 00000000 00000000 00000100  要取出4-7位，<br>我们可以先用&amp;来把其他的位数化成0，然后只保留4-7位为1，<br>也就是我们可以&amp;的数为00000000 00000000 00000000 11110000<br> 变成十六进制也就是0xf0<br>&amp;之后，再把后面4位给删掉，删掉我们可以用右移&gt;&gt;&gt;4<br>来排除</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">findBitRight</span><span class="params">(<span class="keyword">int</span> number,<span class="keyword">int</span> fromIndex,<span class="keyword">int</span> toIndex)</span> </span>&#123;</span><br><span class="line">    subListRangeCheck(fromIndex, toIndex,<span class="number">31</span>);</span><br><span class="line">    <span class="keyword">int</span> i = <span class="number">1</span>&lt;&lt;fromIndex;</span><br><span class="line">    <span class="keyword">int</span> tag = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span> (tag++ &lt;= (toIndex - fromIndex))&#123;</span><br><span class="line">        i |= (i &lt;&lt; <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> (number&amp;i)&gt;&gt;&gt;fromIndex;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="2、在一个全由字母组成的字符串中找到第一个只出现一次的字符并返回他的位置，没有则返回-1000"><a href="#2、在一个全由字母组成的字符串中找到第一个只出现一次的字符并返回他的位置，没有则返回-1000" class="headerlink" title="2、在一个全由字母组成的字符串中找到第一个只出现一次的字符并返回他的位置，没有则返回-1000"></a>2、在一个全由字母组成的字符串中找到第一个只出现一次的字符并返回他的位置，没有则返回-1000</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">firstUniqChar</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">    Map&lt;Character,Integer&gt; map = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">char</span> c : s.toCharArray()) &#123;</span><br><span class="line">        <span class="keyword">if</span> (map.get(c) == <span class="keyword">null</span>)&#123;</span><br><span class="line">            map.put(c,<span class="number">1</span>);</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            map.put(c,map.get(c)+<span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; s.toCharArray().length; i++) &#123;</span><br><span class="line">        Character c = s.charAt(i);</span><br><span class="line">        <span class="keyword">if</span> (map.get(c) == <span class="number">1</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> i;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> -<span class="number">1000</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+          
+        
+      
+    </div>
+    
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/05/11/camera/" itemprop="url">
                   关于调用系统照相机Activity被销毁问题解决
                 </a>
@@ -1169,7 +1287,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">9</span>
+              <span class="site-state-item-count">10</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1177,7 +1295,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-count">2</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -1186,7 +1304,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-count">2</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

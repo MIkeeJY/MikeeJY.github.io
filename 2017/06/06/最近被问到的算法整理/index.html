@@ -64,7 +64,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css">
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="算法,">
 
 
 
@@ -80,17 +80,18 @@
 
 
 
-<meta name="description" content="有时候服务端非得返回比较傻逼的Json 这时候可以用gson解析带有键值对的json">
+<meta name="description" content="题目：1、取出一个整数的4-7位解题思路： 比如一个数  00000000 00000000 00000000 00000100  要取出4-7位，我们可以先用&amp;amp;来把其他的位数化成0，然后只保留4-7位为1，也就是我们可以&amp;amp;的数为00000000 00000000 00000000 11110000 变成十六进制也就是0xf0&amp;amp;之后，再把后面4位给删掉，删掉我们可以用右移&amp;">
+<meta name="keywords" content="算法">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Gson解析（List和Map）格式json数据">
-<meta property="og:url" content="http://yoursite.com/2016/04/20/gson/index.html">
+<meta property="og:title" content="最近被问到的算法整理">
+<meta property="og:url" content="http://yoursite.com/2017/06/06/最近被问到的算法整理/index.html">
 <meta property="og:site_name" content="Mikee的八度空间">
-<meta property="og:description" content="有时候服务端非得返回比较傻逼的Json 这时候可以用gson解析带有键值对的json">
+<meta property="og:description" content="题目：1、取出一个整数的4-7位解题思路： 比如一个数  00000000 00000000 00000000 00000100  要取出4-7位，我们可以先用&amp;amp;来把其他的位数化成0，然后只保留4-7位为1，也就是我们可以&amp;amp;的数为00000000 00000000 00000000 11110000 变成十六进制也就是0xf0&amp;amp;之后，再把后面4位给删掉，删掉我们可以用右移&amp;">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-08-28T11:57:10.000Z">
+<meta property="og:updated_time" content="2019-09-17T07:47:47.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Gson解析（List和Map）格式json数据">
-<meta name="twitter:description" content="有时候服务端非得返回比较傻逼的Json 这时候可以用gson解析带有键值对的json">
+<meta name="twitter:title" content="最近被问到的算法整理">
+<meta name="twitter:description" content="题目：1、取出一个整数的4-7位解题思路： 比如一个数  00000000 00000000 00000000 00000100  要取出4-7位，我们可以先用&amp;amp;来把其他的位数化成0，然后只保留4-7位为1，也就是我们可以&amp;amp;的数为00000000 00000000 00000000 11110000 变成十六进制也就是0xf0&amp;amp;之后，再把后面4位给删掉，删掉我们可以用右移&amp;">
 
 
 
@@ -108,7 +109,7 @@
   };
 </script>
 
-  <title> Gson解析（List和Map）格式json数据 | Mikee的八度空间 </title>
+  <title> 最近被问到的算法整理 | Mikee的八度空间 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -248,7 +249,7 @@
             
             
               
-                Gson解析（List和Map）格式json数据
+                最近被问到的算法整理
               
             
           </h1>
@@ -260,11 +261,30 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-04-20T14:58:25+08:00" content="2016-04-20">
-              2016-04-20
+            <time itemprop="dateCreated" datetime="2017-06-06T18:12:35+08:00" content="2017-06-06">
+              2017-06-06
             </time>
           </span>
 
+          
+            <span class="post-category">
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/算法相关/" itemprop="url" rel="index">
+                    <span itemprop="name">算法相关</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
           
 
           
@@ -288,10 +308,11 @@
       
 
       
-        <p>有时候服务端非得返回比较傻逼的Json</p>
-<h2 id="这时候可以用gson解析带有键值对的json"><a href="#这时候可以用gson解析带有键值对的json" class="headerlink" title="这时候可以用gson解析带有键值对的json"></a>这时候可以用gson解析带有键值对的json</h2><a id="more"></a>
+        <h2 id="题目："><a href="#题目：" class="headerlink" title="题目："></a>题目：</h2><h3 id="1、取出一个整数的4-7位"><a href="#1、取出一个整数的4-7位" class="headerlink" title="1、取出一个整数的4-7位"></a>1、取出一个整数的4-7位</h3><p>解题思路：</p>
+<p>比如一个数  00000000 00000000 00000000 00000100  要取出4-7位，<br>我们可以先用&amp;来把其他的位数化成0，然后只保留4-7位为1，<br>也就是我们可以&amp;的数为00000000 00000000 00000000 11110000<br> 变成十六进制也就是0xf0<br>&amp;之后，再把后面4位给删掉，删掉我们可以用右移&gt;&gt;&gt;4<br>来排除</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">findBitRight</span><span class="params">(<span class="keyword">int</span> number,<span class="keyword">int</span> fromIndex,<span class="keyword">int</span> toIndex)</span> </span>&#123;</span><br><span class="line">    subListRangeCheck(fromIndex, toIndex,<span class="number">31</span>);</span><br><span class="line">    <span class="keyword">int</span> i = <span class="number">1</span>&lt;&lt;fromIndex;</span><br><span class="line">    <span class="keyword">int</span> tag = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span> (tag++ &lt;= (toIndex - fromIndex))&#123;</span><br><span class="line">        i |= (i &lt;&lt; <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> (number&amp;i)&gt;&gt;&gt;fromIndex;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h3 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line">public class jsonParse&#123;</span><br><span class="line"></span><br><span class="line">        </span><br><span class="line"></span><br><span class="line">class City&#123;</span><br><span class="line"></span><br><span class="line">        int id;</span><br><span class="line"></span><br><span class="line">        String name;</span><br><span class="line"></span><br><span class="line">        String code;</span><br><span class="line"></span><br><span class="line">        String map;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">        </span><br><span class="line"></span><br><span class="line">        </span><br><span class="line"></span><br><span class="line">public static void main(String[] args) &#123;</span><br><span class="line"></span><br><span class="line">        //列表/array 数据</span><br><span class="line"></span><br><span class="line">                 String str=<span class="string">"[&#123;'id': '1','code': 'bj','name': '北京','map': '39.90403, 116.40752599999996'&#125;, &#123;'id': '2','code': 'sz','name': '深圳','map': '22.543099, 114.05786799999998'&#125;, &#123;'id': '9','code': 'sh','name': '上海','map': '31.230393,121.473704'&#125;, &#123;'id': '10','code': 'gz','name': '广州','map': '23.129163,113.26443500000005'&#125;]"</span>;</span><br><span class="line"></span><br><span class="line">        Gson gson=new Gson();</span><br><span class="line"></span><br><span class="line">        List&lt;City&gt; rs=new ArrayList&lt;City&gt;();</span><br><span class="line"></span><br><span class="line">         Type <span class="built_in">type</span> = new TypeToken&lt;ArrayList&lt;City&gt;&gt;() &#123;&#125;.getType();</span><br><span class="line"></span><br><span class="line">          rs=gson.fromJson(str, <span class="built_in">type</span>);</span><br><span class="line"></span><br><span class="line">          <span class="keyword">for</span>(City o:rs)&#123;</span><br><span class="line"></span><br><span class="line">                  System.out.println(o.name);</span><br><span class="line"></span><br><span class="line">          &#125;</span><br><span class="line"></span><br><span class="line">          </span><br><span class="line"></span><br><span class="line">          //map数据</span><br><span class="line"></span><br><span class="line">          String jsonStr=<span class="string">"&#123;'1': &#123;'id': '1','code': 'bj','name': '北京','map': '39.90403, 116.40752599999996'&#125;,'2': &#123;'id': '2','code': 'sz','name': '深圳','map': '22.543099, 114.05786799999998'&#125;,'9': &#123;'id': '9','code': 'sh','name': '上海','map': '31.230393,121.473704'&#125;,'10': &#123;'id': '10','code': 'gz','name': '广州','map': '23.129163,113.26443500000005'&#125;&#125;"</span>;</span><br><span class="line"></span><br><span class="line">          Map&lt;String, City&gt; citys = gson.fromJson(jsonStr, new TypeToken&lt;Map&lt;String, City&gt;&gt;() &#123;&#125;.getType()); </span><br><span class="line"></span><br><span class="line">          System.out.println(citys.get(<span class="string">"1"</span>).name+<span class="string">"----------"</span>+citys.get(<span class="string">"2"</span>).code);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="2、在一个全由字母组成的字符串中找到第一个只出现一次的字符并返回他的位置，没有则返回-1000"><a href="#2、在一个全由字母组成的字符串中找到第一个只出现一次的字符并返回他的位置，没有则返回-1000" class="headerlink" title="2、在一个全由字母组成的字符串中找到第一个只出现一次的字符并返回他的位置，没有则返回-1000"></a>2、在一个全由字母组成的字符串中找到第一个只出现一次的字符并返回他的位置，没有则返回-1000</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">firstUniqChar</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">    Map&lt;Character,Integer&gt; map = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">char</span> c : s.toCharArray()) &#123;</span><br><span class="line">        <span class="keyword">if</span> (map.get(c) == <span class="keyword">null</span>)&#123;</span><br><span class="line">            map.put(c,<span class="number">1</span>);</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            map.put(c,map.get(c)+<span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; s.toCharArray().length; i++) &#123;</span><br><span class="line">        Character c = s.charAt(i);</span><br><span class="line">        <span class="keyword">if</span> (map.get(c) == <span class="number">1</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> i;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> -<span class="number">1000</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
       
@@ -311,21 +332,27 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/算法/" rel="tag">#算法</a>
+          
+        </div>
+      
 
       
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/04/20/gsonUtil/" rel="next" title="Gson工具类">
-                <i class="fa fa-chevron-left"></i> Gson工具类
+              <a href="/2016/05/11/camera/" rel="next" title="关于调用系统照相机Activity被销毁问题解决">
+                <i class="fa fa-chevron-left"></i> 关于调用系统照相机Activity被销毁问题解决
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/04/20/BaseRecyclerView/" rel="prev" title="对RecyclerView.Adapter的简单封装">
-                对RecyclerView.Adapter的简单封装 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/06/06/job/" rel="prev" title="2017年Android曲折的求职之路">
+                2017年Android曲折的求职之路 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -438,7 +465,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#这时候可以用gson解析带有键值对的json"><span class="nav-number">1.</span> <span class="nav-text">这时候可以用gson解析带有键值对的json</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#例子"><span class="nav-number">1.1.</span> <span class="nav-text">例子</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目："><span class="nav-number">1.</span> <span class="nav-text">题目：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1、取出一个整数的4-7位"><span class="nav-number">1.1.</span> <span class="nav-text">1、取出一个整数的4-7位</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2、在一个全由字母组成的字符串中找到第一个只出现一次的字符并返回他的位置，没有则返回-1000"><span class="nav-number">1.2.</span> <span class="nav-text">2、在一个全由字母组成的字符串中找到第一个只出现一次的字符并返回他的位置，没有则返回-1000</span></a></li></ol></li></ol></div>
             
           </div>
         </section>
