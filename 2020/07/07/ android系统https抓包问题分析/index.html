@@ -1,0 +1,599 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css">
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1">
+
+
+
+
+
+
+<meta name="description" content="前言每次分析app时都免不了抓包这一环节。想要抓到包就要看app采取的什么通信协议了。由于http存在的种种不安全性，当前大部分的app基本都已经是采用https的通信协议。所以连抓包也变得越来越不友好。不论是使用burpsuite还是fiddler，当前的抓包工具基本原理都是采用的中间人的方式。原理就是这些工具作为中间人，对客户端伪装成服务端，对服务端伪装成客户端。 HTTPShttp即超文本传">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Mikee的八度空间">
+<meta property="og:url" content="http://yoursite.com/2020/07/07/ android系统https抓包问题分析/index.html">
+<meta property="og:site_name" content="Mikee的八度空间">
+<meta property="og:description" content="前言每次分析app时都免不了抓包这一环节。想要抓到包就要看app采取的什么通信协议了。由于http存在的种种不安全性，当前大部分的app基本都已经是采用https的通信协议。所以连抓包也变得越来越不友好。不论是使用burpsuite还是fiddler，当前的抓包工具基本原理都是采用的中间人的方式。原理就是这些工具作为中间人，对客户端伪装成服务端，对服务端伪装成客户端。 HTTPShttp即超文本传">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200315161339959.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3JlX3BzeWNoZQ==,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200315164941104.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3JlX3BzeWNoZQ==,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200315175336931.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3JlX3BzeWNoZQ==,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/202003151753550.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3JlX3BzeWNoZQ==,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200315180626874.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3JlX3BzeWNoZQ==,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200315181056629.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3JlX3BzeWNoZQ==,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200315181604367.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3JlX3BzeWNoZQ==,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/202003151826483.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3JlX3BzeWNoZQ==,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/2020031518342243.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3JlX3BzeWNoZQ==,size_16,color_FFFFFF,t_70">
+<meta property="og:updated_time" content="2020-07-07T02:20:17.432Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Mikee的八度空间">
+<meta name="twitter:description" content="前言每次分析app时都免不了抓包这一环节。想要抓到包就要看app采取的什么通信协议了。由于http存在的种种不安全性，当前大部分的app基本都已经是采用https的通信协议。所以连抓包也变得越来越不友好。不论是使用burpsuite还是fiddler，当前的抓包工具基本原理都是采用的中间人的方式。原理就是这些工具作为中间人，对客户端伪装成服务端，对服务端伪装成客户端。 HTTPShttp即超文本传">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20200315161339959.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3JlX3BzeWNoZQ==,size_16,color_FFFFFF,t_70">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title>  | Mikee的八度空间 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Mikee的八度空间</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">即便在大公司里当了一辈子工程师，又有几个人记得你呢？其实，所有的有人存在的地方都是围城，一群人笑着进去，一群人笑着出来。唯有虔诚的去追逐自己想要的东西，才能到达最完美的世界。</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-th fa-fw"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2020-07-07T10:20:17+08:00" content="2020-07-07">
+              2020-07-07
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>每次分析app时都免不了抓包这一环节。想要抓到包就要看app采取的什么通信协议了。由于http存在的种种不安全性，当前大部分的app基本都已经是采用https的通信协议。所以连抓包也变得越来越不友好。不论是使用burpsuite还是fiddler，当前的抓包工具基本原理都是采用的中间人的方式。原理就是这些工具作为中间人，对客户端伪装成服务端，对服务端伪装成客户端。</p>
+<h2 id="HTTPS"><a href="#HTTPS" class="headerlink" title="HTTPS"></a>HTTPS</h2><p>http即超文本传输协议，是互联网上应用最为广泛的一种网络协议 ，是一个客户端和服务器端请求和应答的标准（TCP），用于从WWW服务器传输超文本到本地浏览器的传输协议，它可以使浏览器更加高效，使网络传输减少。然而他也存在着一些缺点，比如通信使用明文，内容极易被窃听；不验证通信方的身份，因此有可能遭遇伪装；无法证明报文的完整性，所以有可能遭到篡改。因此，http的加强版https应运而生。https中的s是ssl或者tls，就是在原HTTP的基础上加上一层用于数据加密、解密、身份认证的安全层。</p>
+<blockquote>
+<p>HTTP + 加密 + 认证 + 完整性保护 = HTTPS</p>
+</blockquote>
+<p>https需要CA证书，我们之前说的中间人需要对客户端伪装成真正的服务端，要求就是当客户端向我们发送网络请求时，我们必须能够给指定域名签发公钥证书，且公钥证书能够通过系统的安全校验。对于我们是不是真正的客户端，通常来说服务器是不太会关心的，他是不会去关心你是谷歌浏览器还是百度浏览器，当然了也会有例外。接下来要说的双向验证就是如此。</p>
+<h2 id="单向验证与双向验证"><a href="#单向验证与双向验证" class="headerlink" title="单向验证与双向验证"></a>单向验证与双向验证</h2><p>首先了解一下什么是https的单双向验证，主要说一下双向验证，双向验证相比较单向验证，增加了服务端对客户端的认证。<br><img src="https://img-blog.csdnimg.cn/20200315161339959.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3JlX3BzeWNoZQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p>双向认证详细过程如下：</p>
+<blockquote>
+<p>（1）客户端发起HTTPS请求，将SSL协议版本的信息发送给服务端。<br>（2）服务端去CA机构申请来一份CA证书，在前面提过，证书里面有服务端公钥和签名。将CA证书发送给客户端<br>（3）客户端读取CA证书的明文信息，采用相同的hash散列函数计算得到信息摘要（hash目的：验证防止内容被修改），然后用操作系统带的CA的公钥去解密签名（因为签名是用CA的私钥加密的），对比证书中的信息摘要。如果一致，则证明证书是可信的，然后取出了服务端公钥<br>（4）客户端发送自己的客户端证书给服务端，证书里面有客户端的公钥：C_公钥<br>（5）客户端发送支持的对称加密方案给服务端，供其选择<br>（6）服务端选择完加密方案后，用刚才得到的C_公钥去加密选好的加密方案<br>（7）客户端用自己的C_私钥去解密选好的加密方案，客户端生成一个随机数（密钥F），用刚才等到的服务端B_公钥去加密这个随机数形成密文，发送给服务端。<br>（8）服务端和客户端在后续通讯过程中就使用这个密钥F进行通信了。和之前的非对称加密不同，这里开始就是一种对称加密的方式</p>
+</blockquote>
+<p><img src="https://img-blog.csdnimg.cn/20200315164941104.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3JlX3BzeWNoZQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h2 id="SSL-pinning"><a href="#SSL-pinning" class="headerlink" title="SSL pinning"></a>SSL pinning</h2><p>SSL Pinning是一种防止中间人攻击的技术，主要机制是在客户端发起请求–&gt;收到服务器发来的证书进行校验，如果收到的证书不被客户端信任，就直接断开连接不继续求情。可以发现中间人攻击的要点的伪造了一个假的服务端证书给了客户端，客户端误以为真。解决思路就是，客户端也预置一份服务端的证书，比较一下就知道真假了。<br>SSL-pinning有两种方式：<br>证书锁定（Certificate Pinning） 和公钥锁定（ Public Key Pinning）。</p>
+<blockquote>
+<p>证书锁定<br>需要在客户端代码内置仅接受指定域名的证书，而不接受操作系统或浏览器内置的CA根证书对应的任何证书，通过这种授权方式，保障了APP与服务端通信的唯一性和安全性，因此客户端与服务端（例如API网关）之间的通信是可以保证绝对安全。但是CA签发证书都存在有效期问题，缺点是在<br>证书续期后需要将证书重新内置到APP中。</p>
+<p>公钥锁定<br>提取证书中的公钥并内置到客户端中，通过与服务器对比公钥值来验证连接的正确性。制作证书密钥时，公钥在证书的续期前后都可以保持不变（即密钥对不变），所以可以避免证书有效期问题，一般推荐这种做法。</p>
+</blockquote>
+<h2 id="双向验证与SSL-pinning的区别"><a href="#双向验证与SSL-pinning的区别" class="headerlink" title="双向验证与SSL pinning的区别"></a>双向验证与SSL pinning的区别</h2><p>一定要注意双向验证与SSL pinning的区别！<br>SSL pinning实际上是客户端锁定服务器端的证书, 在要与服务器进行交互的时候, 服务器端会将CA证书发送给客户端, 客户端会调用函数对服务器端的证书进行校验, 与本地的服务器端证书(存放在.\asset目录或\res\raw下)进行比对。而双向认证是添加了客户端向服务器发送CA证书, 服务器端对客户端的证书进行校验的部分。在app上，https双向认证的方案也可以防止中间人劫持，但这种双向认证开销较大，且安全性与SSL pinning一致，目前大多数app都采用SSL Pinning这种方案。</p>
+<h2 id="突破双向认证抓包"><a href="#突破双向认证抓包" class="headerlink" title="突破双向认证抓包"></a>突破双向认证抓包</h2><p>由于私钥是受密码保护的，所以主要的逆向目标就是找到key–密码。看了好多表哥的文章，终于学会了一些奇淫巧计。由于当前的app都会有加壳混淆等等防护手段。所以可以到一些应用商店（如360手机助手，豌豆荚等等）下载应用的历史版本。低版本的保护不多分析难度相对较低。容易找到目标。<br>首先是到./assets目录下寻找证书。<br><img src="https://img-blog.csdnimg.cn/20200315175336931.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3JlX3BzeWNoZQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>确实是有密码保护的。<br><img src="https://img-blog.csdnimg.cn/202003151753550.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3JlX3BzeWNoZQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>根据证书名找到相关代码<br><img src="https://img-blog.csdnimg.cn/20200315180626874.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3JlX3BzeWNoZQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200315181056629.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3JlX3BzeWNoZQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>继续往下看可以看到一些相关信息。<br><img src="https://img-blog.csdnimg.cn/20200315181604367.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3JlX3BzeWNoZQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>这个getSocketFactory就是关键函数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">sSLContext = SSLContext.getInstance(&quot;TLS&quot;);</span><br><span class="line">                InputStream open = context.getAssets().open(&quot;client.pfx&quot;);</span><br><span class="line">                KeyStore instance = KeyStore.getInstance(&quot;PKCS12&quot;);</span><br><span class="line">                instance.load(open, toCharArray);</span><br><span class="line">                KeyManagerFactory instance2 = KeyManagerFactory.getInstance(&quot;X509&quot;);</span><br><span class="line">                instance2.init(instance, toCharArray);</span><br><span class="line">try &#123;</span><br><span class="line">                char[] toCharArray = EncryptUtils.getHttpSign(context).toCharArray();</span><br><span class="line">                if (Arrays.hashCode(toCharArray) != -551029868) &#123;</span><br><span class="line">                    s.d(&quot;pku %s is not valid&quot;, new Object[]&#123;Arrays.toString(toCharArray)&#125;);</span><br><span class="line">                &#125;</span><br><span class="line">                sSLContext = SSLContext.getInstance(&quot;TLS&quot;);</span><br><span class="line">                InputStream open = context.getAssets().open(&quot;client.pfx&quot;);</span><br><span class="line">                KeyStore instance = KeyStore.getInstance(&quot;PKCS12&quot;);</span><br><span class="line">                instance.load(open, toCharArray);</span><br><span class="line">                KeyManagerFactory instance2 = KeyManagerFactory.getInstance(&quot;X509&quot;);</span><br><span class="line">                instance2.init(instance, toCharArray);</span><br></pre></td></tr></table></figure>
+
+<p>可以看到EncryptUtils函数。<br><img src="https://img-blog.csdnimg.cn/202003151826483.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3JlX3BzeWNoZQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>看到native需要分析so层。进入so后<img src="https://img-blog.csdnimg.cn/2020031518342243.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3JlX3BzeWNoZQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>解密即可找到。<br>找到密码后，输入密码即可。</p>
+<h2 id="使用xposed-hook绕过SSL证书验证"><a href="#使用xposed-hook绕过SSL证书验证" class="headerlink" title="使用xposed hook绕过SSL证书验证"></a>使用xposed hook绕过SSL证书验证</h2><p>在全球最大的同性交流网站某hub 下载<a href="https://github.com/Fuzion24/JustTrustMe/releases/tag/v.2" target="_blank" rel="noopener">JustTrustMe</a><br>然后在xposed上安装这个框架就可以了。JustTrustMe的原理就是将各种已知的的HTTP请求库中用于校验证书的API都进行Hook，使无论是否是可信证书的情况，校验结果返回都为正常状态，从而实现绕过证书检查的效果。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>抓包是进行app逆向分析的第一步，走好每一步才能走向最后的成功。</p>
+
+      
+    </div>
+    
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/08/28/TCP协议三次握手过程详解/" rel="next" title="TCP协议三次握手过程详解">
+                <i class="fa fa-chevron-left"></i> TCP协议三次握手过程详解
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="Mikee">
+          <p class="site-author-name" itemprop="name">Mikee</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">11</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTTPS"><span class="nav-number">2.</span> <span class="nav-text">HTTPS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#单向验证与双向验证"><span class="nav-number">3.</span> <span class="nav-text">单向验证与双向验证</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SSL-pinning"><span class="nav-number">4.</span> <span class="nav-text">SSL pinning</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#双向验证与SSL-pinning的区别"><span class="nav-number">5.</span> <span class="nav-text">双向验证与SSL pinning的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#突破双向认证抓包"><span class="nav-number">6.</span> <span class="nav-text">突破双向认证抓包</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用xposed-hook绕过SSL证书验证"><span class="nav-number">7.</span> <span class="nav-text">使用xposed hook绕过SSL证书验证</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">8.</span> <span class="nav-text">总结</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Mikee</span>
+</div>
+
+<div class="powered-by">
+  <i class="fa fa-user-md"></i>
+      <span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+    <span class="post-meta-divider">|</span>
+    <span id="busuanzi_container_site_uv">本站访客数<span id="busuanzi_value_site_uv"></span>人</span>
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+  
+  
+  
+
+  
+
+  
+
+</body>
+</html>
