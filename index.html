@@ -309,33 +309,13 @@
 
       
         
-          
-            <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>每次分析app时都免不了抓包这一环节。想要抓到包就要看app采取的什么通信协议了。由于http存在的种种不安全性，当前大部分的app基本都已经是采用https的通信协议。所以连抓包也变得越来越不友好。不论是使用burpsuite还是fiddler，当前的抓包工具基本原理都是采用的中间人的方式。原理就是这些工具作为中间人，对客户端伪装成服务端，对服务端伪装成客户端。</p>
+          <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>每次分析app时都免不了抓包这一环节。想要抓到包就要看app采取的什么通信协议了。由于http存在的种种不安全性，当前大部分的app基本都已经是采用https的通信协议。所以连抓包也变得越来越不友好。不论是使用burpsuite还是fiddler，当前的抓包工具基本原理都是采用的中间人的方式。原理就是这些工具作为中间人，对客户端伪装成服务端，对服务端伪装成客户端。</p>
 <h2 id="HTTPS"><a href="#HTTPS" class="headerlink" title="HTTPS"></a>HTTPS</h2><p>http即超文本传输协议，是互联网上应用最为广泛的一种网络协议 ，是一个客户端和服务器端请求和应答的标准（TCP），用于从WWW服务器传输超文本到本地浏览器的传输协议，它可以使浏览器更加高效，使网络传输减少。然而他也存在着一些缺点，比如通信使用明文，内容极易被窃听；不验证通信方的身份，因此有可能遭遇伪装；无法证明报文的完整性，所以有可能遭到篡改。因此，http的加强版https应运而生。https中的s是ssl或者tls，就是在原HTTP的基础上加上一层用于数据加密、解密、身份认证的安全层。</p>
-<blockquote>
-<p>HTTP + 加密 + 认证 + 完整性保护 = HTTPS</p>
-</blockquote>
-<p>https需要CA证书，我们之前说的中间人需要对客户端伪装成真正的服务端，要求就是当客户端向我们发送网络请求时，我们必须能够给指定域名签发公钥证书，且公钥证书能够通过系统的安全校验。对于我们是不是真正的客户端，通常来说服务器是不太会关心的，他是不会去关心你是谷歌浏览器还是百度浏览器，当然了也会有例外。接下来要说的双向验证就是如此。</p>
-<h2 id="单向验证与双向验证"><a href="#单向验证与双向验证" class="headerlink" title="单向验证与双向验证"></a>单向验证与双向验证</h2><p>首先了解一下什么是https的单双向验证，主要说一下双向验证，双向验证相比较单向验证，增加了服务端对客户端的认证。<br><img src="https://img-blog.csdnimg.cn/20200315161339959.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3JlX3BzeWNoZQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<p>双向认证详细过程如下：</p>
-<blockquote>
-<p>（1）客户端发起HTTPS请求，将SSL协议版本的信息发送给服务端。<br>（2）服务端去CA机构申请来一份CA证书，在前面提过，证书里面有服务端公钥和签名。将CA证书发送给客户端<br>（3）客户端读取CA证书的明文信息，采用相同的hash散列函数计算得到信息摘要（hash目的：验证防止内容被修改），然后用操作系统带的CA的公钥去解密签名（因为签名是用CA的私钥加密的），对比证书中的信息摘要。如果一致，则证明证书是可信的，然后取出了服务端公钥<br>（4）客户端发送自己的客户端证书给服务端，证书里面有客户端的公钥：C_公钥<br>（5）客户端发送支持的对称加密方案给服务端，供其选择<br>（6）服务端选择完加密方案后，用刚才得到的C_公钥去加密选好的加密方案<br>（7）客户端用自己的C_私钥去解密选好的加密方案，客户端生成一个随机数（密钥F），用刚才等到的服务端B_公钥去加密这个随机数形成密文，发送给服务端。<br>（8）服务端和客户端在后续通讯过程中就使用这个密钥F进行通信了。和之前的非对称加密不同，这里开始就是一种对称加密的方式</p>
-</blockquote>
-<p><img src="https://img-blog.csdnimg.cn/20200315164941104.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3JlX3BzeWNoZQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<h2 id="SSL-pinning"><a href="#SSL-pinning" class="headerlink" title="SSL pinning"></a>SSL pinning</h2><p>SSL Pinning是一种防止中间人攻击的技术，主要机制是在客户端发起请求–&gt;收到服务器发来的证书进行校验，如果收到的证书不被客户端信任，就直接断开连接不继续求情。可以发现中间人攻击的要点的伪造了一个假的服务端证书给了客户端，客户端误以为真。解决思路就是，客户端也预置一份服务端的证书，比较一下就知道真假了。<br>SSL-pinning有两种方式：<br>证书锁定（Certificate Pinning） 和公钥锁定（ Public Key Pinning）。</p>
-<blockquote>
-<p>证书锁定<br>需要在客户端代码内置仅接受指定域名的证书，而不接受操作系统或浏览器内置的CA根证书对应的任何证书，通过这种授权方式，保障了APP与服务端通信的唯一性和安全性，因此客户端与服务端（例如API网关）之间的通信是可以保证绝对安全。但是CA签发证书都存在有效期问题，缺点是在<br>证书续期后需要将证书重新内置到APP中。</p>
-<p>公钥锁定<br>提取证书中的公钥并内置到客户端中，通过与服务器对比公钥值来验证连接的正确性。制作证书密钥时，公钥在证书的续期前后都可以保持不变（即密钥对不变），所以可以避免证书有效期问题，一般推荐这种做法。</p>
-</blockquote>
-<h2 id="双向验证与SSL-pinning的区别"><a href="#双向验证与SSL-pinning的区别" class="headerlink" title="双向验证与SSL pinning的区别"></a>双向验证与SSL pinning的区别</h2><p>一定要注意双向验证与SSL pinning的区别！<br>SSL pinning实际上是客户端锁定服务器端的证书, 在要与服务器进行交互的时候, 服务器端会将CA证书发送给客户端, 客户端会调用函数对服务器端的证书进行校验, 与本地的服务器端证书(存放在.\asset目录或\res\raw下)进行比对。而双向认证是添加了客户端向服务器发送CA证书, 服务器端对客户端的证书进行校验的部分。在app上，https双向认证的方案也可以防止中间人劫持，但这种双向认证开销较大，且安全性与SSL pinning一致，目前大多数app都采用SSL Pinning这种方案。</p>
-<h2 id="突破双向认证抓包"><a href="#突破双向认证抓包" class="headerlink" title="突破双向认证抓包"></a>突破双向认证抓包</h2><p>由于私钥是受密码保护的，所以主要的逆向目标就是找到key–密码。看了好多表哥的文章，终于学会了一些奇淫巧计。由于当前的app都会有加壳混淆等等防护手段。所以可以到一些应用商店（如360手机助手，豌豆荚等等）下载应用的历史版本。低版本的保护不多分析难度相对较低。容易找到目标。<br>首先是到./assets目录下寻找证书。<br><img src="https://img-blog.csdnimg.cn/20200315175336931.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3JlX3BzeWNoZQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>确实是有密码保护的。<br><img src="https://img-blog.csdnimg.cn/202003151753550.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3JlX3BzeWNoZQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>根据证书名找到相关代码<br><img src="https://img-blog.csdnimg.cn/20200315180626874.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3JlX3BzeWNoZQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200315181056629.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3JlX3BzeWNoZQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>继续往下看可以看到一些相关信息。<br><img src="https://img-blog.csdnimg.cn/20200315181604367.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3JlX3BzeWNoZQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>这个getSocketFactory就是关键函数</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">sSLContext = SSLContext.getInstance(&quot;TLS&quot;);</span><br><span class="line">                InputStream open = context.getAssets().open(&quot;client.pfx&quot;);</span><br><span class="line">                KeyStore instance = KeyStore.getInstance(&quot;PKCS12&quot;);</span><br><span class="line">                instance.load(open, toCharArray);</span><br><span class="line">                KeyManagerFactory instance2 = KeyManagerFactory.getInstance(&quot;X509&quot;);</span><br><span class="line">                instance2.init(instance, toCharArray);</span><br><span class="line">try &#123;</span><br><span class="line">                char[] toCharArray = EncryptUtils.getHttpSign(context).toCharArray();</span><br><span class="line">                if (Arrays.hashCode(toCharArray) != -551029868) &#123;</span><br><span class="line">                    s.d(&quot;pku %s is not valid&quot;, new Object[]&#123;Arrays.toString(toCharArray)&#125;);</span><br><span class="line">                &#125;</span><br><span class="line">                sSLContext = SSLContext.getInstance(&quot;TLS&quot;);</span><br><span class="line">                InputStream open = context.getAssets().open(&quot;client.pfx&quot;);</span><br><span class="line">                KeyStore instance = KeyStore.getInstance(&quot;PKCS12&quot;);</span><br><span class="line">                instance.load(open, toCharArray);</span><br><span class="line">                KeyManagerFactory instance2 = KeyManagerFactory.getInstance(&quot;X509&quot;);</span><br><span class="line">                instance2.init(instance, toCharArray);</span><br></pre></td></tr></table></figure>
-
-<p>可以看到EncryptUtils函数。<br><img src="https://img-blog.csdnimg.cn/202003151826483.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3JlX3BzeWNoZQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>看到native需要分析so层。进入so后<img src="https://img-blog.csdnimg.cn/2020031518342243.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3JlX3BzeWNoZQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>解密即可找到。<br>找到密码后，输入密码即可。</p>
-<h2 id="使用xposed-hook绕过SSL证书验证"><a href="#使用xposed-hook绕过SSL证书验证" class="headerlink" title="使用xposed hook绕过SSL证书验证"></a>使用xposed hook绕过SSL证书验证</h2><p>在全球最大的同性交流网站某hub 下载<a href="https://github.com/Fuzion24/JustTrustMe/releases/tag/v.2" target="_blank" rel="noopener">JustTrustMe</a><br>然后在xposed上安装这个框架就可以了。JustTrustMe的原理就是将各种已知的的HTTP请求库中用于校验证书的API都进行Hook，使无论是否是可信证书的情况，校验结果返回都为正常状态，从而实现绕过证书检查的效果。</p>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>抓包是进行app逆向分析的第一步，走好每一步才能走向最后的成功。</p>
-
-          
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2020/07/07/ android系统https抓包问题分析/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -799,105 +779,6 @@
             
               
                 
-                <a class="post-title-link" href="/2017/06/06/job/" itemprop="url">
-                  2017年Android曲折的求职之路
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-06-06T18:12:35+08:00" content="2017-06-06">
-              2017-06-06
-            </time>
-          </span>
-
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h1 id="本人近况"><a href="#本人近况" class="headerlink" title="本人近况"></a>本人近况</h1><p>先说下博主最近近况，5月底毅然离职没想到目前市场这么萧条，怪自己太作，有好的机会不好好把握，非得出来受虐哈，人都是犯贱的……所以目前整理几家去过的公司以免以后被坑。</p>
-<h2 id="金开门（好贷网旗下孵化创业公司）"><a href="#金开门（好贷网旗下孵化创业公司）" class="headerlink" title="金开门（好贷网旗下孵化创业公司）"></a>金开门（好贷网旗下孵化创业公司）</h2><blockquote>
-<p>这公司是在BOSS直聘上投的<br>总体面试还算不错吧Android技术那面一般也不会问特别深主要是最新的主流技术一般会问下，还有就是之前的项目会大致问一下<br>接下来是总监面，总监是个蛮不错的人，满有亲和力的，大概就是聊推送这一块的，还有支付，因为这公司主要业务是聚合支付相关的，总体还OK<br>接着是HR 谈薪水还有介绍公司近况，貌似最近一直是995的节奏<br>最后是大Boss面貌似很屌的说了一句目前我们就是996的节奏（应该是试探我的），我觉得跟他也没啥好谈，他一幅咄咄逼人的气势，由于他比较强势，我又不妥协，所以就没有后续了…</p>
-</blockquote>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2017/06/06/job/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-    
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
                 <a class="post-title-link" href="/2017/06/06/最近被问到的算法整理/" itemprop="url">
                   最近被问到的算法整理
                 </a>
@@ -975,6 +856,105 @@
 
 
           
+        
+      
+    </div>
+    
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/06/06/job/" itemprop="url">
+                  2017年Android曲折的求职之路
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-06-06T18:12:35+08:00" content="2017-06-06">
+              2017-06-06
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h1 id="本人近况"><a href="#本人近况" class="headerlink" title="本人近况"></a>本人近况</h1><p>先说下博主最近近况，5月底毅然离职没想到目前市场这么萧条，怪自己太作，有好的机会不好好把握，非得出来受虐哈，人都是犯贱的……所以目前整理几家去过的公司以免以后被坑。</p>
+<h2 id="金开门（好贷网旗下孵化创业公司）"><a href="#金开门（好贷网旗下孵化创业公司）" class="headerlink" title="金开门（好贷网旗下孵化创业公司）"></a>金开门（好贷网旗下孵化创业公司）</h2><blockquote>
+<p>这公司是在BOSS直聘上投的<br>总体面试还算不错吧Android技术那面一般也不会问特别深主要是最新的主流技术一般会问下，还有就是之前的项目会大致问一下<br>接下来是总监面，总监是个蛮不错的人，满有亲和力的，大概就是聊推送这一块的，还有支付，因为这公司主要业务是聚合支付相关的，总体还OK<br>接着是HR 谈薪水还有介绍公司近况，貌似最近一直是995的节奏<br>最后是大Boss面貌似很屌的说了一句目前我们就是996的节奏（应该是试探我的），我觉得跟他也没啥好谈，他一幅咄咄逼人的气势，由于他比较强势，我又不妥协，所以就没有后续了…</p>
+</blockquote>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2017/06/06/job/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
