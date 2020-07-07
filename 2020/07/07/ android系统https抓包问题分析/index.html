@@ -64,7 +64,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css">
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="逆向,">
 
 
 
@@ -81,8 +81,9 @@
 
 
 <meta name="description" content="前言每次分析app时都免不了抓包这一环节。想要抓到包就要看app采取的什么通信协议了。由于http存在的种种不安全性，当前大部分的app基本都已经是采用https的通信协议。所以连抓包也变得越来越不友好。不论是使用burpsuite还是fiddler，当前的抓包工具基本原理都是采用的中间人的方式。原理就是这些工具作为中间人，对客户端伪装成服务端，对服务端伪装成客户端。 HTTPShttp即超文本传">
+<meta name="keywords" content="逆向">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Mikee的八度空间">
+<meta property="og:title" content="android系统https抓包问题分析">
 <meta property="og:url" content="http://yoursite.com/2020/07/07/ android系统https抓包问题分析/index.html">
 <meta property="og:site_name" content="Mikee的八度空间">
 <meta property="og:description" content="前言每次分析app时都免不了抓包这一环节。想要抓到包就要看app采取的什么通信协议了。由于http存在的种种不安全性，当前大部分的app基本都已经是采用https的通信协议。所以连抓包也变得越来越不友好。不论是使用burpsuite还是fiddler，当前的抓包工具基本原理都是采用的中间人的方式。原理就是这些工具作为中间人，对客户端伪装成服务端，对服务端伪装成客户端。 HTTPShttp即超文本传">
@@ -96,9 +97,9 @@
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20200315181604367.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3JlX3BzeWNoZQ==,size_16,color_FFFFFF,t_70">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/202003151826483.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3JlX3BzeWNoZQ==,size_16,color_FFFFFF,t_70">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/2020031518342243.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3JlX3BzeWNoZQ==,size_16,color_FFFFFF,t_70">
-<meta property="og:updated_time" content="2020-07-07T02:20:17.432Z">
+<meta property="og:updated_time" content="2020-07-07T02:28:47.904Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Mikee的八度空间">
+<meta name="twitter:title" content="android系统https抓包问题分析">
 <meta name="twitter:description" content="前言每次分析app时都免不了抓包这一环节。想要抓到包就要看app采取的什么通信协议了。由于http存在的种种不安全性，当前大部分的app基本都已经是采用https的通信协议。所以连抓包也变得越来越不友好。不论是使用burpsuite还是fiddler，当前的抓包工具基本原理都是采用的中间人的方式。原理就是这些工具作为中间人，对客户端伪装成服务端，对服务端伪装成客户端。 HTTPShttp即超文本传">
 <meta name="twitter:image" content="https://img-blog.csdnimg.cn/20200315161339959.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3JlX3BzeWNoZQ==,size_16,color_FFFFFF,t_70">
 
@@ -118,7 +119,7 @@
   };
 </script>
 
-  <title>  | Mikee的八度空间 </title>
+  <title> android系统https抓包问题分析 | Mikee的八度空间 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -258,7 +259,7 @@
             
             
               
-                
+                android系统https抓包问题分析
               
             
           </h1>
@@ -275,6 +276,25 @@
             </time>
           </span>
 
+          
+            <span class="post-category">
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/逆向相关/" itemprop="url" rel="index">
+                    <span itemprop="name">逆向相关</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
           
 
           
@@ -339,6 +359,12 @@
     </div>
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/逆向/" rel="tag">#逆向</a>
+          
+        </div>
       
 
       
@@ -425,7 +451,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-count">3</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -434,7 +460,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-count">3</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
